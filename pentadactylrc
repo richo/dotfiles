@@ -1,0 +1,16 @@
+set! extensions.checkCompatibility=false
+set! extensions.checkCompatibility.6.0a=false
+set guioptions=bCrs
+set popups=tab,resized
+
+set! browser.tabs.closeWindowWithLastTab=false
+set autocomplete=
+
+map <C-q> <Nop>
+
+"nnoremap <C-M> :set go+=m<CR>
+"nnoremap \<C-M\> :set go-=m<CR>
+
+
+source ~/.pentadactylrc.local
+

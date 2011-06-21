@@ -1,0 +1,5 @@
+Terminal = urxvt
+TermExec = urxvt -e
+Selected =  1
+
+URL_http = $BROWSER %u

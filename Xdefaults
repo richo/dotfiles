@@ -1,0 +1,47 @@
+Rxvt*foreground:White
+Rxvt*background:Black
+Rxvt*scrollBar:false
+Rxvt*saveLines:4000
+Rxvt*geometry:100x30
+Rxvt*font: xft:Bitstream Vera Sans Mono:size=8:antialias:true
+Rxvt*iconFile: .local/share/pixmaps/rxvt-logo.png
+xterm*termName: xterm-256color
+Rxvt*termName: rxvt-256color
+xterm*foreground: white
+xterm*background: black
+Rxvt*perl-lib:         /usr/lib/urxvt/perl/
+Rxvt*perl-ext-common:  default,matcher
+Rxvt*matcher.button:   1
+Rxvt*urlLauncher:      $BROWSER
+Rxvt.print-pipe: cat > $(TMPDIR=$HOME mktemp uRxvt.XXXXX)
+Rxvt*inheritPixmap: true
+URxvt*tintColor: white
+URxvt*shading: 20
+
+# COLORS HAX
+Rxvt*color0:    #222222
+Rxvt*color1:    #a80000
+Rxvt*color2:    #00a800
+Rxvt*color3:    #a8a800
+Rxvt*color4:    #3333a8
+Rxvt*color5:    #a800a8
+Rxvt*color6:    #00a8a8
+Rxvt*color7:    #a8a8a8
+
+Rxvt*color8:    #545454
+Rxvt*color9:    #ff0054
+Rxvt*color10:   #00ff54
+Rxvt*color11:   #ffff54
+Rxvt*color12:   #5555ff
+Rxvt*color13:   #ff00ff
+Rxvt*color14:   #00ffff
+Rxvt*color15:   #ffffff
+# Such an epic kludge.
+Rxvt*title:zsh
+
+URxvt.keysym.M-C-p: command:\033]750;0\007
+
+#Rxvt.keysym.M-C-p: 
+
+
+Rxvt*iso14755: False
