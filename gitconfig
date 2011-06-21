@@ -1,0 +1,38 @@
+[user]
+	name = richo
+	email = richo@psych0tik.net
+[core]
+	excludesfile = /home/richo/.gitignore
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[alias]
+    ci = commit
+    co = checkout
+    st = status
+    df = diff
+    dc = diff --cached
+    cp = cherry-pick
+    ffo = merge --ff-only @{u}
+    ffr = rebase origin/@{u}
+    rpull = pull --rebase
+    rb = rebase origin/@{u}
+    graph = log --pretty=format:\"%Cred%h%Creset | %s%d %Cgreen[%an]%Creset\" --graph --date=short
+    detach = checkout HEAD^0
