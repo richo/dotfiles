@@ -21,6 +21,7 @@
     <raiseOnFocus>no</raiseOnFocus>
     <!-- when followMouse is enabled, and a window is given focus by moving the
        mouse into it, also raise the window -->
+    <!-- __NOTE__ This depends upon you running my fork -->
     <mouseToFocus>yes</mouseToFocus>
     <!-- when focus is changed via alt-tab (or any change of focus event...)
        move the mouse to the center of the new window -->

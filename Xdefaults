@@ -39,6 +39,7 @@ Rxvt*color15:   #ffffff
 # Such an epic kludge.
 Rxvt*title:zsh
 
+# __NOTE__ This depends upon you running my fork
 URxvt.keysym.M-C-p: command:\033]750;0\007
 
 #Rxvt.keysym.M-C-p: 

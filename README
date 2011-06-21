@@ -3,3 +3,8 @@ This is a mirror of the dotfiles in my home directory that might be considered u
 Trying to keep them seperate seemed like well... a lot of work so I'll be pushing to this roughly once a week.
 
 I may get motivated and try to split logical commits, but it's doubtful.
+
+
+I've added notes to a few of these files (Xdefaults and Openbox rc.xml so far) with __NOTES__ showing the config elements that don't work unless you're running my fork.
+
+In both cases there are debian packages available at packages.psych0tik.net
