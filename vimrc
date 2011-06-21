@@ -1,5 +1,5 @@
 " .vimrc
-" $Id: .vimrc 1579 2011-06-21 02:45:17Z richo $
+" $Id: .vimrc 1589 2011-06-21 11:32:16Z richo $
 " Rich Healey '10
 " This file depends upon a few other bits and pieces. If you're using it and
 " it's throwing errors, commend out the blocks that are chucken em.
@@ -14,19 +14,7 @@
 "  - Command-T
 "  https://wincent.com/products/command-t
 "
-" vi compat is nice, but I'm running vim, and like shiny stuffs
-"
-" TODO
-" add an ExecutableOrWarn() function instead of all this duplication
-" no colors when diffing text on console
-"
 set nocompatible
-
-" Convert all tab chars to 4spaces
-" This is mainly for python, but I oft use it for haxing together mangled PHP
-function! ReTab()
-    %s/\t/    /g
-endfunction
 
 " Strangely this doesn't work properly unless declared early
 filetype on
@@ -40,7 +28,7 @@ set wildmenu
 " I stole this from someone, I forget who. Probably freenode/#vim
 " If it's you let me know.
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-	 	\ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 
 " Highlight lines longer than 80 chars.
 " I just flick this on if I'm writing docs or emails, generally.
