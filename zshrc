@@ -309,19 +309,20 @@ function +vi-git-st() { #{{{
         # for git prior to 1.7
         # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
         origin=$(git rev-list origin/${hook_com[branch]}..HEAD 2>/dev/null |\
-            wc -l | grep -o "[0-9]")
+            wc -l | egrep -o "[0-9]+")
         (( $origin )) && msg+="+$origin"
 
         ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null |\
-            wc -l | grep -o "[0-9]")
+            wc -l | egrep -o "[0-9]+")
         (( $ahead )) && msg+="|$ahead|"
 
         behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null |\
-            wc -l | grep -o "[0-9]")
+            wc -l | egrep -o "[0-9]+")
         (( $behind )) && msg+="-$behind"
 
-        stashes=$(git stash list 2>/dev/null | wc -l)
-        if [ $stashes -gt 0 ]; then
+        stashes=$(git stash list 2>/dev/null | wc -l |\
+            egrep -o "[0-9]+")
+        if [ "$stashes" -gt 0 ]; then
             msg+="?${stashes}s"
         fi
 
