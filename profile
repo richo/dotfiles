@@ -81,6 +81,8 @@ if [ $SHLVL -eq 1 ]; then
     esac
 fi
 
+export sHost
+
 rTITLE="$(basename $SHELL) $(tty)"
 if [[ -n $IN_SSH ]]; then
     rTITLE="${sHost}: $rTITLE"
