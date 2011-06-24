@@ -32,7 +32,7 @@
     changed = red
     untracked = cyan
 [format]
-    pretty = %C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr
+    pretty = medium
 [log]
     date = relative
 [push]
@@ -50,5 +50,5 @@
     ffr = rebase origin/@{u}
     rpull = pull --rebase
     rb = rebase origin/@{u}
-    graph = log --graph --date=short
+    graph = log --pretty=format:\"%C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr\" --graph --date=short
     detach = checkout HEAD^0
