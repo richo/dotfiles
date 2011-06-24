@@ -295,10 +295,10 @@ function svn_init(){
 _init
 
 # Show remote ref name and number of commits ahead-of or behind
+countl () { wc -l | sed $sed_r -e "s/^ +//" }
 function +vi-git-st() { #{{{
     local ahead remote msg origin
     local -a gitstatus
-    nows () { sed $sed_r -e "s/^ +//" }
 
     # Are we on a remote-tracking branch?
     remote=${$(git rev-parse --verify ${hook_com[branch]}@{upstream} \
@@ -309,19 +309,16 @@ function +vi-git-st() { #{{{
     if [[ -n ${remote} ]] ; then
         # for git prior to 1.7
         # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
-        origin=$(git rev-list origin/${hook_com[branch]}..HEAD 2>/dev/null |\
-            wc -l | nows)
+        origin=$(git rev-list origin/${hook_com[branch]}..HEAD 2>/dev/null | countl)
         (( $origin )) && msg+="+$origin"
 
-        ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null |\
-            wc -l | nows)
+        ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | countl)
         (( $ahead )) && msg+="|$ahead|"
 
-        behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null |\
-            wc -l | nows)
+        behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | countl)
         (( $behind )) && msg+="-$behind"
 
-        stashes=$(git stash list 2>/dev/null | wc -l | nows)
+        stashes=$(git stash list 2>/dev/null | countl)
         if [ "$stashes" -gt 0 ]; then
             msg+="?${stashes}s"
         fi
