@@ -364,8 +364,10 @@ alias nochanges="zstyle ':vcs_info:svn*+set-message:*' hooks svn-nochanges"
 alias changes="zstyle ':vcs_info:svn*+set-message:*' hooks svn-untimeduncommitted"
 
 # FIXME!!!
-zstyle ':completion:*:*:git-add:*' ignored-patterns 'tags|*.swp|*.swo|.autotags|.title'
-zstyle ':completion:*:*:svn-add:*' ignored-patterns 'tags|*.swp|*.swo|.autotags|.title'
+# This is horrid, and I'm clearly knackered. There /is/ an easier way to
+# replace the newlines with pipe symbols. There is.
+zstyle ':completion:*:*:git-add:*' ignored-patterns `grep -v "^#" ~/.gitignore | xargs echo | sed -e 's/ /|/g'`
+zstyle ':completion:*:*:svn-add:*' ignored-patterns `grep "^global-ignores" ~/.subversion/config | xargs echo | sed -e 's/^.*= //' -e 's/ /|/g'`
 
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:*:kill:*' menu yes select
