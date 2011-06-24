@@ -298,6 +298,7 @@ _init
 function +vi-git-st() { #{{{
     local ahead remote msg origin
     local -a gitstatus
+    nows () { sed $sed_r -e "s/^ +//" }
 
     # Are we on a remote-tracking branch?
     remote=${$(git rev-parse --verify ${hook_com[branch]}@{upstream} \
@@ -309,19 +310,18 @@ function +vi-git-st() { #{{{
         # for git prior to 1.7
         # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
         origin=$(git rev-list origin/${hook_com[branch]}..HEAD 2>/dev/null |\
-            wc -l | egrep -o "[0-9]+")
+            wc -l | nows)
         (( $origin )) && msg+="+$origin"
 
         ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null |\
-            wc -l | egrep -o "[0-9]+")
+            wc -l | nows)
         (( $ahead )) && msg+="|$ahead|"
 
         behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null |\
-            wc -l | egrep -o "[0-9]+")
+            wc -l | nows)
         (( $behind )) && msg+="-$behind"
 
-        stashes=$(git stash list 2>/dev/null | wc -l |\
-            egrep -o "[0-9]+")
+        stashes=$(git stash list 2>/dev/null | wc -l | nows)
         if [ "$stashes" -gt 0 ]; then
             msg+="?${stashes}s"
         fi
