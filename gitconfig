@@ -50,5 +50,6 @@
     ffr = rebase origin/@{u}
     rpull = pull --rebase
     rb = rebase origin/@{u}
+    ri = rebase --interactive
     graph = log --pretty=format:\"%C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr\" --graph --date=short
     detach = checkout HEAD^0
