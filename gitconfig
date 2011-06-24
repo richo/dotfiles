@@ -1,12 +1,16 @@
 [user]
 	name = richo
 	email = richo@psych0tik.net
+[github]
+    user = richoH
 [core]
-	excludesfile = /home/richo/.gitignore
+	excludesfile = ~/.gitignore
+    whitespace=fix,-indent-with-non-tab,trailing-space
 [color]
     branch = auto
     diff = auto
     status = auto
+    interactive = auto
 
 [color "branch"]
     current = yellow reverse
@@ -23,6 +27,18 @@
     added = yellow
     changed = green
     untracked = cyan
+[color "status"]
+    added = green
+    changed = red
+    untracked = cyan
+[format]
+    pretty = %C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr
+[log]
+    date = relative
+[push]
+    default = tracking
+[rebase]
+    stat = true
 [alias]
     ci = commit
     co = checkout
@@ -34,5 +50,5 @@
     ffr = rebase origin/@{u}
     rpull = pull --rebase
     rb = rebase origin/@{u}
-    graph = log --pretty=format:\"%Cred%h%Creset | %s%d %Cgreen[%an]%Creset\" --graph --date=short
+    graph = log --graph --date=short
     detach = checkout HEAD^0
