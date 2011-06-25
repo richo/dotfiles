@@ -45,6 +45,7 @@
     st = status
     df = diff
     dc = diff --cached
+    rmc = rm --cached
     cp = cherry-pick
     ffo = merge --ff-only @{u}
     ffr = rebase origin/@{u}
