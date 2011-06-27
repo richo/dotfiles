@@ -12,6 +12,8 @@ set guioptions-=L
 set guioptions-=e
 set guioptions+=c
 
+set noballooneval
+
 if has("gui_macvim")
     set transparency=5
 endif
