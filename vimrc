@@ -1,5 +1,5 @@
 " .vimrc
-" $Id: .vimrc 1589 2011-06-21 11:32:16Z richo $
+" $Id: .vimrc 1616 2011-06-27 02:43:32Z richo $
 " Rich Healey '10
 " This file depends upon a few other bits and pieces. If you're using it and
 " it's throwing errors, commend out the blocks that are chucken em.
@@ -406,4 +406,7 @@ let html_use_css = 1
 
 if filereadable(expand("$HOME/.vimrc.local"))
     source ~/.vimrc.local
+endif
+if isdirectory(expand("$HOME/code/ext"))
+    set cdpath+=~/code/ext
 endif
