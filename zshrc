@@ -369,8 +369,10 @@ alias changes="zstyle ':vcs_info:svn*+set-message:*' hooks svn-untimeduncommitte
 # FIXME!!!
 # This is horrid, and I'm clearly knackered. There /is/ an easier way to
 # replace the newlines with pipe symbols. There is.
-zstyle ':completion:*:*:git-add:*' ignored-patterns `grep -v "^#" ~/.gitignore | xargs echo | sed -e 's/ /|/g'`
-zstyle ':completion:*:*:svn-add:*' ignored-patterns `grep "^global-ignores" ~/.subversion/config | xargs echo | sed -e 's/^.*= //' -e 's/ /|/g'`
+[ -e ~/.gitignore ] && 
+    zstyle ':completion:*:*:git-add:*' ignored-patterns `grep -v "^#" ~/.gitignore | xargs echo | sed -e 's/ /|/g'`
+[ -e ~/.subversion/config ] &&
+    zstyle ':completion:*:*:svn-add:*' ignored-patterns `grep "^global-ignores" ~/.subversion/config | xargs echo | sed -e 's/^.*= //' -e 's/ /|/g'`
 
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:*:kill:*' menu yes select
