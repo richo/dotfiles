@@ -142,6 +142,9 @@ function preexec()
                     ;;
             esac
             ;;
+        "bundle exec"*)
+            arg=`echo $1 | sed -e 's/bundle exec/BE:/'`
+            ;;
 
         "ls"*|"cp"*|"mv"*|"echo"*|"wiki"*|"screen"*|"dig"*|"rm"*|"mkdir"*|"tinfo"*)
             reTITLE=""
