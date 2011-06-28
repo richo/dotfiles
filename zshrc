@@ -384,4 +384,4 @@ if [[ "$TERM" =~ "-256color" && "x$INSCREEN" == "x" ]]; then
 fi
 
 
-[ -e $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+[ -e $HOME/.zshrc.$sHost ] && source $HOME/.zshrc.$sHost
