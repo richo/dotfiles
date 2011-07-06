@@ -372,7 +372,7 @@ alias changes="zstyle ':vcs_info:svn*+set-message:*' hooks svn-untimeduncommitte
 [ -e ~/.gitignore ] && 
     zstyle ':completion:*:*:git-add:*' ignored-patterns `grep -v "^#" ~/.gitignore | xargs echo | sed -e 's/ /|/g'`
 [ -e ~/.subversion/config ] &&
-    zstyle ':completion:*:*:svn-add:*' ignored-patterns `grep "^global-ignores" ~/.subversion/config | xargs echo | sed -e 's/^.*= //' -e 's/ /|/g'`
+    zstyle ':completion:*:*:svn-add:*' ignored-patterns `grep "^global-ignores" ~/.subversion/config | sed -e 's/^.*= //' -e 's/ /|/g'`
 
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:*:kill:*' menu yes select
