@@ -1,8 +1,8 @@
-[ $SHLVL -eq 1 -a -z $TERM_PROGRAM ] &&
-    . ~/.init_home
+[ $SHLVL -eq 1 -a -z "$TERM_PROGRAM" ] &&
+    [ -e ~/.init_home ] && . ~/.init_home
 
 export PATH=$HOME/bin:$PATH
-if [ $SHLVL -eq 1 ]; then
+if [ "$SHLVL" -eq 1 ]; then
     # Hell, do this once per tty login
     export CVSROOT=:pserver:richo@domino.ctc:/richo
     ## XXX Should my path come first? In all likelyhood I want it to take precedence
@@ -47,7 +47,6 @@ if [ $SHLVL -eq 1 ]; then
             break
         fi
     done
-    mesg n
     case `uname -s` in
         "FreeBSD")
             export PLATFORM="FREEBSD"
@@ -70,6 +69,10 @@ if [ $SHLVL -eq 1 ]; then
             export LSCOLORS=$bsd_dircolors
             sHost=`hostname -s`
             ;;
+        "MINGW32_NT-6.1")
+            export PLATFORM="WIN32"
+            sHost=`hostname`
+            ;;
         "SunOS")
             export PLATFORM="SOLARIS"
             sHost=`hostname`
@@ -80,10 +83,15 @@ if [ $SHLVL -eq 1 ]; then
             ;;
     esac
 fi
-
 export sHost
 
-rTITLE="$(basename $SHELL) $(tty)"
+if [ "$PLATFORM" = "WIN32" ]; then
+    rTITLE="$(basename $SHELL)"
+else
+    mesg n
+    rTITLE="$(basename $SHELL) $(tty)"
+fi
+
 if [[ -n $IN_SSH ]]; then
     rTITLE="${sHost}: $rTITLE"
 fi
@@ -140,8 +148,8 @@ case $PLATFORM in
         ;;
 esac
 
-# Hack for screen
-if [ -z $INSCREEN ] && [ -n $IN_SSH ]; then
+# Hack for screen     -a << ??
+if [ -z "$INSCREEN" ] && [ -n "$IN_SSH" ]; then
     ZSH_TIME=" %T"
 else
     ZSH_TIME=""
@@ -203,4 +211,5 @@ for _rvm in "$HOME/.rvm/scripts/rvm" "/usr/local/rvm/scripts/rvm"; do
         break
     fi
 done
-source ~/.profile.local
+[ -e ~/.profile.local ] &&
+    source ~/.profile.local
