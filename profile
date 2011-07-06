@@ -192,11 +192,15 @@ if vim --version | grep "+clientserver" > /dev/null 2>&1; then
 fi
 
 
-if [ "$TERM" = "screen" -a $(hostname) = "solitaire.psych0tik.net" ]; then
-    export VIM256=true
-fi
-if [ "$TERM" = "rxvt-256color" -a $(hostname) = "solitaire.psych0tik.net" ]; then
-    export VIM256=true
+if [ "$sHost" = "solitaire" ]; then
+    case $TERM in
+        "screen")
+            export VIM256=true
+            ;;
+        "rxvt-256color")
+            export VIM256=true
+            ;;
+    esac
 fi
 
 # RVM Hax.
