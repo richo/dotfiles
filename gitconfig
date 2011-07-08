@@ -3,6 +3,7 @@
 	email = richo@psych0tik.net
 [github]
     user = richoH
+	token = [TOKEN CENSORED]
 [core]
 	excludesfile = ~/.gitignore
     whitespace=fix,-indent-with-non-tab,trailing-space
