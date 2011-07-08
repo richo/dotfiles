@@ -246,7 +246,7 @@ function precmd()
     vcs_info 'prompt'
     RPS1=$(_rprompt)
     PS1=$(_prompt)
-    if [ "x" != "x$reTITLE" -a "x" != "x$INSCREEN" ]; then
+    if [ -n "$reTITLE" -a -n "$INSCREEN" ]; then
         t $reTITLE
         export reTITLE=""
     fi
