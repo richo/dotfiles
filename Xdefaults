@@ -4,6 +4,7 @@ Rxvt*scrollBar:false
 Rxvt*saveLines:4000
 Rxvt*geometry:100x30
 Rxvt*font: xft:Bitstream Vera Sans Mono:size=8:antialias:true
+BigRxvt*font: xft:Bitstream Vera Sans Mono:size=16:antialias:true
 Rxvt*iconFile: .local/share/pixmaps/rxvt-logo.png
 xterm*termName: xterm-256color
 Rxvt*termName: rxvt-256color

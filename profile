@@ -112,6 +112,7 @@ alias svn_add_empty="svn add --depth empty"
 alias wb=whichboom
 alias xcl='xclip'
 alias xcp='xclip -selection clipboard'
+alias brxvt='urxvt -name BigRxvt'
 if which colorsvn > /dev/null 2>&1; then
     alias svn="colorsvn"
 fi
