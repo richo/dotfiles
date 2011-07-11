@@ -46,6 +46,7 @@
     co = checkout
     st = status
     df = diff
+    br = branch
     dc = diff --cached
     rmc = rm --cached
     cp = cherry-pick
