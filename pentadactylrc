@@ -12,6 +12,8 @@ map <C-q> <Nop>
 "nnoremap <C-M> :set go+=m<CR>
 "nnoremap \<C-M\> :set go-=m<CR>
 
+set hintkeys=fjdksla;gh
+
 
 source ~/.pentadactylrc.local
 
