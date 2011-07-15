@@ -13,6 +13,7 @@
     diff = auto
     status = auto
     interactive = auto
+	grep = auto
 
 [color "branch"]
     current = yellow reverse
