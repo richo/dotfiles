@@ -60,3 +60,5 @@
     detach = checkout HEAD^0
 [branch]
 	autosetupmerge = true
+[advice]
+	statusHints = false
