@@ -279,7 +279,7 @@ abstracts = {
   sb_l = "%R[%n$*%n";
   sbmode = "(%c+%n$*)";
   sbaway = " (%YzZzZ%n)";
-  sbservertag = ":$0 (change with ^X)";
+  sbservertag = ":$0";
   sbnickmode = "$0";
 
   # activity in statusbar
