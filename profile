@@ -150,7 +150,7 @@ case $PLATFORM in
 esac
 
 # Hack for screen     -a << ??
-if [ -z "$INSCREEN" ] && [ -n "$IN_SSH" ]; then
+if [ -z "$INSCREEN" -a -z "$IN_SSH" ]; then
     ZSH_TIME=" %T"
 else
     ZSH_TIME=""
