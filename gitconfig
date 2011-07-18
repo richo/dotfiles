@@ -1,19 +1,19 @@
 [user]
-	name = richo
-	email = richo@psych0tik.net
+    name = richo
+    email = richo@psych0tik.net
 [github]
     user = richoH
-	token = [TOKEN CENSORED]
+    token = [TOKEN CENSORED]
 [core]
-	excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
     whitespace=fix,-indent-with-non-tab,trailing-space
-	editor = vim
+    editor = vim
 [color]
     branch = auto
     diff = auto
     status = auto
     interactive = auto
-	grep = auto
+    grep = auto
 
 [color "branch"]
     current = yellow reverse
@@ -39,7 +39,7 @@
 [log]
     date = relative
 [push]
-	default = tracking
+    default = tracking
 [rebase]
     stat = true
 [alias]
@@ -59,6 +59,6 @@
     graph = log --pretty=format:\"%C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr\" --graph --date=short
     detach = checkout HEAD^0
 [branch]
-	autosetupmerge = true
+    autosetupmerge = true
 [advice]
-	statusHints = false
+    statusHints = false
