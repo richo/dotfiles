@@ -81,6 +81,10 @@ function _time()
     date "+%s"
 }
 
+function b_tags()
+{
+    $(cd $1 && ctags -R -f .newtags . 2>/dev/null && mv .newtags tags)
+}
 
 function preexec()
 # DOCS
@@ -127,8 +131,8 @@ function preexec()
                     # than the contents to work out timing
                     if [ $((`cat $dir/.autotags` + $TAGS_LIFETIME)) -lt `_time` ]; then
                         _time > $dir/.autotags
-                        echo "Tags are mad old, regenerating. ^C to stop"
-                        $(cd $dir && ctags -R -f .newtags . 2>/dev/null && mv .newtags tags)
+                        echo "Tags are mad old, regenerating."
+                        b_tags $dir &|
                     fi
                 fi
             fi
