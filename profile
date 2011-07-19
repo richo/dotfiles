@@ -218,3 +218,5 @@ for _rvm in "$HOME/.rvm/scripts/rvm" "/usr/local/rvm/scripts/rvm"; do
 done
 [ -e ~/.profile.local ] &&
     source ~/.profile.local
+[ -e ~/.profile.$sHost ] &&
+    source ~/.profile.$sHost
