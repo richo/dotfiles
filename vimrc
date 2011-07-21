@@ -1,5 +1,5 @@
 " .vimrc
-" $Id: .vimrc 1616 2011-06-27 02:43:32Z richo $
+" $Id: .vimrc 1663 2011-07-21 04:39:49Z richo $
 " Rich Healey '10
 " This file depends upon a few other bits and pieces. If you're using it and
 " it's throwing errors, commend out the blocks that are chucken em.
@@ -398,6 +398,8 @@ map <leader>sgt :call GotoTemplateC("split")<cr>
 
 
 map <leader>c :checktime <CR>
+" Not sure about this, although I pretty rarely type jj afaik
+inoremap jj <ESC>
 
 " imap <M-C-p> paste
 
