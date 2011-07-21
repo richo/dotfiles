@@ -1,5 +1,5 @@
 " .vimrc
-" $Id: .vimrc 1663 2011-07-21 04:39:49Z richo $
+" $Id: .vimrc 1664 2011-07-21 04:47:30Z richo $
 " Rich Healey '10
 " This file depends upon a few other bits and pieces. If you're using it and
 " it's throwing errors, commend out the blocks that are chucken em.
@@ -11,8 +11,8 @@
 "  - brainfuck.vim - If you're silly enough to use brainfuck :)
 "  http://www.vim.org/scripts/script.php?script_id=716
 "
-"  - Command-T
-"  https://wincent.com/products/command-t
+"  - FuzzyFinder
+"  http://www.vim.org/scripts/script.php?script_id=1984
 "
 set nocompatible
 
