@@ -1,5 +1,5 @@
 " .vimrc
-" $Id: .vimrc 1664 2011-07-21 04:47:30Z richo $
+" $Id: .vimrc 1668 2011-07-22 02:09:50Z richo $
 " Rich Healey '10
 " This file depends upon a few other bits and pieces. If you're using it and
 " it's throwing errors, commend out the blocks that are chucken em.
@@ -272,6 +272,13 @@ nmap        <leader>p :tabPrevious<cr>
 " Fuzzy Finder {{{
 "make it look like command-t at first 
 nmap        <leader>t :FufFile<cr>
+"function! FufStart()
+"    if expand("%:p:h") == $HOME
+"        echo "No fuzzyfinder in home"
+"    else
+"        :FufFile
+"    endif
+"endfunction
 "let         g:fuf_keyOpenVsplit='<C-v>'
 "let         g:fuf_keyOpenSplit='<C-b>'
 
