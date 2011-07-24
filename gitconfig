@@ -1,13 +1,13 @@
 [user]
     name = richo
     email = richo@psych0tik.net
+	signingkey = 89E72415
 [github]
     user = richoH
     token = [TOKEN CENSORED]
 [core]
     excludesfile = ~/.gitignore
     whitespace=fix,-indent-with-non-tab,trailing-space
-    editor = vim
 [color]
     branch = auto
     diff = auto
