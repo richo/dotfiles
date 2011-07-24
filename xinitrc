@@ -2,6 +2,8 @@
 [ -e .xinitrc.xrandr ] && ./.xinitrc.xrandr
 xset +fp $(echo $HOME/.fonts)
 
+which xscreensaver > /dev/null && xscreensaver -no-splash &
+
 # This is a mad hideous Darwin kludge, because for some reason it doesn't hand
 # my environment in
 if [ `uname -s` != 'Darwin' ]; then
