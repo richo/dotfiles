@@ -404,8 +404,8 @@ hi link javaScriptRegexpString rubyRegexp
 
 " Debugger.vim
 
-call s:X("DbgCurrent","","bb0093","","DarkMagenta","")
-call s:X("DbgBreakPt","","3333bb","","DarkMagenta","")
+call s:X("DbgCurrent","","771111","","DarkMagenta","")
+call s:X("DbgBreakPt","","111177","","DarkMagenta","")
 
 " Tag list
 hi link TagListFileName Directory
