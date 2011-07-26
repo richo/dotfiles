@@ -320,7 +320,22 @@
     <!-- Time before changing desktops when the pointer touches the edge of the
        screen while moving a window, in milliseconds (1000 = 1 second).
        Set this to 0 to disable warping -->
+    <context name="Desktop">
+      <!-- TODO Sample mapping, but I had greater plans for this -->
+      <mousebind button="Button8" action="Click">
+        <action name="DesktopNext"/>
+      </mousebind>
+      <mousebind button="Button9" action="Click">
+        <action name="DesktopPrevious"/>
+      </mousebind>
+    </context>
     <context name="Frame">
+      <mousebind button="Button8" action="Click">
+        <action name="DesktopNext"/>
+      </mousebind>
+      <mousebind button="Button9" action="Click">
+        <action name="DesktopPrevious"/>
+      </mousebind>
       <mousebind button="A-Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
