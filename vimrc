@@ -1,5 +1,5 @@
 " .vimrc
-" $Id: .vimrc 1668 2011-07-22 02:09:50Z richo $
+" $Id: .vimrc 1677 2011-07-26 00:23:40Z richo $
 " Rich Healey '10
 " This file depends upon a few other bits and pieces. If you're using it and
 " it's throwing errors, commend out the blocks that are chucken em.
@@ -373,6 +373,9 @@ map <leader>e :NERDTreeToggle<CR>
 map <leader>vgf :vertical wincmd f<CR>
 map <leader>wgf :wincmd f<CR>
 map <leader>tgf :wincmd gf<CR>
+
+map <leader>wt :sp<cr>
+map <leader>vt :vsp<cr>
 
 " Goto template {{{
 function! GetTemplate(file)
