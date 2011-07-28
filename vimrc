@@ -1,5 +1,5 @@
 " .vimrc
-" $Id: .vimrc 1677 2011-07-26 00:23:40Z richo $
+" $Id: .vimrc 1689 2011-07-28 04:15:13Z richo $
 " Rich Healey '10
 " This file depends upon a few other bits and pieces. If you're using it and
 " it's throwing errors, commend out the blocks that are chucken em.
@@ -405,6 +405,16 @@ map <leader>sgt :call GotoTemplateC("split")<cr>
 " map <leader>tgft :call GotoTemplateF("tabedit")<cr>
 " map <leader>sgft :call GotoTemplateF("split")<cr>
 " }}}
+
+" Helper for boom
+function! CdBOOM(iteration)
+    let l:dir = '/var/www/boom/branches/iteration' . a:iteration . '/php'
+    execute 'chdir ' . l:dir
+   "else
+   "    echo 'No such revision: ' . l:dir
+   "endif
+endfunction
+command! -nargs=1 CdBoom call CdBOOM(<f-args>)
 
 
 map <leader>c :checktime <CR>
