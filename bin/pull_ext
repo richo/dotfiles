@@ -3,6 +3,7 @@ CWD=`pwd`
 SCRPATH=`pwd`
 
 if [ -e .svn ]; then
+    echo "Pulling from remote in $(pwd)"
     svn update
     # TODO - on update, exec $0 $@
 fi
