@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 # richo '11
 #
 # TODO
@@ -280,11 +281,11 @@ FMT_ACTION="(${PR_CYAN}%a${PR_RESET}%)"   # e.g. (rebase-i)
 zstyle ':vcs_info:*' enable hg git bzr svn
 zstyle ':vcs_info:*:prompt:*' check-for-changes true
 if [ -n "$BROKEN_MULTIBYTE" ]; then
-    zstyle ':vcs_info:*:prompt:*' unstagedstr '¹'  # display ¹ if there are unstaged changes
-    zstyle ':vcs_info:*:prompt:*' stagedstr '²'    # display ² if there are staged changes
+    zstyle ':vcs_info:*:prompt:*' unstagedstr 'ï¿½'  # display ï¿½ if there are unstaged changes
+    zstyle ':vcs_info:*:prompt:*' stagedstr 'ï¿½'    # display ï¿½ if there are staged changes
 else
-    zstyle ':vcs_info:*:prompt:*' unstagedstr 'Â¹'  # display ¹ if there are unstaged changes
-    zstyle ':vcs_info:*:prompt:*' stagedstr 'Â²'    # display ² if there are staged changes
+    zstyle ':vcs_info:*:prompt:*' unstagedstr 'Â¹'  # display ï¿½ if there are unstaged changes
+    zstyle ':vcs_info:*:prompt:*' stagedstr 'Â²'    # display ï¿½ if there are staged changes
 fi
 # Save this for later Â³
 # TODO - Show something if I have unpushed changes.
