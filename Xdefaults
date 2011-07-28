@@ -10,10 +10,9 @@ xterm*termName: xterm-256color
 Rxvt*termName: rxvt-256color
 xterm*foreground: white
 xterm*background: black
-Rxvt*perl-lib:         /usr/lib/urxvt/perl/
 Rxvt*perl-ext-common:  default,matcher
 Rxvt*matcher.button:   1
-Rxvt*urlLauncher:      $BROWSER
+Rxvt*urlLauncher:      firefox
 Rxvt.print-pipe: cat > $(TMPDIR=$HOME mktemp uRxvt.XXXXX)
 Rxvt*inheritPixmap: true
 URxvt*tintColor: white
