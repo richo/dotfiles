@@ -384,7 +384,7 @@ zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*'   force-list always
 # If we're spawning a shell in a urxvt, but we're NOT in shell, put the tty in
 # the titlebar.
-if [[ "$TERM" =~ "-256color" && "x$INSCREEN" == "x" ]]; then
+if [[ "$TERM" =~ "-256color" && -z "$INSCREEN" ]]; then
     urxvt_t $rTITLE
 fi
 
