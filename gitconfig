@@ -51,6 +51,8 @@
     dc = diff --cached
     rmc = rm --cached
     cp = cherry-pick
+    lfo = log HEAD..FETCH_HEAD
+    sfo = show HEAD..FETCH_HEAD
     ffo = merge --ff-only @{u}
     ffr = rebase origin/@{u}
     rpull = pull --rebase
