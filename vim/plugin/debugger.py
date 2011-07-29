@@ -417,7 +417,7 @@ class HelpWindow(VimWindow):
         '  <C-j>  step into                |   \\x  eXecute         \n' + \
         '  <C-h>  step over                |                       \n' + \
         '  <C-k>  step out                 |                       \n' + \
-        '  <F5>   run                      | [ Command Mode ]      \n' + \
+        '  \r     run                      | [ Command Mode ]      \n' + \
         '  \dq    quit debugging           | \b  toggle breakpoint \n' + \
         '                                  | :Up stack up          \n' + \
         '  <F11>  get all context          | :Dn stack down        \n' + \

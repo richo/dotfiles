@@ -153,7 +153,7 @@ map <Leader>dr :python debugger_resize()<cr>
 
 nnoremap <Leader>x :python debugger_watch_input("eval")<cr>A
 
-map <F5> :python debugger_run()<cr>
+map <leader>r :python debugger_run()<cr>
 map <F6> :python debugger_quit()<cr>
 
 map <F7> :python debugger_command('step_into')<cr>
