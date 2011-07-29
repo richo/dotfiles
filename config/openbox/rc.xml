@@ -285,6 +285,22 @@
         <desktop>yes</desktop>
       </action>
     </keybind>
+    <!-- Keybindings for music (Apple keyboard) -->
+    <keybind key="0xAD">
+      <action name="Execute">
+        <command>~/.songswitch prev</command>
+      </action>
+    </keybind>
+    <keybind key="0xAC">
+      <action name="Execute">
+        <command>~/.songswitch toggle</command>
+      </action>
+    </keybind>
+    <keybind key="0xAB">
+      <action name="Execute">
+        <command>~/.songswitch next</command>
+      </action>
+    </keybind>
     <!-- Keybindings for running applications -->
     <keybind key="W-e">
       <action name="Execute">
