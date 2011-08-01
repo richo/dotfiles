@@ -186,8 +186,6 @@ function preexec()
         "svn"*|"git"*|"hg"*|"cvs"*)
             arg=$1;;
 
-        #"thor"*|"_thor"*)
-        #TODO Parse thor queries
         "make"*)
             arg=$(pwd | grep -o "[^/]*/[^/]*$");;
 
@@ -219,12 +217,11 @@ function preexec()
             export reTITLE=$sTITLE
             # Don't bother setting a title- handles it.
             ;;
-        "_thor term"*)
+        "_thor"*|"thor"*)
             export reTITLE=$sTITLE
-            host=`echo $1 | sed -e 's/^_thor term //'`
-            export t_prefix=$host
+            arg=`echo $1 | sed $sed_r -e 's/^_?thor //' -e 's/ /:/'`
             if [ -z "$INSCREEN" ]; then
-                urxvt_t "$host: "
+                urxvt_t "$arg: "
             fi
             ;;
         *)
