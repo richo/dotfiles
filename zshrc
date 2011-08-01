@@ -219,6 +219,14 @@ function preexec()
             export reTITLE=$sTITLE
             # Don't bother setting a title- handles it.
             ;;
+        "_thor term"*)
+            export reTITLE=$sTITLE
+            host=`echo $1 | sed -e 's/^_thor term //'`
+            export t_prefix=$host
+            if [ -z "$INSCREEN" ]; then
+                urxvt_t "$host: "
+            fi
+            ;;
         *)
             arg=$(echo $1 | awk '{print $NF}');;
     esac
