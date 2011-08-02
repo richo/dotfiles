@@ -175,10 +175,6 @@ fi
 #    export TERM=$tmuxTERM
 #fi
 
-if [ "$TERM" = "rxvt-256color" -a $(hostname) = "richh-desktop" ]; then
-    #export TERM="rxvt-unicode"
-    alias ssh="TERM=rxvt-unicode ssh"
-fi
 
 # Do we want 256 colors in vim?
 if echo $TERM | grep 256 > /dev/null; then
