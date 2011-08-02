@@ -348,12 +348,12 @@
     <context name="Frame">
       <mousebind button="S-Up" action="Click">
         <action name="Execute">
-          <execute>transset-df -p --inc 0.1 -m 0.3</execute>
+          <execute>transset-df -p --inc 0.1 -m 0.2</execute>
         </action>
       </mousebind>
       <mousebind button="S-Down" action="Click">
         <action name="Execute">
-          <execute>transset-df -p --dec 0.1 -m 0.3</execute>
+          <execute>transset-df -p --dec 0.1 -m 0.2</execute>
         </action>
       </mousebind>
       <mousebind button="Button8" action="Click">
