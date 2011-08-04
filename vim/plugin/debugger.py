@@ -411,17 +411,18 @@ class HelpWindow(VimWindow):
   def __init__(self, name = 'HELP__WINDOW'):
     VimWindow.__init__(self, name)
   def on_create(self):
+    n = "\n"
     self.write(                                                          \
-        '[ Function Keys ]                 |                       \n' + \
-        '  <F1>   resize                   | [ Normal Mode ]       \n' + \
-        '  <C-j>  step into                |   \\x  eXecute         \n' + \
-        '  <C-h>  step over                |                       \n' + \
-        '  <C-k>  step out                 |                       \n' + \
-        '  \r     run                      | [ Command Mode ]      \n' + \
-        '  \dq    quit debugging           | \b  toggle breakpoint \n' + \
-        '                                  | :Up stack up          \n' + \
-        '  <F11>  get all context          | :Dn stack down        \n' + \
-        '  <F12>  get property at cursor   |                       \n' + \
+       r'[ Function Keys ]                 |                       ' +n+ \
+       r'  <F1>   resize                   | [ Normal Mode ]       ' +n+ \
+       r'  <C-j>  step into                |   \x  eXecute         ' +n+ \
+       r'  <C-h>  step over                |                       ' +n+ \
+       r'  <C-k>  step out                 |                       ' +n+ \
+       r'  \r     run                      | [ Command Mode ]      ' +n+ \
+       r'  \dq    quit debugging           | \b  toggle breakpoint ' +n+ \
+       r'                                  | :Up stack up          ' +n+ \
+       r'  <F11>  get all context          | :Dn stack down        ' +n+ \
+       r'  <F12>  get property at cursor   |                       ' +n+ \
         '\n')
     self.command('1')
 
