@@ -346,7 +346,7 @@
       </mousebind>
     </context>
     <context name="Frame">
-      <mousebind button="C-S-Middle" action="Press">
+      <mousebind button="W-Middle" action="Press">
         <action name="ShowMenu">
           <menu>client-list-combined-menu</menu>
         </action>
