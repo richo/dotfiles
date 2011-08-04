@@ -106,6 +106,7 @@ alias ivlc="vlc -I ncurses"
 alias loneshell="setopt nosharehistory"
 alias lstree="ls -R | grep \":$\" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
 alias lynx="lynx -accept_all_cookies"
+alias ngrep="grep -n"
 alias sdig="dig +short"
 alias ssl="openssl s_client -connect"
 alias svn_add_empty="svn add --depth empty"
@@ -128,6 +129,7 @@ function svnrecommit() {
 export sed_r=-r
 # Platform specific hax
 case $PLATFORM in
+    # TODO grep -n for all platforms
     "FREEBSD")
         alias ls='ls -G'
         alias ctags=exctags
