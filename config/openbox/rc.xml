@@ -346,6 +346,11 @@
       </mousebind>
     </context>
     <context name="Frame">
+      <mousebind button="C-S-Middle" action="Press">
+        <action name="ShowMenu">
+          <menu>client-list-combined-menu</menu>
+        </action>
+      </mousebind>
       <mousebind button="S-Up" action="Click">
         <action name="Execute">
           <execute>transset-df -p --inc 0.1 -m 0.2</execute>
