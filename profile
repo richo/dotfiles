@@ -101,6 +101,7 @@ export sTITLE="$(basename $SHELL)"
 alias RR="restart_rails"
 alias WATCHR='ruby watchr.rb | grep -Ei "FAIL|ERROR" | grep -v "fail: 0,  error: 0"'
 alias be="bundle exec"
+alias brxvt='urxvt -name BigRxvt'
 alias ducks='du -cks * | sort -rn | head -11'
 alias ivlc="vlc -I ncurses"
 alias loneshell="setopt nosharehistory"
@@ -113,7 +114,6 @@ alias svn_add_empty="svn add --depth empty"
 alias wb=whichboom
 alias xcl='xclip'
 alias xcp='xclip -selection clipboard'
-alias brxvt='urxvt -name BigRxvt'
 if which colorsvn > /dev/null 2>&1; then
     alias svn="colorsvn"
 fi
