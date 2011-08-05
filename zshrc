@@ -154,6 +154,8 @@ function preexec()
         "ls"*|"cp"*|"mv"*|"echo"*|"wiki"*|"screen"*|"dig"*|"rm"*|"mkdir"*|"tinfo"*)
             reTITLE=""
             return ;;
+        "clear"*)
+            arg="zsh";;
         
         # If we're doing it to everything, the command is more interesting than
         # the target
