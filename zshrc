@@ -23,9 +23,9 @@ setopt sharehistory
 
 
 function parse_ruby_version {
-  local gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}')
+  local gemset=$(awk -F'@' '{print $2}' <<< $GEM_HOME)
   [ "$gemset" != "" ] && gemset="@$gemset"
-  local version=$(echo $MY_RUBY_HOME | awk -F'-' '{print $2}')
+  local version=$(awk -F'-' '{print $2}' <<< $MY_RUBY_HOME)
   # [ "$version" == "1.8.7" ] && version=""
   local full="$version$gemset"
   [ "$full" != "" ] && echo "$full"
@@ -112,7 +112,7 @@ function preexec()
                 export t_prefix=""
                 arg=$sTITLE
             else
-                dir=$(echo $1 | sed -e "s/^cd //")
+                dir=$(sed -e "s/^cd //" <<< $1)
                 if [ -e $dir/.title ]; then
                     case $dir in
                         "/"*)
@@ -140,7 +140,7 @@ function preexec()
             ;;
         # Rails kludges
         "rails "*)
-            work=`echo $1 | sed -e 's/^rails //'`
+            work=`sed -e 's/^rails //' <<< $1`
             case $work in
                 "s"|"server")
                     arg="WEBRICK"
@@ -148,7 +148,7 @@ function preexec()
             esac
             ;;
         "bundle exec"*)
-            arg=`echo $1 | sed -e 's/bundle exec/BE:/'`
+            arg=`sed -e 's/bundle exec/BE:/' <<< $1`
             ;;
 
         "ls"*|"cp"*|"mv"*|"echo"*|"wiki"*|"screen"*|"dig"*|"rm"*|"mkdir"*|"tinfo"*)
@@ -160,11 +160,11 @@ function preexec()
         # If we're doing it to everything, the command is more interesting than
         # the target
         *"*")
-            arg=$(echo $1 | awk '{print $1}');;
+            arg=$(awk '{print $1}' <<< $1);;
         # Catch kill early
         "kill "*)
         reTITLE=""
-            arg=$(echo $1 | awk '{print $NF}');;
+            arg=$(awk '{print $NF}' <<< $1);;
         "ctags"*|"killall"*|"screen"*)
             return ;;
         "tmux"*)
@@ -182,7 +182,7 @@ function preexec()
         "watchr"*)
             arg="WATCHR";;
         "./deploy.sh"*)
-            arg=$(echo $1 | sed $sed_r -e 's/^\.\/deploy.sh/deploy:/' -e 's/114\.111\.139\.//' -e 's|/var/www/||g');;
+            arg=$(sed $sed_r -e 's/^\.\/deploy.sh/deploy:/' -e 's/114\.111\.139\.//' -e 's|/var/www/||g' <<< $1);;
 
         # For Source control I want the whole line, I think...
         "svn"*|"git"*|"hg"*|"cvs"*)
@@ -195,20 +195,20 @@ function preexec()
         "cap"*)
             # hax
             #arg=$(echo $1 | grep -o "(deploy[^ ]*)");;
-            arg=$(echo $1 | awk '{print $2}');;
+            arg=$(awk '{print $2}' <<< $1);;
         "ncmpc"*)
-            arg=$(echo $1 | sed $sed_r -e 's/ ?-h */:/');;
+            arg=$(sed $sed_r -e 's/ ?-h */:/' <<< $1);;
         
         # Webby stuffs
         "lynx"*|"links"*)
-            arg=$(echo $1 | sed $sed_r -e 's/^(lynx|links) (http[s]?:\/\/)?(www\.)?//' -e 's/\/.*$//');;
+            arg=$(sed $sed_r -e 's/^(lynx|links) (http[s]?:\/\/)?(www\.)?//' -e 's/\/.*$//' <<< $1);;
 
         "su"*)
             arg="!root!"
             export reTITLE=$sTITLE
             ;;
         "ssh"*)
-            arg=$(echo $1 | awk '{print $NF}')
+            arg=$(awk '{print $NF}' <<< $1)
             # Don't care where in the local fs we are
             export t_prefix=""
             export reTITLE=$sTITLE
@@ -221,13 +221,13 @@ function preexec()
             ;;
         "_thor"*|"thor"*)
             export reTITLE=$sTITLE
-            arg=`echo $1 | sed $sed_r -e 's/^_?thor //' -e 's/ /:/'`
+            arg=`sed $sed_r -e 's/^_?thor //' -e 's/ /:/' <<< $1`
             if [ -z "$INSCREEN" ]; then
                 urxvt_t "$arg: "
             fi
             ;;
         *)
-            arg=$(echo $1 | awk '{print $NF}');;
+            arg=$(awk '{print $NF}' <<< $1);;
     esac
 
     t $arg
@@ -349,7 +349,7 @@ function +vi-svn-nochanges() { #{{{
 } #}}}
 function +vi-svn-untimeduncommitted() { #{{{
     v=$(svnversion)
-    if echo $v | grep "M$" > /dev/null 2>&1; then
+    if grep "M$" > /dev/null 2>&1 <<< $v; then
         hook_com[misc]="**"
     fi
 } #}}}
@@ -361,7 +361,7 @@ function +vi-svn-uncommitted() { #{{{
             +vi-svn-nochanges
             ;;
         0)
-            if echo $v | grep "M$" > /dev/null 2>&1; then
+            if grep "M$" > /dev/null 2>&1 <<< $v; then
                 hook_com[misc]="**"
             fi
             ;;
