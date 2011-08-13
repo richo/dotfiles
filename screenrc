@@ -3,8 +3,9 @@
 # With extensive edits by Rich Healey
 #
 
-# This is how one can set a reattach password:
-# password ODSJQf.4IJN7E    # "1234"
+# This is how one can set a reattach pwd:
+# PASSWORD ODSJQf.4IJN7E    # "1234"
+# ^ Lowercase
 
 # no annoying audible bell, please
 vbell on
