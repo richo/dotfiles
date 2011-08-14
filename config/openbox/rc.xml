@@ -338,11 +338,13 @@
        Set this to 0 to disable warping -->
     <context name="Desktop">
       <!-- TODO Sample mapping, but I had greater plans for this -->
-      <mousebind button="Button8" action="Click">
+      <mousebind button="Button9" action="Click">
         <action name="DesktopNext"/>
       </mousebind>
-      <mousebind button="Button9" action="Click">
-        <action name="DesktopPrevious"/>
+      <mousebind button="Button8" action="Click">
+        <action name="ShowMenu">
+          <menu>client-list-combined-menu</menu>
+        </action>
       </mousebind>
     </context>
     <context name="Frame">
@@ -361,11 +363,13 @@
           <execute>transset-df -p --dec 0.1 -m 0.2</execute>
         </action>
       </mousebind>
-      <mousebind button="Button8" action="Click">
+      <mousebind button="Button9" action="Click">
         <action name="DesktopNext"/>
       </mousebind>
-      <mousebind button="Button9" action="Click">
-        <action name="DesktopPrevious"/>
+      <mousebind button="Button8" action="Click">
+        <action name="ShowMenu">
+          <menu>client-list-combined-menu</menu>
+        </action>
       </mousebind>
       <mousebind button="A-Left" action="Press">
         <action name="Focus"/>
