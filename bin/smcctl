@@ -14,6 +14,11 @@ case $1 in
     down)
         mv /dev/input/$smc /dev/input/smc
         ;;
+    timer)
+        mv /dev/input/$smc /dev/input/smc
+        (sleep 30 && mv /dev/input/smc /dev/input/$smc) &
+        disown
+        ;;
     *)
         echo "Usage: $0 <up|down>"
 esac
