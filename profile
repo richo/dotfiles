@@ -126,6 +126,10 @@ function cdboom() {
 function svnrecommit() {
     svn commit -F $1 && rm $1
 }
+function grawk() {
+    grep $1 | awk "{print \$$2}"
+}
+
 # Defaults
 export sed_r=-r
 # Platform specific hax
