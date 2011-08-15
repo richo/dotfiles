@@ -1,0 +1,15 @@
+# ~/.tmuxinator/countkeys.yml
+# you can make as many tabs as you wish...
+
+project_name: countkeys
+project_root: ~/code/ext/countkeys
+rvm: 1.9.2
+tabs:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+        - #empty, will just run plain bash
+        - top
+  - root: su
+  - build:

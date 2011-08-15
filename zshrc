@@ -397,3 +397,4 @@ fi
 
 
 [ -e $HOME/.zshrc.$sHost ] && source $HOME/.zshrc.$sHost
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
