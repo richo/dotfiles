@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# A kludgy shell script to turn a shaded terminal into a music notifier
+# TODO
+# Check that it supports all terminals
+# Write the mpc stuff more portably
+# Package
+urxvt_t()
+{
+    echo -ne "\033]0;$@\007"
+}
+
+urxvt_t "test thing"
+while mpc idle; do
+    urxvt_t `mpc`
+done
