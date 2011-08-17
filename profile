@@ -129,6 +129,12 @@ function svnrecommit() {
 function grawk() {
     grep $1 | awk "{print \$$2}"
 }
+# Stole this mofo from teh samurai
+function wiki()
+{
+    dig +short txt $(echo $@ | sed -e 's/ /_/g').wp.dg.cx
+}
+#</Stoled>
 
 # Defaults
 export sed_r=-r
@@ -163,25 +169,11 @@ else
     ZSH_TIME=""
 fi
 
-# Stole this mofo from teh samurai
-function wiki()
-{
-    dig +short txt $(echo $@ | sed -e 's/ /_/g').wp.dg.cx
-}
-#</Stoled>
-
-
-
 # XXX TEMP
 # Is broked atm..
 if [ "$TERM" = "rxvt-unicode-256color" ]; then
     export TERM="rxvt-256color"
 fi
-
-#if [ "$TERM" = "screen" -a -n "$tmuxTERM" ]; then
-#    export TERM=$tmuxTERM
-#fi
-
 
 # Do we want 256 colors in vim?
 if echo $TERM | grep 256 > /dev/null; then
@@ -194,7 +186,6 @@ if vim --version | grep "+clientserver" > /dev/null 2>&1; then
     # Do a $DISPLAY && because wihtout X it doesn't work anyway
     :
 fi
-
 
 if [ "$sHost" = "solitaire" ]; then
     case $TERM in
