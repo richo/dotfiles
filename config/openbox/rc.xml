@@ -818,6 +818,9 @@
     <application class="Vimprobable2">
       <fullscreen>true</fullscreen>
     </application>
+    <application class="rdesktop">
+      <decor>false</decor>
+    </application>
   </applications>
 </openbox_config>
 <!-- vim: sw=2 ts=2
