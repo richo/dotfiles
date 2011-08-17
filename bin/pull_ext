@@ -1,6 +1,7 @@
 #!/bin/sh
 CWD=`pwd`
 SCRPATH=`pwd`
+updates=""
 
 if [ -e .svn ]; then
     echo "Pulling from remote in $(pwd)"
@@ -34,7 +35,7 @@ pull_or_clone()
             ;;
         "git")
             CHECKOUT=clone
-            PULL=fetch\ --all
+            PULL=pull\ --all --ff-only
             ;;
         "hg")
             CHECKOUT=clone
@@ -58,7 +59,9 @@ pull_or_clone()
         else
             cd "$COPATH"
             echo "pulling from remote in $COPATH"
-            $RCS $PULL
+            $RCS $PULL ||
+                updates="$COPATH $updates"
+
             if [ -x __update.sh ]; then
                 ./__update.sh
             fi
@@ -72,3 +75,7 @@ pull_or_clone()
     done
 
 pull_or_clone $data
+
+for i in $updates; do
+    echo "Manual intervention required in $i"
+done
