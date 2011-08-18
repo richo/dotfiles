@@ -95,7 +95,7 @@ function b_tags()
     $(cd $1 && ctags -R -f .newtags . 2>/dev/null && mv .newtags tags)
 }
 
-function preexec()
+function __richo_preexec()
 # DOCS
 # This function has a few variables that it throws around.
 # I'm thinking pretty seriously about building this show into it's own module and calling that, but load times could become an issue
@@ -206,7 +206,9 @@ function preexec()
     esac
 
     t $arg
-} # }}}
+}
+add-zsh-hook preexec __richo_preexec
+# }}}
 
 # {{{ chpwd hook
 function __richo_chpwd()
