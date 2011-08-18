@@ -262,7 +262,7 @@ if [ -n "$SSH_CONNECTION" -a "$TERM" = "screen" -a -z "$TMUX" ]; then
     t
 fi
 
-function precmd()
+function __richo_precmd()
 { # {{{ postexec hax
     vcs_info 'prompt'
     RPS1=$(_rprompt)
@@ -271,7 +271,9 @@ function precmd()
         __set_title $reTITLE
         export reTITLE=""
     fi
-} # }}}
+}
+add-zsh-hook precmd __richo_precmd
+# }}}
 
 for COLOR in RED GREEN YELLOW WHITE BLACK CYAN; do
     eval PR_$COLOR='%{$fg[${(L)COLOR}]%}'        
