@@ -8,7 +8,11 @@
 ARGV="$@"
 urxvt_t()
 {
-    echo -ne "\033]0;$@\007"
+    if [ -n "$INSCREEN" ] ; then
+        echo -n "\033k$@\033\\"
+    else
+        echo -n "\033]0;$@\007"
+    fi
 }
 
 is_arg()
@@ -24,6 +28,6 @@ is_arg "-dd" &&
     len=3
 
 urxvt_t `mpc | head -n $len`
-while mpc idle; do
+while mpc idle>/dev/null; do
     urxvt_t `mpc | head -n $len`
 done
