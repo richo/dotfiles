@@ -44,5 +44,6 @@ URxvt.keysym.M-C-p: command:\033]750;0\007
 
 #Rxvt.keysym.M-C-p: 
 
+XScreenSaver.dpmsEnabled: true
 
 Rxvt*iso14755: False
