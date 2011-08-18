@@ -12,5 +12,5 @@ urxvt_t()
 
 urxvt_t "test thing"
 while mpc idle; do
-    urxvt_t `mpc`
+    urxvt_t `mpc | head -n 1`
 done
