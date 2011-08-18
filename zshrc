@@ -45,8 +45,8 @@ function cdp
 
 function _rpath
 {
-    a=$(parse_ruby_version)
-    pth="$PR_BRIGHT_BLUE%~$PR_BRIGHT_CYAN"
+    local a=$(parse_ruby_version)
+    local pth="$PR_BRIGHT_BLUE%~$PR_BRIGHT_CYAN"
     if [ -z "$a" ]; then
         echo $pth
     else
@@ -54,7 +54,7 @@ function _rpath
     fi
 }
 git_prompt_info() {
-    ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
+    local ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
     echo "(${ref#refs/heads/})"
 }
 
@@ -257,7 +257,7 @@ function __set_urxvt_title()
 # If we're an ssh connection, just prefix!
 if [ -n "$SSH_CONNECTION" -a "$TERM" = "screen" -a -z "$TMUX" ]; then
     export INSCREEN=yes
-    dTITLE=`hostname -s`
+    dTITLE=$sHost
     t_prefix="$dTITLE: "
     t
 fi
@@ -360,7 +360,7 @@ function +vi-svn-untimeduncommitted() { #{{{
 } #}}}
 
 function +vi-svn-uncommitted() { #{{{
-    v=$(timeout $SVNVERSION_TIMEOUT svnversion)
+    local v=$(timeout $SVNVERSION_TIMEOUT svnversion)
     case $? in
         124)
             +vi-svn-nochanges
