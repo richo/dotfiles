@@ -67,14 +67,14 @@ function host_r()
 
 function _prompt()
 {
-    echo -e "${SHELL_COLOR}%(?.%m.\$(host_r) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE%#$PR_RESET "
+    echo -e "${SHELL_COLOR}%(?.%m.\$(host_r) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE%# "
 }
 
 
 function _rprompt()
 { # Unify so I only need edit one place
     local git='$vcs_info_msg_0_' 
-    echo -e "$(_rpath) %b$PR_CYAN${git}$PR_BRIGHT_BLUE${ZSH_TIME}"
+    echo -e "$(_rpath) %b$PR_CYAN${git}$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET"
 }
 
 #export PROMPT_COMMAND='echo -ne "\033]0;$(basename "$(dirname "$PWD")")/$(basename "$PWD")\007"'
