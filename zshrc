@@ -60,7 +60,8 @@ git_prompt_info() {
 
 function host_r()
 {
-    n=$((${#?} + 2))
+    local b=$?
+    local n=$((${#b} + 2))
     echo "$sHost[0,-$n]"
 }
 
