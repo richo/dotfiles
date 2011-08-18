@@ -6,13 +6,19 @@
 # Clean up that infrastructure (honestly, I think I either need to learn zsh
 # modules, or write a seperate program to do it
 # Update everything to use the COLOR constants instead of escape codes
+autoload colors
+colors
+for COLOR in RED BLUE GREEN YELLOW WHITE BLACK CYAN; do
+    eval PR_$COLOR='%{$fg[${(L)COLOR}]%}'
+    eval PR_BRIGHT_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
+done
+PR_RESET="%{${reset_color}%}";
+
 source ~/.profile
 zstyle :compinstall filename '/home/richo/.zshrc'
 autoload -U compinit promptinit
 autoload -Uz vcs_info
 compinit
-autoload colors
-colors
 
 promptinit
 # Lines configured by zsh-newuser-install
@@ -61,7 +67,7 @@ function host_r()
 
 function _prompt()
 {
-    echo -e "%{\e[0;${SHELL_COLOR}m%}%B%(?.%m.\$(host_r) %{\e[0;31m%}%B%?)%b %{\e[0;34m%}%B%#%b%{\e[0m%} "
+    echo -e "${SHELL_COLOR}%(?.%m.\$(host_r) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE%#$PR_RESET "
 }
 
 
@@ -274,12 +280,6 @@ function __richo_precmd()
 }
 add-zsh-hook precmd __richo_precmd
 # }}}
-
-for COLOR in RED GREEN YELLOW WHITE BLACK CYAN; do
-    eval PR_$COLOR='%{$fg[${(L)COLOR}]%}'        
-    eval PR_BRIGHT_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
-done                                                
-PR_RESET="%{${reset_color}%}";
 
 # TODO This is just someone's template, fix.
 # set formats
