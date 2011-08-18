@@ -53,10 +53,6 @@ function _rpath
         echo "$pth ($a)"
     fi
 }
-git_prompt_info() {
-    local ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
-    echo "(${ref#refs/heads/})"
-}
 
 function host_r()
 {
