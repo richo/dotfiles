@@ -52,9 +52,16 @@ git_prompt_info() {
     echo "(${ref#refs/heads/})"
 }
 
+function host_r()
+{
+    n=$((${#?} + 2))
+    echo "$sHost[0,-$n]"
+}
+
+
 function _prompt()
 {
-    echo -e "%{\e[0;${SHELL_COLOR}m%}%B%m%b %(?.%{\e[0;34m%}.%{\e[0;31m%}%?)%B%#%b%{\e[0m%} "
+    echo -e "%{\e[0;${SHELL_COLOR}m%}%B%(?.%m.\$(host_r) %?)%b %(?.%{\e[0;34m%}.%{\e[0;31m%})%B%#%b%{\e[0m%} "
 }
 
 
