@@ -6,7 +6,8 @@ updates=""
 if [ -e .svn ]; then
     echo "Pulling from remote in $(pwd)"
     svn update
-    # TODO - on update, exec $0 $@
+    # | grep pull_ext > /dev/null && exec $0 $@
+    # XXX Test
 fi
 
 . $SCRPATH/.pull_data
