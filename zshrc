@@ -148,7 +148,7 @@ function __richo_preexec()
                     ;;
                 *)
                     export rTITLE="$rTITLE [tmux]"
-                    urxvt_t $rTITLE
+                    __set_urxvt_title $rTITLE
                     ;;
             esac
             ;;
@@ -198,14 +198,14 @@ function __richo_preexec()
             export reTITLE=$sTITLE
             arg=`sed $sed_r -e 's/^_?thor //' -e 's/ /:/' <<< $1`
             if [ -z "$INSCREEN" ]; then
-                urxvt_t "$arg: "
+                __set_urxvt_title "$arg: "
             fi
             ;;
         *)
             arg=$(awk '{print $NF}' <<< $1);;
     esac
 
-    t $arg
+    __set_title $arg
 }
 add-zsh-hook preexec __richo_preexec
 # }}}
@@ -237,19 +237,19 @@ function __richo_chpwd()
             fi
         fi
     fi
-    t $arg
+    __set_title $arg
 }
 add-zsh-hook chpwd __richo_chpwd
 #}}}
 
 # {{{ Helper functions to set titles
-function t()
+function __set_title()
 {
     if [ ! -z $INSCREEN ] ; then
         echo -ne "\033k$t_prefix$@\033\\"
     fi
 }
-function urxvt_t()
+function __set_urxvt_title()
 {
     echo -ne "\033]0;$1\007"
 }
@@ -268,7 +268,7 @@ function precmd()
     RPS1=$(_rprompt)
     PS1=$(_prompt)
     if [ -n "$reTITLE" -a -n "$INSCREEN" ]; then
-        t $reTITLE
+        __set_title $reTITLE
         export reTITLE=""
     fi
 } # }}}
@@ -401,7 +401,7 @@ zstyle ':completion:*:kill:*'   force-list always
 # If we're spawning a shell in a urxvt, but we're NOT in shell, put the tty in
 # the titlebar.
 if [[ "$TERM" =~ "-256color" && -z "$INSCREEN" ]]; then
-    urxvt_t $rTITLE
+    __set_urxvt_title $rTITLE
 fi
 
 
