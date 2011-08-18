@@ -113,39 +113,6 @@ function preexec()
     # if returnstatus and $! -> Add something to sTITLE
     reTITLE=$sTITLE
     case $1 in
-        "cd"*)
-            reTITLE=""
-            # Clear home if we just 'cd'
-            if [ "$1" = "cd" ]; then
-                export t_prefix=""
-                arg=$sTITLE
-            else
-                dir=$(sed -e "s/^cd //" <<< $1)
-                if [ -e $dir/.title ]; then
-                    case $dir in
-                        "/"*)
-                            export pdir=$dir;;
-                        *)
-                            export pdir=`pwd`/$dir;;
-                    esac
-                    # XXX Should this happen for all titles?
-                    dTITLE=$(cat $dir/.title | sed $sed_r 's/[\r\n]//g')
-                    export t_prefix="$dTITLE: "
-                    arg=""
-                fi
-                if [ -n "$AUTOTAGS" -a -e $dir/.autotags ]; then
-                    # TODO
-                    # Store some more info about the tags, command to run and
-                    # git branch, and use the stat time of the file, rather
-                    # than the contents to work out timing
-                    if [ $((`cat $dir/.autotags` + $TAGS_LIFETIME)) -lt `_time` ]; then
-                        _time > $dir/.autotags
-                        echo "Tags are mad old, regenerating."
-                        b_tags $dir &|
-                    fi
-                fi
-            fi
-            ;;
         # Rails kludges
         "rails "*)
             work=`sed -e 's/^rails //' <<< $1`
@@ -159,7 +126,7 @@ function preexec()
             arg=`sed -e 's/bundle exec/BE:/' <<< $1`
             ;;
 
-        "ls"*|"cp"*|"mv"*|"echo"*|"wiki"*|"screen"*|"dig"*|"rm"*|"mkdir"*|"tinfo"*)
+        "cd"*|"ls"*|"cp"*|"mv"*|"echo"*|"wiki"*|"screen"*|"dig"*|"rm"*|"mkdir"*|"tinfo"*)
             reTITLE=""
             return ;;
         "clear"*)
@@ -240,6 +207,38 @@ function preexec()
 
     t $arg
 } # }}}
+
+# {{{ chpwd hook
+function __richo_chpwd()
+{
+    # Clear title if we're going home
+    if [ "$PWD" = "$HOME" ]; then
+        export t_prefix=""
+        arg=$sTITLE
+    else
+        if [ -e .title ]; then
+            export pdir=$PWD
+            # XXX Should this happen for all titles?
+            dTITLE=$(cat .title | sed $sed_r 's/[\r\n]//g')
+            export t_prefix="$dTITLE: "
+            arg=""
+        fi
+        if [ -n "$AUTOTAGS" -a -f .autotags ]; then
+            # TODO
+            # Store some more info about the tags, command to run and
+            # git branch, and use the stat time of the file, rather
+            # than the contents to work out timing
+            if [ $((`cat .autotags` + $TAGS_LIFETIME)) -lt `_time` ]; then
+                _time > .autotags
+                echo "Tags are mad old, regenerating."
+                b_tags $PWD &|
+            fi
+        fi
+    fi
+    t $arg
+}
+add-zsh-hook chpwd __richo_chpwd
+#}}}
 
 # {{{ Helper functions to set titles
 function t()
