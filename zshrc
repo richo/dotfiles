@@ -5,6 +5,7 @@
 # Document all of the *TITLE variables
 # Clean up that infrastructure (honestly, I think I either need to learn zsh
 # modules, or write a seperate program to do it
+# Update everything to use the COLOR constants instead of escape codes
 source ~/.profile
 zstyle :compinstall filename '/home/richo/.zshrc'
 autoload -U compinit promptinit
@@ -53,7 +54,7 @@ git_prompt_info() {
 
 function _prompt()
 {
-    echo -e "%{\e[0;${SHELL_COLOR}m%}%B%m%b %(?.%{\e[0;34m%}.%{\e[0;31m%})%B%#%b%{\e[0m%} "
+    echo -e "%{\e[0;${SHELL_COLOR}m%}%B%m%b %(?.%{\e[0;34m%}.%{\e[0;31m%}%?)%B%#%b%{\e[0m%} "
 }
 
 
