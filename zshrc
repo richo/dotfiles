@@ -77,12 +77,8 @@ function _rprompt()
     echo -e "$(_rpath) %b$PR_CYAN${git}$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET"
 }
 
-#export PROMPT_COMMAND='echo -ne "\033]0;$(basename "$(dirname "$PWD")")/$(basename "$PWD")\007"'
 bindkey -v
-# End of lines configured by zsh-newuser-install
-#PROMPT='%m %# '
 PS1=$(_prompt)
-#PROMPT='\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\'
 RPS1=$(_rprompt)
 
 setopt histignoredups
