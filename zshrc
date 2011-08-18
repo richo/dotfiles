@@ -45,12 +45,12 @@ function cdp
 
 function _rpath
 {
-    pth='%{\e[0;34m%}%B%~'
     a=$(parse_ruby_version)
+    pth="$PR_BRIGHT_BLUE%~$PR_BRIGHT_CYAN"
     if [ -z "$a" ]; then
         echo $pth
     else
-        echo ${pth}'%{\e[0;36m%}%B'" ($a)"
+        echo "$pth ($a)"
     fi
 }
 git_prompt_info() {
@@ -74,10 +74,7 @@ function _prompt()
 function _rprompt()
 { # Unify so I only need edit one place
     local git='$vcs_info_msg_0_' 
-    echo -e "$(_rpath) %b%{\e[0;36m%}${git}%{\e[0m%}%{\e[0;34m%}%B${ZSH_TIME}"
-    # XXX Maybe this would be cleaner if we just        ^^
-    # change the color when we have stashes? Especially since the stash hook
-    # Depends on some wierd, vaguely unreproducable behavior
+    echo -e "$(_rpath) %b$PR_CYAN${git}$PR_BRIGHT_BLUE${ZSH_TIME}"
 }
 
 #export PROMPT_COMMAND='echo -ne "\033]0;$(basename "$(dirname "$PWD")")/$(basename "$PWD")\007"'
