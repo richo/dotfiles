@@ -57,7 +57,7 @@ if [ "$SHLVL" -eq 1 ]; then
             ;;
         "Linux")
             export PLATFORM="LINUX"
-            sHost=`hostname`
+            sHost=`hostname -s`
             ;;
         "OpenBSD")
             export PLATFORM="OPENBSD"
