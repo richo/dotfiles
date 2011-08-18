@@ -61,7 +61,7 @@ function host_r()
 
 function _prompt()
 {
-    echo -e "%{\e[0;${SHELL_COLOR}m%}%B%(?.%m.\$(host_r) %{\e[0;31m%}%?) %(?.%{\e[0;34m%}.)%B%#%b%{\e[0m%} "
+    echo -e "%{\e[0;${SHELL_COLOR}m%}%B%(?.%m.\$(host_r) %{\e[0;31m%}%B%?)%b %{\e[0;34m%}%B%#%b%{\e[0m%} "
 }
 
 
