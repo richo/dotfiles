@@ -216,7 +216,7 @@ function! UpT()
 endfunction
 
 au BufEnter * call UpT()
-if $INSCREEN != ""
+if $INSCREEN != "" && $USER != "root"
     "This is profoundly broken if we're not in screen.
     set t_ts=k
     set t_fs=\
@@ -235,7 +235,7 @@ command! -nargs=1 Tag call SETT(<f-args>)
 set pastetoggle=<C-\\>
 
 " This will almost certainly break shit..
-if $VIM256 != ""
+if $VIM256 != "" && $USER != "root"
     set t_Co=256
     colorscheme jellybeans
 endif
