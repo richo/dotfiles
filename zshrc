@@ -8,7 +8,7 @@
 # Update everything to use the COLOR constants instead of escape codes
 autoload colors
 colors
-for COLOR in RED BLUE GREEN YELLOW WHITE BLACK CYAN; do
+for COLOR in RED BLUE GREEN MAGENTA YELLOW WHITE BLACK CYAN; do
     eval PR_$COLOR='%{$fg[${(L)COLOR}]%}'
     eval PR_BRIGHT_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
 done
