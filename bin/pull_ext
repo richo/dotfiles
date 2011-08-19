@@ -5,9 +5,10 @@ updates=""
 
 if [ -e .svn ]; then
     echo "Pulling from remote in $(pwd)"
-    svn update
-    # | grep pull_ext > /dev/null && exec $0 $@
-    # XXX Test
+    if svn update |tee /dev/stderr | grep pull > /dev/null; then
+        echo "There were pull infrastructure updates, reexecuting"
+        exec $0 $@
+    fi
 fi
 
 . $SCRPATH/.pull_data
