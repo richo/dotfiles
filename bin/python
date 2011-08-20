@@ -30,5 +30,7 @@ done
 [ -z "$NOPY2" ] &&
     _py2
 
+[ -n "$python" ] && \
+    exec $python "$@"
+echo "No python found" >&2
 
-$python "$@"
