@@ -1,5 +1,5 @@
 " .vimrc
-" $Id: .vimrc 1689 2011-07-28 04:15:13Z richo $
+" $Id: .vimrc 1795 2011-08-20 13:38:53Z richo $
 " Rich Healey '10
 " This file depends upon a few other bits and pieces. If you're using it and
 " it's throwing errors, commend out the blocks that are chucken em.
@@ -366,6 +366,9 @@ function! AFTERLOAD()
 " }}}
 endfunction
 autocmd FileType * call AFTERLOAD()
+
+autocmd BufNewFile,BufReadPost * if match(expand("%:p:h"), "/opencog") >= 0 && &filetype == "cpp" | set ts=4 sw=4 tw=80 ff=unix cindent expandtab | endif
+
 " NERDtree hax
 map <leader>e :NERDTreeToggle<CR>
 
