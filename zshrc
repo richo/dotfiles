@@ -255,7 +255,7 @@ if [[ -n "$SSH_CONNECTION" && "$TERM" =~ "screen" && -z "$TMUX" ]]; then
     export INSCREEN=yes
     dTITLE=$sHost
     t_prefix="$dTITLE: "
-    t
+    __set_title
 fi
 
 function __richo_precmd()
