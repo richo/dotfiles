@@ -28,30 +28,9 @@ SAVEHIST=1000
 setopt prompt_subst
 setopt sharehistory
 
-
-function parse_ruby_version {
-  local gemset=$(awk -F'@' '{print $2}' <<< $GEM_HOME)
-  [ "$gemset" != "" ] && gemset="@$gemset"
-  local version=$(awk -F'-' '{print $2}' <<< $MY_RUBY_HOME)
-  # [ "$version" == "1.8.7" ] && version=""
-  local full="$version$gemset"
-  [ "$full" != "" ] && echo "$full"
-}
-
 function cdp
 {
     cd $pdir
-}
-
-function _rpath
-{
-    local a=$(parse_ruby_version)
-    local pth="$PR_BRIGHT_BLUE%~$PR_BRIGHT_CYAN"
-    if [ -z "$a" ]; then
-        echo $pth
-    else
-        echo "$pth ($a)"
-    fi
 }
 
 function host_r()
@@ -61,22 +40,13 @@ function host_r()
     echo "$sHost[0,-$n]"
 }
 
-
-function _prompt()
-{
-    echo -e "${SHELL_COLOR}%(?.%m.\$(host_r) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE%# "
-}
-
-
-function _rprompt()
-{ # Unify so I only need edit one place
-    local git='$vcs_info_msg_0_' 
-    echo -e "$(_rpath) %b$PR_CYAN${git}$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET"
-}
-
 bindkey -v
-PS1=$(_prompt)
-RPS1=$(_rprompt)
+
+PS1="${SHELL_COLOR}%(?.%m.\$(host_r) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE%# "
+RPS1="$PR_BRIGHT_BLUE%~ "
+which rvm-prompt > /dev/null &&
+    RPS1+='$PR_BRIGHT_CYAN($(rvm-prompt v g)) '
+RPS1+='%b$PR_CYAN$vcs_info_msg_0_$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET'
 
 setopt histignoredups
 bindkey '^R' history-incremental-search-backward
@@ -261,8 +231,6 @@ fi
 function __richo_precmd()
 { # {{{ postexec hax
     vcs_info 'prompt'
-    RPS1=$(_rprompt)
-    PS1=$(_prompt)
     if [ -n "$reTITLE" -a -n "$INSCREEN" ]; then
         __set_title $reTITLE
         export reTITLE=""
