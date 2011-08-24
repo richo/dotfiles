@@ -251,7 +251,7 @@ function __set_urxvt_title()
 }
 # }}}
 # If we're an ssh connection, just prefix!
-if [ -n "$SSH_CONNECTION" -a "$TERM" = "screen" -a -z "$TMUX" ]; then
+if [[ -n "$SSH_CONNECTION" && "$TERM" =~ "screen" && -z "$TMUX" ]]; then
     export INSCREEN=yes
     dTITLE=$sHost
     t_prefix="$dTITLE: "
