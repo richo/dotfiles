@@ -33,7 +33,7 @@ function cdp
     cd $pdir
 }
 
-function host_r()
+function __richo_host()
 {
     local b=$?
     local n=$((${#b} + 2))
@@ -42,7 +42,7 @@ function host_r()
 
 bindkey -v
 
-PS1="${SHELL_COLOR}%(?.%m.\$(host_r) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE%# "
+PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE%# "
 RPS1="$PR_BRIGHT_BLUE%~ "
 which rvm-prompt > /dev/null &&
     RPS1+='$PR_BRIGHT_CYAN($(rvm-prompt v g)) '
