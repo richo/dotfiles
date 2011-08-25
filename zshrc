@@ -40,12 +40,22 @@ function __richo_host()
     echo "$sHost[0,-$n]"
 }
 
+function __richo_rvm_version()
+{
+    local v=$(rvm-prompt v g)
+    if [ -z "$v" ]; then
+        echo 'system'
+    else
+        echo $v
+    fi
+}
+
 bindkey -v
 
 PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE%# "
 RPS1="$PR_BRIGHT_BLUE%~ "
 which rvm-prompt > /dev/null &&
-    RPS1+='$PR_BRIGHT_CYAN($(rvm-prompt v g)) '
+    RPS1+='$PR_BRIGHT_CYAN($(__richo_rvm_version)) '
 RPS1+='%b$PR_CYAN$vcs_info_msg_0_$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET'
 
 setopt histignoredups
