@@ -15,10 +15,14 @@ done
 PR_RESET="%{${reset_color}%}";
 
 source ~/.profile
+# RVM hax
+[[ -r $rvm_path/scripts/zsh/Completion ]] &&
+    fpath=($rvm_path/scripts/zsh/Completion $fpath)
 zstyle :compinstall filename '/home/richo/.zshrc'
 autoload -U compinit promptinit
 autoload -Uz vcs_info
 compinit
+
 
 promptinit
 # Lines configured by zsh-newuser-install
