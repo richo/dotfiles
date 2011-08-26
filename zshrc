@@ -61,12 +61,12 @@ RPS1+='%b$PR_CYAN$vcs_info_msg_0_$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET'
 setopt histignoredups
 bindkey '^R' history-incremental-search-backward
 
-function _time()
+function __richo_time()
 {
     date "+%s"
 }
 
-function b_tags()
+function __richo_bg_tags()
 {
     $(cd $1 && ctags -R -f .newtags . 2>/dev/null && mv .newtags tags)
 }
@@ -206,10 +206,10 @@ function __richo_chpwd()
             # Store some more info about the tags, command to run and
             # git branch, and use the stat time of the file, rather
             # than the contents to work out timing
-            if [ $((`cat .autotags` + $TAGS_LIFETIME)) -lt `_time` ]; then
-                _time > .autotags
+            if [ $((`cat .autotags` + $TAGS_LIFETIME)) -lt `__richo_time` ]; then
+                __richo_time > .autotags
                 echo "Tags are mad old, regenerating."
-                b_tags $PWD &|
+                __richo_bg_tags $PWD &|
             fi
         fi
     fi
@@ -275,18 +275,18 @@ else
 fi
 # Save this for later ³
 # TODO - Show something if I have unpushed changes.
-function _init(){
+function __richo_vcs_init(){
     FMT_BRANCH="${REPO_COLOR}%b${PR_BRIGHT_CYAN}%u%c${PR_RESET}${PR_RED}%m${PR_RESET}"
     zstyle ':vcs_info:*:prompt:*' actionformats "${FMT_BRANCH}${FMT_ACTION}"
     zstyle ':vcs_info:*:prompt:*' formats       "${FMT_BRANCH}"
     zstyle ':vcs_info:*:prompt:*' nvcsformats   ""                             "%~"        
 }
-function svn_init(){
+function __richo_svn_init(){
     SVN_BRANCH="${REPO_COLOR}%b${PR_BRIGHT_CYAN}%u%c${PR_RESET}${PR_RED}%m${PR_RESET}"
     zstyle ':vcs_info:svn:prompt:*' actionformats "${SVN_BRANCH}${FMT_ACTION}"
     zstyle ':vcs_info:svn:prompt:*' formats       "${SVN_BRANCH}"
 }
-_init
+__richo_vcs_init
 
 # Show remote ref name and number of commits ahead-of or behind
 countl () { wc -l | sed $sed_r -e "s/^ +//" }
@@ -323,7 +323,7 @@ function +vi-git-st() { #{{{
 } #}}}
 function +vi-svn-nochanges() { #{{{
     REPO_COLOR="${PR_YELLOW}"
-    svn_init
+    __richo_svn_init
     zstyle ':vcs_info:svn*+set-message:*' hooks ""
 } #}}}
 function +vi-svn-untimeduncommitted() { #{{{
