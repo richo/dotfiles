@@ -56,7 +56,7 @@ function __richo_rvm_version()
 
 bindkey -v
 
-PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE%# "
+PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE%# $PR_RESET"
 RPS1="$PR_BRIGHT_BLUE%~ "
 which rvm-prompt > /dev/null &&
     RPS1+='$PR_BRIGHT_CYAN($(__richo_rvm_version)) '
