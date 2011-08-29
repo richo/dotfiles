@@ -258,6 +258,12 @@
         <desktop>yes</desktop>
       </action>
     </keybind>
+    <!-- Suspend button -->
+    <keybind key="C-A-W-0xEE">
+      <action name="Execute">
+        <command>sudo s2disk</command>
+      </action>
+    </keybind>
     <!-- Keybindings for music (Apple keyboard) -->
     <keybind key="0xAD">
       <action name="Execute">
