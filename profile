@@ -78,6 +78,10 @@ if [ "$SHLVL" -eq 1 ]; then
             export PLATFORM="SOLARIS"
             sHost=`hostname`
             ;;
+        "Haiku")
+            export PLATFORM="HAIKU"
+            sHost=`hostname`
+            ;;
         *)
             export PLATFORM="UNKNOWN"
             sHost=`hostname`
@@ -88,6 +92,8 @@ export sHost
 
 if [ "$PLATFORM" = "WIN32" ]; then
     rTITLE="$(basename $SHELL)"
+elif [ "$PLATFORM" = "HAIKU" ]; then
+    rTITLE="$(basename $SHELL) $(tty)"
 else
     mesg n
     rTITLE="$(basename $SHELL) $(tty)"
@@ -181,7 +187,7 @@ if echo $TERM | grep 256 > /dev/null; then
 fi
 
 # Do we have clientserver support?
-if vim --version | grep "+clientserver" > /dev/null 2>&1; then
+if [ "$EDITOR" = "vim" ] && vim --version | grep "+clientserver" > /dev/null 2>&1; then
     # Active some alias which sets --servername to something recognisable
     # Do a $DISPLAY && because wihtout X it doesn't work anyway
     :
