@@ -175,16 +175,13 @@ else
     ZSH_TIME=""
 fi
 
-# XXX TEMP
-# Is broked atm..
-if [ "$TERM" = "rxvt-unicode-256color" ]; then
-    export TERM="rxvt-256color"
-fi
+case $TERM in
+    rxvt-unicode-256color)
+        export TERM="rxvt-256color";;
+    *256*)
+        export VIM256=true;;
+esac
 
-# Do we want 256 colors in vim?
-if echo $TERM | grep 256 > /dev/null; then
-    export VIM256=true
-fi
 
 # Do we have clientserver support?
 if [ "$EDITOR" = "vim" ] && vim --version | grep "+clientserver" > /dev/null 2>&1; then
