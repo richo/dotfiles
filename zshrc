@@ -304,26 +304,24 @@ function +vi-git-st() { #{{{
 
     msg=""
 
-    if [[ -n ${remote} ]] ; then
-        # for git prior to 1.7
-        # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
-        origin=$(git rev-list origin/${hook_com[branch]}..HEAD 2>/dev/null | countl)
-        (( $origin )) && msg+="+$origin"
+    # for git prior to 1.7
+    # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
+    origin=$(git rev-list origin/${hook_com[branch]}..HEAD 2>/dev/null | countl)
+    (( $origin )) && msg+="+$origin"
 
-        ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | countl)
-        (( $ahead )) && msg+="|$ahead|"
+    ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | countl)
+    (( $ahead )) && msg+="|$ahead|"
 
-        behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | countl)
-        (( $behind )) && msg+="-$behind"
+    behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | countl)
+    (( $behind )) && msg+="-$behind"
 
-        stashes=$(git stash list 2>/dev/null | countl)
-        if [ "$stashes" -gt 0 ]; then
-            msg+="?${stashes}s"
-        fi
-
-        #(( $ahead )) && hook_com[misc]+=" (+$ahead)"
-        [ -n "$msg" ] && hook_com[misc]=" ($msg)"
+    stashes=$(git stash list 2>/dev/null | countl)
+    if [ "$stashes" -gt 0 ]; then
+        msg+="?${stashes}s"
     fi
+
+    #(( $ahead )) && hook_com[misc]+=" (+$ahead)"
+    [ -n "$msg" ] && hook_com[misc]=" ($msg)"
 } #}}}
 function +vi-svn-nochanges() { #{{{
     REPO_COLOR="${PR_YELLOW}"
