@@ -268,7 +268,7 @@ FMT_ACTION="(${PR_CYAN}%a${PR_RESET}%)"   # e.g. (rebase-i)
  
 # check-for-changes can be really slow.
 # you should disable it, if you work with large repositories   
-zstyle ':vcs_info:*' enable hg git bzr svn
+zstyle ':vcs_info:*' enable hg bzr svn git
 zstyle ':vcs_info:*:prompt:*' check-for-changes true
 if [ -n "$BROKEN_MULTIBYTE" ]; then
     zstyle ':vcs_info:*:prompt:*' unstagedstr '¹'  # display ¹ if there are unstaged changes
