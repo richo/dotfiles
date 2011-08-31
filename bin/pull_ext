@@ -43,6 +43,10 @@ pull_or_clone()
             CHECKOUT=clone
             PULL=pull
             ;;
+        "bzr")
+            CHECKOUT=branch
+            PULL=pull
+            ;;
         *)
             echo "Broken RCS @ $IPATH"
             continue
