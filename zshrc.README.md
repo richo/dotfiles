@@ -1,6 +1,10 @@
 COLORS
 ======
 
-export SHELL_COLOR=31-39 somewhere for a shiny colored prompt instead of a white one.
+I now use the zsh colors hax, so you just need
 
-There are very few colors not hardcoded aside from that.
+```SHELL_COLOR=$PR_[BRIGHT_]<COLOR>
+
+ie, SHELL_COLOR=$PR_BRIGHT_YELLOW```
+
+in .profile.local
