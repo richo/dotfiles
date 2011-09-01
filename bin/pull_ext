@@ -20,6 +20,10 @@ if [ -z "$GITPATH" ]; then
     echo "Data file does not define \$GITPATH"
     exit
 fi
+if [ -n "$RECURSIVE" -a -n "$NORECURSIVE" ];then
+    echo "Not pulling recursively in `pwd` as requested"
+    exit
+fi
 
 
 pull_or_clone() 
@@ -74,7 +78,7 @@ pull_or_clone()
         fi
         if [ -e .pull_data ]; then
             echo "Pulling externals in: $(pwd)"
-            pull_ext
+            RECURSIVE=yes pull_ext
         fi
 
         cd "$CWD"
