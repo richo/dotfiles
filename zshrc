@@ -151,7 +151,7 @@ function __richo_preexec()
             # hax
             #arg=$(echo $1 | grep -o "(deploy[^ ]*)");;
             arg=$(awk '{print $2}' <<< $1);;
-        "ncmpc"*)
+        "ncmpc"*|"vimpc"*)
             arg=$(sed $sed_r -e 's/ ?-h */:/' <<< $1);;
         
         # Webby stuffs
