@@ -72,7 +72,7 @@ function __richo_time()
 
 function __richo_bg_tags()
 {
-    $(cd $1 && ctags -R -f .newtags . 2>/dev/null && mv .newtags tags)
+    $(cd $1 && ctags -R -f .newtags . 2>/dev/null && mv .newtags tags) &|
 }
 
 function __richo_preexec()
@@ -213,7 +213,7 @@ function __richo_chpwd()
             if [ $((`cat .autotags` + $TAGS_LIFETIME)) -lt `__richo_time` ]; then
                 __richo_time > .autotags
                 echo "Tags are mad old, regenerating."
-                __richo_bg_tags $PWD &|
+                __richo_bg_tags $PWD
             fi
         fi
     fi
