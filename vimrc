@@ -1,5 +1,5 @@
 " .vimrc
-" $Id: .vimrc 1795 2011-08-20 13:38:53Z richo $
+" $Id: .vimrc 1860 2011-09-03 09:03:33Z richo $
 " Rich Healey '10
 " This file depends upon a few other bits and pieces. If you're using it and
 " it's throwing errors, commend out the blocks that are chucken em.
@@ -265,6 +265,8 @@ nnoremap    <C-a> <C-w>
 " Tab support?
 nmap        <C-n> :tabnext<cr>
 nmap        <C-p> :tabprevious<cr>
+nmap        ]t    :tabnext<cr>
+nmap        [t    :tabprevious<cr>
 " Meta or shift here? I can't decide.
 nmap        <leader>n :tabnext<cr>
 nmap        <leader>p :tabPrevious<cr>
