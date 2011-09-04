@@ -380,6 +380,4 @@ setlocal omnifunc=DebCompleteBugs
 
 " }}}
 
-" Local mappings
-imap -- <Esc>:call Finalise()<cr>i
 " vim: set foldmethod=marker:
