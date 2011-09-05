@@ -1,10 +1,23 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 # A kludgy shell script to turn a shaded terminal into a music notifier
 # TODO
 # Check that it supports all terminals
 # Write the mpc stuff more portably
 # Package
+# TODO Create some kind of utils package, this is from .zshrc
+
+trapINT()
+{ trap_signal $@ }
+trapTERM()
+{ trap_signal $@ }
+trapKILL()
+{ trap_signal $@ }
+
+function trap_signal() {
+    urxvt_t "$rTITLE"
+}
+
 ARGV="$@"
 urxvt_t()
 {
@@ -26,8 +39,13 @@ is_arg "-d" &&
     len=2
 is_arg "-dd" &&
     len=3
+if is_arg "-t"; then
+    unset INSCREEN
+    prefix="$rTITLE || "
+fi
+
 
 urxvt_t `mpc | head -n $len`
 while mpc idle>/dev/null; do
-    urxvt_t `mpc | head -n $len`
+    urxvt_t "$prefix`mpc | head -n $len`"
 done
