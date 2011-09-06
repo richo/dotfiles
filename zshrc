@@ -58,35 +58,39 @@ which rvm-prompt > /dev/null &&
 RPS1+='%b$PR_CYAN$vcs_info_msg_0_$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET'
 # }}}
 
-# Lines configured by zsh-newuser-install
+# {{{ Misc shell settings
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt sharehistory
-
-function cdp
-{
-    cd $pdir
-}
-
-
-bindkey -v
-
-
 setopt histignoredups
 bindkey '^R' history-incremental-search-backward
+bindkey -v
+# }}}
 
+function cdp
+{ cd $pdir }
+
+# {{{ Helper functions
 function __richo_time()
-{
-    date "+%s"
-}
+{ date "+%s" }
 
 function __richo_bg_tags()
-{
-    $(cd $1 && ctags -R -f .newtags . 2>/dev/null && mv .newtags tags) &|
-}
+{ $(cd $1 && ctags -R -f .newtags . 2>/dev/null && mv .newtags tags) &| }
 
-function __richo_preexec()
+function __set_title()
+{
+    if [ ! -z $INSCREEN ] ; then
+        echo -ne "\033k$t_prefix$@\033\\"
+    fi
+}
+function __set_urxvt_title()
+{
+    echo -ne "\033]0;$1\007"
+}
+# }}}
+
+function __richo_preexec() # {{{
 # DOCS
 # This function has a few variables that it throws around.
 # I'm thinking pretty seriously about building this show into it's own module and calling that, but load times could become an issue
@@ -98,7 +102,7 @@ function __richo_preexec()
 # sTITLE
 # ------
 # This is the current value of the title "at rest" (Including things like the prefix)
-{ # {{{ Prexec hax
+{
     # Potential TODO:
     # Set a variable for commands where we care about return status
     # if returnstatus and $! -> Add something to sTITLE
@@ -201,8 +205,7 @@ function __richo_preexec()
 add-zsh-hook preexec __richo_preexec
 # }}}
 
-# {{{ chpwd hook
-function __richo_chpwd()
+function __richo_chpwd() # {{{
 {
     # Clear title if we're going home
     if [ "$PWD" = "$HOME" ]; then
@@ -231,30 +234,10 @@ function __richo_chpwd()
     __set_title $arg
 }
 add-zsh-hook chpwd __richo_chpwd
-#}}}
-
-# {{{ Helper functions to set titles
-function __set_title()
-{
-    if [ ! -z $INSCREEN ] ; then
-        echo -ne "\033k$t_prefix$@\033\\"
-    fi
-}
-function __set_urxvt_title()
-{
-    echo -ne "\033]0;$1\007"
-}
 # }}}
-# If we're an ssh connection, just prefix!
-if [[ -n "$SSH_CONNECTION" && "$TERM" =~ "screen" && -z "$TMUX" ]]; then
-    export INSCREEN=yes
-    dTITLE=$sHost
-    t_prefix="$dTITLE: "
-    __set_title
-fi
 
-function __richo_precmd()
-{ # {{{ postexec hax
+function __richo_precmd() # {{{
+{
     vcs_info 'prompt'
     if [ -n "$reTITLE" -a -n "$INSCREEN" ]; then
         __set_title $reTITLE
@@ -263,6 +246,14 @@ function __richo_precmd()
 }
 add-zsh-hook precmd __richo_precmd
 # }}}
+
+# If we're an ssh connection, just prefix!
+if [[ -n "$SSH_CONNECTION" && "$TERM" =~ "screen" && -z "$TMUX" ]]; then
+    export INSCREEN=yes
+    dTITLE=$sHost
+    t_prefix="$dTITLE: "
+    __set_title
+fi
 
 # TODO This is just someone's template, fix.
 # set formats
