@@ -45,7 +45,7 @@ if is_arg "-t"; then
 fi
 
 
-urxvt_t `mpc | head -n $len`
+urxvt_t "$prefix`mpc | head -n $len`"
 while mpc idle>/dev/null; do
     urxvt_t "$prefix`mpc | head -n $len`"
 done
