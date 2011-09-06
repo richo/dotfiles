@@ -5,7 +5,7 @@
 # Document all of the *TITLE variables
 # Clean up that infrastructure (honestly, I think I either need to learn zsh
 # modules, or write a seperate program to do it
-# Update everything to use the COLOR constants instead of escape codes
+# {{{ Colors
 autoload colors
 colors
 for COLOR in RED BLUE GREEN MAGENTA YELLOW WHITE BLACK CYAN; do
@@ -13,29 +13,26 @@ for COLOR in RED BLUE GREEN MAGENTA YELLOW WHITE BLACK CYAN; do
     eval PR_BRIGHT_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
 done
 PR_RESET="%{${reset_color}%}";
+# }}}
 
+# Source this after colors, in case profile wants to use it (Terrible idea, but
+# nicer on the eyes)
 source ~/.profile
-# RVM hax
+
+# {{{ completion
+# rvm completion
 [[ -r $rvm_path/scripts/zsh/Completion ]] &&
     fpath=($rvm_path/scripts/zsh/Completion $fpath)
 zstyle :compinstall filename '/home/richo/.zshrc'
-autoload -U compinit promptinit
+autoload -U compinit
 autoload -Uz vcs_info
 compinit
+# }}}
 
-
+# {{{ inbuilt prompt hax
+autoload -U promptinit
 promptinit
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
 setopt prompt_subst
-setopt sharehistory
-
-function cdp
-{
-    cd $pdir
-}
 
 function __richo_host()
 {
@@ -54,13 +51,27 @@ function __richo_rvm_version()
     fi
 }
 
-bindkey -v
-
 PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE%# $PR_RESET"
 RPS1="$PR_BRIGHT_BLUE%~ "
 which rvm-prompt > /dev/null &&
     RPS1+='$PR_BRIGHT_CYAN($(__richo_rvm_version)) '
 RPS1+='%b$PR_CYAN$vcs_info_msg_0_$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET'
+# }}}
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt sharehistory
+
+function cdp
+{
+    cd $pdir
+}
+
+
+bindkey -v
+
 
 setopt histignoredups
 bindkey '^R' history-incremental-search-backward
