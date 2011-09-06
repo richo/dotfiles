@@ -1,5 +1,5 @@
 " .vimrc
-" $Id: .vimrc 1860 2011-09-03 09:03:33Z richo $
+" $Id: .vimrc 1877 2011-09-06 05:55:09Z richo $
 " Rich Healey '10
 " This file depends upon a few other bits and pieces. If you're using it and
 " it's throwing errors, commend out the blocks that are chucken em.
@@ -20,6 +20,8 @@ set nocompatible
 filetype on
 filetype indent on
 filetype plugin on
+
+set magic
 
 set wildmode=longest,list,full
 set wildmenu
