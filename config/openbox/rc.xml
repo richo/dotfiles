@@ -261,7 +261,7 @@
     <!-- Suspend button -->
     <keybind key="C-A-W-0xEE">
       <action name="Execute">
-        <command>sudo s2disk</command>
+        <command>sudo s2disk-wrapper</command>
       </action>
     </keybind>
     <!-- Keybindings for music (Apple keyboard) -->
