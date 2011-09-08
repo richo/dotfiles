@@ -1,5 +1,5 @@
 " .vimrc
-" $Id: .vimrc 1880 2011-09-07 05:18:31Z richo $
+" $Id: .vimrc 1885 2011-09-08 00:29:44Z richo $
 " Rich Healey '10
 " This file depends upon a few other bits and pieces. If you're using it and
 " it's throwing errors, commend out the blocks that are chucken em.
@@ -368,7 +368,7 @@ function! AFTERLOAD()
     if exists('g:loaded_rvm')
         set statusline+=%{rvm#statusline()}
     endif
-    set statusline+=%=%-14.(%l,%c%V%)\ %P
+    set statusline+=%=%-8.(%l,%c%V%)\ %P
 
 " }}}
 endfunction
