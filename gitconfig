@@ -43,23 +43,25 @@
 [rebase]
     stat = true
 [alias]
+    br = branch
     ci = commit
     co = checkout
-    st = status
-    df = diff
-    br = branch
-    dc = diff --cached
-    rmc = rm --cached
     cp = cherry-pick
-    lfo = log HEAD..FETCH_HEAD
-    sfo = show HEAD..FETCH_HEAD
+    dc = diff --cached
+    detach = checkout HEAD^0
+    df = diff
     ffo = merge --ff-only @{u}
     ffr = rebase origin/@{u}
-    rpull = pull --rebase
+    graph = log --pretty=format:\"%C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr\" --graph --date=short
+    lfo = log HEAD..FETCH_HEAD
+    pall = pull --all
+    pusll = push --all
     rb = rebase origin/@{u}
     ri = rebase --interactive
-    graph = log --pretty=format:\"%C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr\" --graph --date=short
-    detach = checkout HEAD^0
+    rmc = rm --cached
+    rpull = pull --rebase
+    sfo = show HEAD..FETCH_HEAD
+    st = status
 [branch]
     autosetupmerge = true
 [advice]
