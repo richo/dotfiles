@@ -254,8 +254,9 @@
     </keybind>
     <keybind key="C-A-Tab">
       <action name="NextWindow">
-        <panels>yes</panels>
-        <desktop>yes</desktop>
+        <finalactions>
+          <action name="Focus"/>
+        </finalactions>
       </action>
     </keybind>
     <!-- Suspend button -->
