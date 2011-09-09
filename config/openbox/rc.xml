@@ -281,6 +281,17 @@
         <command>~/.songswitch next</command>
       </action>
     </keybind>
+    <!-- Keybindings for Volume (Machine dependant) -->
+    <keybind key="0x7A">
+      <action name="Execute">
+        <command>__vol -10</command>
+      </action>
+    </keybind>
+    <keybind key="0x7B">
+      <action name="Execute">
+        <command>__vol +10</command>
+      </action>
+    </keybind>
     <!-- Keybindings for running applications -->
     <keybind key="W-e">
       <action name="Execute">
