@@ -14,48 +14,10 @@ map <C-q> <Nop>
 
 set hintkeys=fjdksla;gh
 
-" hi TabNumber    color: black; font-family: terminus; font-weight: bold; font-size: 12pt;
- 
- " style -name tab chrome://* <<EOM
- " #content { background-color: #ccc; } /* tabbar */
- " .tabs-alltabs-button { padding: 0 !important; }
- " .tabs-container > stack { display: none; } /* remove tab selection menu 
- " */
- " /*.tabs-container .box-inherit.scrollbox-innerbox { border-bottom: 1px 
- " solid #404040; } /* tab bar position: top */
- " .tabs-container scrollbox {
- " background-color: #333;
- " border-bottom: 1px solid #333;
- " }
- " .tabbrowser-tab {
- " -moz-apperance: none !important;
- " margin: 0 !important;
- " padding: 0 !important;
- " -moz-border-radius-topleft: 0 !important;
- " -moz-border-radius-topright: 0 !important;
- " -moz-border-radius-bottomright: 0 !important;
- " -moz-border-radius-bottomleft: 0 !important;
- " border-bottom: 1px solid #333 !important;
- " background-image: none !important;
- " background-color: #333 !important;
- " background: #333 !important;
- " text-align: left !important;
- " }
- " .tabbrowser-tab[selected=false] .background { color: #333 !important; }
- " .tabbrowser-tab[selected=false] .tab-text { color: #a3a3a3 !important; }
- " .tabbrowser-tab[selected=true] .tab-text { color: #ffffff !important; }
- " .tab-icon-image { margin-bottom: -4px; }
- " .tab-image-left,
- " .tab-image-middle,
- " .tab-image-right {
- " background-image: none !important;
- " }
- " EOM
- " 
- " style -name statusbar chrome://* <<EOM
- " #status-bar statusbarpanel { padding: 0 1px !important; }
- " statusbarpanel > * { margin: 0 !important; padding: 0 !important; }
- " EOM
+style -name statusbar chrome://* <<EOM
+#status-bar statusbarpanel { padding: 0 1px !important; }
+statusbarpanel > * { margin: 0 !important; padding: 0 !important; }
+EOM
 
 source ~/.pentadactylrc.local
 
