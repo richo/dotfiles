@@ -62,6 +62,8 @@
     rpull = pull --rebase
     sfo = show HEAD..FETCH_HEAD
     st = status
+    wtag = name-rev --name-only
+    wbranch = branch --contains
 [branch]
     autosetupmerge = true
 [advice]
