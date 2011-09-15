@@ -7,6 +7,12 @@ import argparse
 import re
 sp = subprocess
 
+class NoTmuxError(Exception):
+    def STATUS(self):
+        return 1
+    def MSG(self):
+        return "Could not retrieve tmux info"
+
 parser = argparse.ArgumentParser(description="Parse and display tmux info data")
 # Make this the default args I Think
 parser.add_argument('search', metavar='search terms', action='store',
@@ -49,8 +55,9 @@ class TMuxInfo(object):
         self.dump_func = repr
         if not ph:
             p = sp.Popen(["tmux", "info"], bufsize=512,
-                              stdin=None, stdout=sp.PIPE, close_fds=True)
+                              stdin=None, stdout=sp.PIPE, stderr=sp.PIPE, close_fds=True)
             self.ph = Watcher(p.stdout)
+            self.stderr = p.stderr
         else:
             self.ph = Watcher(ph)
     def out(self, msg):
@@ -81,6 +88,8 @@ class TMuxInfo(object):
                 # the "\n" ????
                 self.ph.next()
         # Mark those that are detached as such
+        if not hasattr(self, "clients"):
+            raise NoTmuxError
         for i in self.clients:
             try:
                 self.sessions[i].detached = False
@@ -310,9 +319,9 @@ class Watcher(object):
     def __nonzero__(self):
         return bool(self.line)
 
-def throw_error(msg):
+def throw_error(msg, status=1):
     print >>sys.stderr, msg
-    exit()
+    exit(status)
 
 def searched(args):
     # TODO Expand
@@ -354,4 +363,9 @@ def main():
 
 
 # FINAL
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    try:
+        main()
+    except NoTmuxError as error:
+        throw_error(error.MSG(), error.STATUS())
+
