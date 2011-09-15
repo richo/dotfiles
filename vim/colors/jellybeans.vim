@@ -411,6 +411,7 @@ call s:X("rubyRegexpSpecial","a40073","","","Magenta","")
 call s:X("rubyPredefinedIdentifier","de5577","","","Red","")
 
 " JavaScript
+
 hi! link javaScriptValue Constant
 hi! link javaScriptRegexpString rubyRegexp
 
@@ -418,15 +419,16 @@ hi! link javaScriptRegexpString rubyRegexp
 
 hi! link coffeeRegExp javaScriptRegexpString
 
-" Debugger.vim
-call s:X("DbgCurrent","","771111","","DarkMagenta","")
-call s:X("DbgBreakPt","","111177","","DarkMagenta","")
+" Lua
+
+hi! link luaOperator Conditional
 
 " C
 
 hi! link cOperator Constant
 
 " Objective-C/Cocoa
+
 hi! link objcClass Type
 hi! link cocoaClass objcClass
 hi! link objcSubclass objcClass
@@ -436,6 +438,11 @@ hi! link cocoaFunction Function
 hi! link objcMethodName Identifier
 hi! link objcMethodArg Normal
 hi! link objcMessageName Identifier
+
+" Debugger.vim
+
+call s:X("DbgCurrent","DEEBFE","345FA8","","White","DarkBlue")
+call s:X("DbgBreakPt","","4F0037","","","DarkMagenta")
 
 " Plugins, etc.
 
@@ -449,6 +456,7 @@ if !s:low_color
   hi FoldColumn ctermbg=236
   hi SignColumn ctermbg=236
   hi DiffText ctermfg=81
+  hi DbgBreakPt ctermbg=53
 endif
 
 " delete functions {{{
