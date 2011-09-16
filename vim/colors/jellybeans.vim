@@ -309,7 +309,7 @@ call s:X("Cursor","","b0d0f0","","","")
 
 call s:X("LineNr","605958","151515","none","Black","")
 call s:X("Comment","888888","","italic","Grey","")
-call s:X("Todo","808080","","bold","White","Black")
+call s:X("Todo","303030","F0F000","bold","","")
 
 call s:X("StatusLine","000000","dddddd","italic","Black","White")
 call s:X("StatusLineNC","ffffff","403c41","italic","White","Black")
