@@ -76,7 +76,7 @@ function __richo_time()
 { date "+%s" }
 
 function __richo_bg_tags()
-{ $(cd $1 && ctags -R -f .newtags . 2>/dev/null && mv .newtags tags) &| }
+{ (cd $1 && ctags -R -f .newtags . 2>/dev/null && mv .newtags tags) &| }
 
 function __set_title()
 {
