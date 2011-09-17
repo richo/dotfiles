@@ -24,7 +24,7 @@ case $(uname -s) in
         STATUS=$BATPATH/status
         BAT_FULL=$BATPATH/energy_full
         BAT_NOW=$BATPATH/energy_now
-        if [ "$1" = `cat $STATUS` ]; then
+        if [ "$1" = `cat $STATUS` -o "$1" = "" ]; then
             echo $(linux_get_bat)%
         fi
         ;;
@@ -41,8 +41,9 @@ case $(uname -s) in
                     freebsd_get_bat
                 fi
                 ;;
-            *)
-                echo "Default!"
+            "")
+                freebsd_get_bat
+                ;;
         esac
         ;;
     "Darwin")
