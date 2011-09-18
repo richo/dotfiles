@@ -1,0 +1,15 @@
+#!/bin/sh
+pwd=`pwd`
+# TODO Use the right variable for this
+vimpath=$HOME/.vim
+merge_pattern="^\./(plugin|autoload|colors|doc)/"
+
+for i in `ls -d */`; do
+    cd $i
+    for file in $(find ./ | grep -E $merge_pattern); do
+        cp $file $vimpath/$file
+    done
+    cd $pwd
+done
+
+
