@@ -19,7 +19,7 @@ if [ "$SHLVL" -eq 1 ]; then
     export PGUSER=$USER
     export MPD_HOST=domino.psych0tik.net
     export TAGS_LIFETIME=$((60*60*24))
-    export BOOM_SRC=/var/www/boom_src/branches
+    export BOOM_SRC=/var/www/boom_src
     export bsd_dircolors="ExFxCxDxCxEgEdAbAgAcAd"
     export SHELL_COLOR=39
     export SVNVERSION_TIMEOUT=5
