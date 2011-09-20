@@ -2,6 +2,6 @@
 
 case $sHost in
     richh-desktop)
-        aumix -d /dev/mixer1 -w$1;;
+        aumix -d /dev/mixer2 -w$1;;
 esac
 
