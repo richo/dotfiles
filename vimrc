@@ -286,6 +286,7 @@ nmap        <leader>t :FufFile<cr>
 "let         g:fuf_keyOpenVsplit='<C-v>'
 "let         g:fuf_keyOpenSplit='<C-b>'
 
+" This can probably pull from that zsh hook I wrote
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.swo|\.class$|.svn|.git'
 " }}}
 
