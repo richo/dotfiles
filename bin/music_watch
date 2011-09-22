@@ -43,9 +43,15 @@ if is_arg "-t"; then
     unset INSCREEN
     prefix="$rTITLE || "
 fi
+is_arg "-f" &&
+    fore=yes
 
 
 urxvt_t "$prefix`mpc | head -n $len`"
 while mpc idle>/dev/null; do
-    urxvt_t "$prefix`mpc | head -n $len`"
+    if [ -n "$fore" ]; then
+        mpc | head -n $len > /tmp/richo-status
+    else
+        urxvt_t "$prefix`mpc | head -n $len`"
+    fi
 done
