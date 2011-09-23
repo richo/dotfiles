@@ -306,8 +306,6 @@ function! AFTERLOAD()
 "
     " Statusline?
     set statusline=%f\ %h%m%r
-    " This works, also set an option to turn this on for debugging!
-    "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
     set laststatus=2
     if exists('g:loaded_fugitive')
         set statusline+=%{fugitive#statusline()}
@@ -320,6 +318,9 @@ function! AFTERLOAD()
 " }}}
 endfunction
 autocmd FileType * call AFTERLOAD()
+
+command StatusDebug set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+command StatusNormal call AFTERLOAD()
 
 autocmd BufNewFile,BufReadPost * if match(expand("%:p:h"), "/opencog") >= 0 && &filetype == "cpp" | set ts=4 sw=4 tw=80 ff=unix cindent expandtab | endif
 
