@@ -1,3 +1,4 @@
+autocmd FileType python set omnifunc=pythoncomplete#Complete
 call TextEnableCodeSnip('sql', '@begin=sql@', '@end=sql@', 'SpecialComment' )
 " Fix dodgy python highlighting
 " I believe this is now fixed.

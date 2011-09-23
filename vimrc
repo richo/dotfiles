@@ -292,18 +292,6 @@ let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.swo|\.class$|.svn|.gi
 
 set showcmd
 
-" Omnifunc
-" These could totally go into my local ftplugins, but I think it's easier to
-" have them in one place.
-"
-" XXX Test to see if we're using ftplugin
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-" XXX These don't work as yet.
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-" /XXX
-"
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
