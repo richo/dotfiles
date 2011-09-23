@@ -327,7 +327,7 @@ function! AFTERLOAD()
     if exists('g:loaded_rvm')
         set statusline+=%{rvm#statusline()}
     endif
-    set statusline+=%=%-8.(%l,%c%V%)\ %P
+    set statusline+=%=%-5.(%l,%c%V%)\ %P
 
 " }}}
 endfunction
