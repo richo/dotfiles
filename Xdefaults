@@ -1,7 +1,7 @@
 Rxvt*foreground:White
 Rxvt*background:Black
 Rxvt*scrollBar:false
-Rxvt*saveLines:4000
+Rxvt*saveLines:10000
 Rxvt*geometry:100x30
 Rxvt*font: xft:Bitstream Vera Sans Mono:size=8:antialias:true
 BigRxvt*font: xft:Bitstream Vera Sans Mono:size=16:antialias:true
