@@ -1,5 +1,5 @@
 " .vimrc
-" $Id: .vimrc 1931 2011-09-23 12:43:04Z richo $
+" $Id: .vimrc 1946 2011-09-26 05:58:45Z richo $
 " Rich Healey '10
 " This file depends upon a few other bits and pieces. If you're using it and
 " it's throwing errors, commend out the blocks that are chucken em.
@@ -60,6 +60,7 @@ set nohlsearch
 set foldmethod=marker
 syntax on
 set ai
+set directory=~/.vim/swap
 "set nu
 " Python primarily
 set ts=4
