@@ -112,6 +112,7 @@ alias WATCHR='ruby watchr.rb | grep -Ei "FAIL|ERROR" | grep -v "fail: 0,  error:
 alias be="bundle exec"
 alias brxvt='urxvt -name BigRxvt'
 alias ducks='du -cks * | sort -rn | head -11'
+alias gg="git grep"
 alias ivlc="vlc -I ncurses"
 alias loneshell="setopt nosharehistory"
 alias lstree="ls -R | grep \":$\" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"

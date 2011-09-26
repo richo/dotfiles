@@ -50,6 +50,7 @@
     ffo = merge --ff-only @{u}
     ffr = rebase origin/@{u}
     graph = log --pretty=format:\"%C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr\" --graph --date=short
+    g = grep
     lfo = log HEAD..FETCH_HEAD
     pall = pull --all
     rb = rebase origin/@{u}
