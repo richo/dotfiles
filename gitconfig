@@ -39,26 +39,27 @@
     stat = true
 [alias]
     br = branch
+    bra = branch -a
     ci = commit
     co = checkout
     cp = cherry-pick
     dc = diff --cached
     detach = checkout HEAD^0
     df = diff
+    fe = fetch
     ffo = merge --ff-only @{u}
     ffr = rebase origin/@{u}
     graph = log --pretty=format:\"%C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr\" --graph --date=short
     lfo = log HEAD..FETCH_HEAD
     pall = pull --all
-    pusll = push --all
     rb = rebase origin/@{u}
     ri = rebase --interactive
     rmc = rm --cached
     rpull = pull --rebase
     sfo = show HEAD..FETCH_HEAD
     st = status
-    wtag = name-rev --name-only
     wbranch = branch --contains
+    wtag = name-rev --name-only
 [branch]
     autosetupmerge = true
 [advice]
