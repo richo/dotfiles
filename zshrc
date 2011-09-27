@@ -15,6 +15,9 @@ done
 PR_RESET="%{${reset_color}%}";
 # }}}
 
+[ -n "$TTY" ] &&
+    REPORTTIME=1
+
 # Source this after colors, in case profile wants to use it (Terrible idea, but
 # nicer on the eyes)
 source ~/.profile
