@@ -1,5 +1,5 @@
 " .vimrc
-" $Id: .vimrc 1946 2011-09-26 05:58:45Z richo $
+" $Id: .vimrc 1949 2011-09-27 01:16:17Z richo $
 " Rich Healey '10
 " This file depends upon a few other bits and pieces. If you're using it and
 " it's throwing errors, commend out the blocks that are chucken em.
@@ -391,3 +391,7 @@ endif
 if isdirectory(expand("$HOME/code/ext"))
     set cdpath+=~/code/ext
 endif
+if isdirectory(expand("$BOOM_SRC"))
+    set cdpath+=$BOOM_SRC
+endif
+
