@@ -1,6 +1,5 @@
 " .vimrc
-" $Id: .vimrc 1951 2011-09-27 03:35:34Z richo $
-" Rich Healey '10
+" Rich Healey 10-11
 " This file depends upon a few other bits and pieces. If you're using it and
 " it's throwing errors, commend out the blocks that are chucken em.
 "
