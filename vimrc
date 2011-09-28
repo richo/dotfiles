@@ -22,6 +22,7 @@ filetype indent on
 filetype plugin on
 
 set magic
+set ff=unix
 
 set wildmode=longest,list,full
 set wildmenu
