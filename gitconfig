@@ -61,6 +61,7 @@
     st = status
     wbranch = branch --contains
     wtag = name-rev --name-only
+    edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim -p `f`"
 [branch]
     autosetupmerge = true
 [advice]
