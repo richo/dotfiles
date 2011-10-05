@@ -1,6 +1,7 @@
 set! extensions.checkCompatibility=false
 set! extensions.checkCompatibility.6.0a=false
 set! extensions.checkCompatibility.7.0a=false
+set! extensions.checkCompatibility.nightly=false
 set guioptions=bCrs
 set popups=tab,resized
 
