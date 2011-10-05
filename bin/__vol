@@ -1,7 +1,18 @@
 #!/bin/sh
 
+dereference () {
+    ls -l "$1" | awk '{print $NF}'
+}
+
 case $sHost in
     richh-desktop)
-        aumix -d /dev/mixer2 -w$1;;
+        dev=`dereference /dev/snd/by-id/usb-Logitech_Logitech_USB_Headset-00 | sed -e 's/.*C//'`
+        [ $? = 0 ] &&
+            case $1 in
+                -v)
+                    echo $dev;;
+                *)
+                    aumix -d /dev/mixer$dev -w $1;;
+            esac
+        ;;
 esac
-
