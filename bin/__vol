@@ -9,7 +9,7 @@ dereference () {
 }
 
 case $sHost in
-    richh-desktop)
+    richh-imac)
         dev=`dereference /dev/snd/by-id/usb-Logitech_Logitech_USB_Headset-00 | sed -e 's/.*C//'`
         [ $? = 0 ] &&
             case $1 in
