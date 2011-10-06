@@ -1,7 +1,11 @@
 #!/bin/sh
 
 dereference () {
-    ls -l "$1" | awk '{print $NF}'
+    if [ -e $1 ]; then
+        ls -l "$1" | awk '{print $NF}'
+    else
+        return 1
+    fi
 }
 
 case $sHost in
