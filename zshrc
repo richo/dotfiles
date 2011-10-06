@@ -15,9 +15,6 @@ done
 PR_RESET="%{${reset_color}%}";
 # }}}
 
-[ -n "$TTY" ] &&
-    REPORTTIME=5
-
 # Source this after colors, in case profile wants to use it (Terrible idea, but
 # nicer on the eyes)
 source ~/.profile
@@ -69,6 +66,8 @@ setopt sharehistory
 setopt histignoredups
 bindkey '^R' history-incremental-search-backward
 bindkey -v
+[ -n "$TTY" ] &&
+    REPORTTIME=5
 # }}}
 
 function cdp
