@@ -191,6 +191,8 @@ function __richo_preexec() # {{{
             export reTITLE=$sTITLE
             # Don't bother setting a title- handles it.
             ;;
+        "mutt"*)
+            arg=`awk '{ print $1 ":" $2 }' <<< $1`;;
         "_thor"*|"thor"*)
             export reTITLE=$sTITLE
             arg=`sed $sed_r -e 's/^_?thor //' -e 's/ /:/' <<< $1`
