@@ -213,6 +213,7 @@ command! SVNa !svn add %
 "Crazy hack to update screen sessions..
 " TODO I Really want to have the [+-] stuff to show modified :(
 " Show number of buffers if >1
+" Also, doesn't show hostname on remotes
 let g:win_title = $t_prefix
 let g:m_title = ''
 function! UpT()
