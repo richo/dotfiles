@@ -292,6 +292,11 @@
         <command>__vol +10</command>
       </action>
     </keybind>
+    <keybind key="0x79">
+      <action name="Execute">
+        <command>__vol mute</command>
+      </action>
+    </keybind>
     <!-- Keybindings for running applications -->
     <keybind key="W-e">
       <action name="Execute">
