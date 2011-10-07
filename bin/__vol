@@ -18,7 +18,11 @@ case $sHost in
                 mute)
                     :;;
                 *)
-                    aumix -d /dev/mixer$dev -w $1;;
+                    if [ -e /dev/mixer$dev ]; then
+                        aumix -d /dev/mixer$dev -w $1
+                    else
+                        echo "/dev/mixer$dev does not exist, is snd-mixer-oss loaded?"
+                    fi;;
             esac
         ;;
 esac
