@@ -1,0 +1,216 @@
+# .muttrc file - Suresh Ramasubramanian
+# Don't display certain headers
+ignore *
+#unignore From To Cc Subject Date Reply-To Organization X-Mailer User-Agent
+unignore From To Cc Subject Date
+# Order to display the headers in
+hdr_order From: Date: To: Cc: Subject:
+# Default From: line for when mailing in batch mode
+#set certificate_file=mutt.crt
+# XXX Add this header
+my_hdr X-PGP-Key: http://natalya.psych0tik.net/~richo/pubkey.asc
+set use_envelope_from=yes
+#
+set timeout=15
+set mail_check=120
+set ssl_starttls=yes
+set beep_new=yes
+# Automatically begin editing messages
+set autoedit=yes
+set edit_headers
+# Append messages to other mailboxes automatically
+unset confirmappend
+# Automatically delete messages
+#set delete=yes
+# View html mails using lynx
+set implicit_autoview
+auto_view text/html     application/x-pgp-message
+auto_view text/patch    text/x-diff
+auto_view text/x-patch  text/x-diff
+set mailcap_path="~/.mailcap"
+set mailcap_sanitize=yes
+# envelope sender must match
+set envelope_from
+# Reply FASTER!
+#set fast_reply
+# Don't save outgoing attachments
+unset fcc_attach
+# Dont include self in reply
+unset reply_self
+# Include full headers in replies
+# set header
+#set hostname - if not machine name (uname -a) 
+#will be used for - among other things - making
+#up message-ids
+#set hostname="hostname.example.com"
+# Automatically quote message
+set include=yes
+# Set quotemark to 1 byte
+set indent_str="> "
+set index_format   = "%4C %Z %{%b %d} %-15.15F (%4l) %s"
+set forward_format="Fw: %s"     # subject in forwarded messages
+set date_format="%d/%m/%y %H:%M %Z"
+set quote_regexp="^([A-Za-z ]+>|[]%>:|}-][]>:|}-]*)"
+#set reply_regexp="^(re([\\[0-9\\]+])*|aw):[ \t]*"
+set reply_regexp='^((re(\[[0-9]+\])?: *)?(\^+\] *)?)*'
+set mime_forward=ask-yes
+# Use mutt.view as my pager
+# set pager=mutt.view
+set edit_headers
+# Use vim as the editor - this line will wrap
+# Set wordwrap on in vim to automatically wrap lines - 
+# no :gq all the time
+set editor="vim +':set textwidth=77' +':set wrap' +\`awk '/^$/ {print i+2; exit} {i++}' %s\` %s" 
+#set visual=vim                 # editor invoked by ~v in the builtin editor
+# set format=flowed
+set text_flowed
+# dont mark messages old
+set nomark_old
+# Location for postponed messages
+#set postponed="=postponed"
+# I don't want to resume postponed messages
+#set recall=no
+# Save copies of outgoing e-mail
+# Don't confirm using Reply-To: headers
+set reply_to=yes
+# Delete empty mailboxes
+unset save_empty
+set signature = "fortune_excuse -e -w72|"
+# Use as from the address mail was sent to
+# You'd have to define $alternates for this
+# set reverse_name
+# Set my web browser
+#set web_browser=$BROWSER
+# Save mail to =received when I press ">", like in Elm
+#set mbox="=received"
+# Apply operations to tagged messages automatically
+set auto_tag
+# Define the directory where mutt looks for mailboxes to
+# report new mail
+#mailboxes `echo $HOME/mail/*`
+
+# Tell mutt which mails to recognize as mailing lists
+# color patterns for mutt
+color normal     white           default # normal text
+#color indicator  yellow         default # actual message
+color tree       brightmagenta  default # thread arrows
+#color status     yellow         default # status line
+#color error      brightred      default # errors
+#color message    magenta        default # info messages
+color signature  cyan        default # signature
+#color attachment brightyellow   red     # MIME attachments
+#color search     brightyellow   red     # search matches
+color tilde      brightmagenta  default # ~ at bottom of msg
+color markers    red            default # + at beginning of wrapped lines
+color hdrdefault cyan           default # default header lines
+#color bold       red            default # hiliting bold patterns in body
+#color underline  green          default # hiliting underlined patterns in body
+color quoted     green           default # quoted text
+color quoted1    magenta        default
+color quoted2    red            default
+color quoted3    green          default
+color quoted4    magenta           default
+color quoted5    cyan           default
+color quoted6    magenta        default
+color quoted7    red            default
+color quoted8    green          default
+color quoted9    cyan           default
+#color body   cyan  default  "((ftp|http|https)://|news:)[^ >)\"\t]+"
+#color body   cyan  default  "[-a-z_0-9.+]+@[-a-z_0-9.]+"
+#color body   red   default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
+#color body   green default  "(^| )_[-a-z0-9_]+_[,.?]?[\n]"
+#color body   red   default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
+#color body   green default  "(^| )_[-a-z0-9_]+_[,.?]?[ \n]"
+#color index  cyan  default  ~F         # Flagged
+#color index  red   default  ~N         # New
+#color index  magenta    default  ~T         # Tagged
+color index  red       default  ~D         # Deleted
+# Don't ask to move read messages to mbox on exit
+set move=no
+###
+# Bindings - change key bindings
+###
+# Customize the pager
+bind pager [ previous-line
+bind pager < previous-line
+bind pager ] next-line
+bind pager > next-line
+bind pager down next-page
+bind pager d delete-message
+bind pager up previous-page
+# dual window view in mutt
+# set pager_index_lines=10
+# Similar settings for the index
+bind index [ previous-line
+bind index ] next-line
+bind index n next-unread
+# imitate the old search-body function
+macro index \eb '/~b ' 'search in message bodies'
+# simluate the old url menu
+macro index \cb |urlview\n 'call urlview to extract URLs out of a message'
+macro pager \cb |urlview\n 'call urlview to extract URLs out of a message'
+# Show documentation when pressing F1
+macro generic <f1> "!less /usr/doc/mutt/manual.txt\n" "Show Mutt documentation"
+macro index   <f1> "!less /usr/doc/mutt/manual.txt\n" "Show Mutt documentation"
+macro pager   <f1> "!less /usr/doc/mutt/manual.txt\n" "Show Mutt documentation"
+# Set and source our alias file
+set alias_file=~/.mutt/aliases
+source ~/.mutt/aliases
+# pgp stuff - Snarfed from Roland Rosenfeld http://www.spinnaker.de
+# For Mutt 1.3.x versions only - go to his website if you want the
+# version for older (1.2.5i say) mutts
+#source ~/gpg.rc
+set fcc_clear
+set forward_decrypt
+unset pipe_decode
+#set pgp_ignore_subkeys  # On OpenPGP keys only show the main key, not the sub.
+set pgp_autosign      # pgp sign every outgoing mail. (send-hook?)
+#unset pgp_autoencrypt   # pgp encrypt every outgoing mail. (send-hook?)
+#set pgp_create_traditional=ask-no       # Use old-style PGP? (don't do it!)
+set pgp_replyencrypt    # Encrypt replies on encrypted mail
+set pgp_replysign       # Sign replies on signed mail
+#set pgp_replysignencrypted      # Sign replies on encrypted mail
+#unset pgp_retainable_sigs       # disable retainable signatures.
+set pgp_verify_sig=yes  # ask me whether I want to check a pgp signature
+#set pgp_timeout=7200    # forget PGP passphrase after 7200 seconds (=2 hours)
+#set pgp_strict_enc      # allway use QP enc. with PGP.
+#unset pgp_long_ids      # display 64bit PGP key-ids (don't change this!)
+#set pgp_show_unusable   # show unusable PGP keys in menu
+# %n = number   %k = key id     %K = key id of the principal key
+# %u = user id  %a = algorithm  %A = algorithm of the princ. key
+# %l = length   %L = length of the princ. key
+# %f = flags    %F = flags of the princ. key
+# %c = capabilities             %C = capabilities of the princ. key
+# %t = trust/validity of the key-uid association
+set pgp_entry_format="%4n %t%f %[%y/%m/%d] %4l/0x%k %-4a %2c %u"
+set pgp_sort_keys=trust
+# Once you are done with composing a mail in vim, and
+# before you press y to send out an email, just press
+# S and enter your PGP passphrase to pgp-clearsign an
+# email.  Mutt uses PGP-MIME signatures by default, and
+# several clients (most notably windows clients) absolutely
+# hate the very idea of PGP-MIME :(
+# Put your gpg key id below instead of my key 0xEDEDEFB9
+
+set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
+set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
+set pgp_decrypt_command="gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
+set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_encrypt_only_command="/usr/lib/mutt/pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0x89E72415 -- -r %r -- %f"
+set pgp_encrypt_sign_command="/usr/lib/mutt/pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0x89E72415 -- -r %r -- %f"
+set pgp_import_command="gpg --no-verbose --import -v %f"
+set pgp_export_command="gpg --no-verbose --export --armor %r"
+set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
+set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
+set pgp_autosign=yes
+set pgp_auto_decode=yes
+set pgp_sign_as=0x89E72415
+set pgp_replyencrypt=yes
+set pgp_timeout=1800
+set pgp_good_sign="^gpg: Good signature from"
+
+
+source ~/.muttrc.local
+
