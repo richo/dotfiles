@@ -90,41 +90,6 @@ set auto_tag
 #mailboxes `echo $HOME/mail/*`
 
 # Tell mutt which mails to recognize as mailing lists
-# color patterns for mutt
-color normal     white           default # normal text
-#color indicator  yellow         default # actual message
-color tree       brightmagenta  default # thread arrows
-#color status     yellow         default # status line
-#color error      brightred      default # errors
-#color message    magenta        default # info messages
-color signature  cyan        default # signature
-#color attachment brightyellow   red     # MIME attachments
-#color search     brightyellow   red     # search matches
-color tilde      brightmagenta  default # ~ at bottom of msg
-color markers    red            default # + at beginning of wrapped lines
-color hdrdefault cyan           default # default header lines
-#color bold       red            default # hiliting bold patterns in body
-#color underline  green          default # hiliting underlined patterns in body
-color quoted     green           default # quoted text
-color quoted1    magenta        default
-color quoted2    red            default
-color quoted3    green          default
-color quoted4    magenta           default
-color quoted5    cyan           default
-color quoted6    magenta        default
-color quoted7    red            default
-color quoted8    green          default
-color quoted9    cyan           default
-#color body   cyan  default  "((ftp|http|https)://|news:)[^ >)\"\t]+"
-#color body   cyan  default  "[-a-z_0-9.+]+@[-a-z_0-9.]+"
-#color body   red   default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
-#color body   green default  "(^| )_[-a-z0-9_]+_[,.?]?[\n]"
-#color body   red   default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
-#color body   green default  "(^| )_[-a-z0-9_]+_[,.?]?[ \n]"
-#color index  cyan  default  ~F         # Flagged
-#color index  red   default  ~N         # New
-#color index  magenta    default  ~T         # Tagged
-color index  red       default  ~D         # Deleted
 # Don't ask to move read messages to mbox on exit
 set move=no
 ###
@@ -212,5 +177,6 @@ set pgp_timeout=1800
 set pgp_good_sign="^gpg: Good signature from"
 
 
+source ~/.mutt.colors
 source ~/.muttrc.local
 
