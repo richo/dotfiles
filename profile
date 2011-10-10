@@ -4,6 +4,7 @@
 export PATH=$HOME/bin:$PATH
 if [ "$SHLVL" -eq 1 ]; then
     # Hell, do this once per tty login
+    export TMUX_SHELL_COLOR=cyan
     export CVSROOT=:pserver:richo@domino.ctc:/richo
     ## XXX Should my path come first? In all likelyhood I want it to take precedence
     export MAIL=imaps://domino.psych0tik.net
