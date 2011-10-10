@@ -2,7 +2,7 @@
 PORT=""
 PIDFILE=/tmp/$USER-mysql_remote
 
-if [ $1 = "-l" ]; then
+if [ "$1" = "-l" ]; then
     ps h -p `cat $PIDFILE` -o cmd | awk -F" " {'print $NF'}
     exit
 fi
@@ -13,7 +13,7 @@ if [ -e $PIDFILE ]; then
     sleep 1
 fi
 
-[ $1 = "-k" ] && exit
+[ "$1" = "-k" ] && exit
 
 # Ditch support in favour of a tunnel
 #[ -z $2 ] || PORT="-p$2"
