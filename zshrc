@@ -254,7 +254,7 @@ add-zsh-hook precmd __richo_precmd
 # }}}
 
 # If we're an ssh connection, just prefix!
-if [[ -n "$SSH_CONNECTION" && "$TERM" =~ "screen" && -z "$TMUX" ]]; then
+if [[ -n "$SSH_CONNECTION" ]] && [[ "$TERM" =~ "screen" ]] && [[ -z "$TMUX" ]]; then
     export INSCREEN=yes
     dTITLE=$sHost
     t_prefix="$dTITLE: "
