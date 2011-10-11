@@ -304,7 +304,7 @@
           <enabled>true</enabled>
           <name>zsh</name>
         </startupnotify>
-        <command>urxvtc -e tmux</command>
+        <command>env WIN_E=true urxvtc</command>
       </action>
     </keybind>
     <keybind key="W-v">

@@ -90,6 +90,17 @@ function __set_urxvt_title()
 {
     echo -ne "\033]0;$1\007"
 }
+function __richo_tmux_hook()
+{
+    case $rTITLE in
+        *"tmux"*)
+            ;;
+        *)
+            export rTITLE="$rTITLE [tmux]"
+            __set_urxvt_title $rTITLE
+            ;;
+    esac
+}
 # }}}
 
 function __richo_preexec() # {{{
@@ -140,14 +151,7 @@ function __richo_preexec() # {{{
         "ctags"*|"killall"*|"screen"*)
             return ;;
         "tmux"*)
-            case $rTITLE in
-                *"tmux"*)
-                    ;;
-                *)
-                    export rTITLE="$rTITLE [tmux]"
-                    __set_urxvt_title $rTITLE
-                    ;;
-            esac
+            __richo_tmux_hook
             ;;
         "man"*)
             arg=$1;;
@@ -387,3 +391,9 @@ fi
 
 [ -e $HOME/.zshrc.$sHost ] && source $HOME/.zshrc.$sHost
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+if [ -n "$WIN_E" ]; then
+    unset WIN_E
+    __richo_tmux_hook
+    tmux
+fi
