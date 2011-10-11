@@ -34,6 +34,8 @@ color quoted9    cyan           default
 #color index  cyan  default  ~F         # Flagged
 #color index  red   default  ~N         # New
 #color index  magenta    default  ~T         # Tagged
+color index brightcolor220 color233 ~N  # New
+color index color220 color233 ~O    # Old
 color index  red       default  ~D         # Deleted
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -83,8 +85,6 @@ color body yellow default '(:D|:-D|=-O|:-[pP]|:-\*|>:o|:\/|:-\/)'
 #color index color117 color233 '~t vontrapp@---------' # mail to myself
 #color index color192 color233 '~t von(trapp)?[+][a-zA-Z]+@---------' # mail to myself
 #
-color index brightcolor220 color233 ~N  # New
-color index color220 color233 ~O    # Old
 #
 ## cassandra
 #color index color198 color233 '~f cassandra'
