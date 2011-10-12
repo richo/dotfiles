@@ -257,7 +257,9 @@ function __richo_precmd() # {{{
 add-zsh-hook precmd __richo_precmd
 # }}}
 
-# If we're an ssh connection, just prefix!
+# XXX I know you want to change this. It doesn't look right. But it breaks old
+# zsh versions and you just have to live with it until the next debian stable
+# release.
 if [[ -n "$SSH_CONNECTION" ]] && [[ "$TERM" =~ "screen" ]] && [[ -z "$TMUX" ]]; then
     export INSCREEN=yes
     dTITLE=$sHost
@@ -395,5 +397,6 @@ fi
 if [ -n "$WIN_E" ]; then
     unset WIN_E
     __richo_tmux_hook
-    tmux
+    tmux #&&
+         # exit # Should we bail when we finish up?
 fi
