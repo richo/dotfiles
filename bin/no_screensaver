@@ -1,0 +1,16 @@
+#!/bin/sh
+
+trap 'cleanup' 2
+
+cleanup()
+{
+    xset +dpms
+    exit
+}
+
+xset -dpms
+
+while true; do
+    xscreensaver-command -deactivate
+    sleep 60
+done
