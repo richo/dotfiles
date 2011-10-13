@@ -15,6 +15,9 @@ case $sHost in
             case $1 in
                 -v)
                     echo $dev;;
+                # FIXME - -d doesn't do what you'd expect it to
+                -l)
+                    aumix -d /dev/mixer$dev -q | grep vol | cut -d" " -f2,3;;
                 mute)
                     :;;
                 *)
