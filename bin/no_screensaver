@@ -11,6 +11,6 @@ cleanup()
 xset -dpms
 
 while true; do
-    xscreensaver-command -deactivate
+    xscreensaver-command -deactivate > /dev/null
     sleep 60
 done
