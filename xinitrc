@@ -2,6 +2,12 @@
 [ -e .xinitrc.xrandr ] && ./.xinitrc.xrandr
 xset +fp $(echo $HOME/.fonts)
 
+if [ -e ~/.xcalib.$sHost ]; then
+    if which xcalib > /dev/null; then
+        xcalib ~/.xcalib.$sHost
+    fi
+fi
+
 if which xinput > /dev/null; then
     # Credit James Layhe
     #xinput set-int-prop "Logitech USB Trackball" "Evdev Wheel Emulation Button" 8 8
