@@ -43,8 +43,8 @@ class TMuxInfo(object):
     sess_ind5_keys = ('paneno', 'pty', 'dump', 'dump', 'dump', 'dump', 'dump', 'encoding', 'dump', 'dump')
     sess_ind3_re = re.compile("\s*(\d+): (.*) \[(\d+)x(\d+)\] \[flags=(.*), references=(\d+), last layout=(.*)\]")
     sess_ind3_keys = ('winno', 'name', 'sizex', 'sizey', 'flags', 'references', 'last_layout')
-    sess_header_re = re.compile("\s*(\d+): \d+: (\d+) windows \(created (.*)\) \[(\d+)x(\d+)\] \[flags=(.*)\]")
-    sess_header_keys = ('sessno', 'nowins', 'created', 'sizex', 'sizey', 'flags')
+    sess_header_re = re.compile("\s*(\d+): (.+): (\d+) windows \(created (.*)\) \[(\d+)x(\d+)\] \[flags=(.*)\]")
+    sess_header_keys = ('sessno', 'sessname', 'nowins', 'created', 'sizex', 'sizey', 'flags')
     client_ind1_re = re.compile('\s*(\d+): (.*) \(\d+, \d+\): (\d+) \[(\d+)x(\d+) (.*)\] \[flags=(.*), references=(.*)]')
     client_ind1_keys = ('idx', 'pty', 'sessno', 'sizex', 'sizey', 'term', 'flags', 'references')
     def __init__(self, ph=None):
@@ -153,7 +153,7 @@ class TMuxInfo(object):
         for i, ival in self.sessions.iteritems():
             if ival.sessno in c:
                 # TODO Work out verbose mode.. multiline?
-                self.out("Session %s: %s" % (i,
+                self.out("Session %s: %s" % (i, # ival.sessname,
                     " ".join([self.dump_func(n) for n in c[ival.sessno]])))
             elif ival.detached:
                 self.out("Session %s: [Detached]" % (i))
