@@ -380,7 +380,7 @@ alias changes="zstyle ':vcs_info:svn*+set-message:*' hooks svn-untimeduncommitte
     zstyle ':completion:*:*:git-add:*' ignored-patterns `grep -v "^#" ~/.gitignore | xargs echo | sed -e 's/ /|/g'`
 [ -e ~/.subversion/config ] &&
     zstyle ':completion:*:*:svn-add:*' ignored-patterns `grep "^global-ignores" ~/.subversion/config | sed -e 's/^.*= //' -e 's/ /|/g'`
-
+zstyle ':completion:*:*:vim:*' ignored-patterns '*.o|*.pyc'
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*'   force-list always
