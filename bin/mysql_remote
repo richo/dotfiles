@@ -22,6 +22,6 @@ fi
 DBHOST="localhost"
 [ -z "$2" ] || DBHOST="$2"
 
-ssh $PORT -p54322 -T -N -L 6666:$DBHOST:3306 deploy@$1 &
+ssh $PORT -T -N -L 6666:$DBHOST:3306 deploy@$1 &
 echo $! > $PIDFILE
 [ -z $MYSQL_REMOTE_BROWSER ] || (sleep 1; $MYSQL_REMOTE_BROWSER http://localhost/phpremoteadmin)
