@@ -415,11 +415,11 @@ class HelpWindow(VimWindow):
     self.write(                                                          \
        r'[ Function Keys ]                 |                       ' +n+ \
        r'  <F1>   resize                   | [ Normal Mode ]       ' +n+ \
-       r'  <C-j>  step into                |   \x  eXecute         ' +n+ \
-       r'  <C-h>  step over                |                       ' +n+ \
-       r'  <C-k>  step out                 |                       ' +n+ \
-       r'  \r     run                      | [ Command Mode ]      ' +n+ \
-       r'  \dq    quit debugging           | \b  toggle breakpoint ' +n+ \
+       r'  <C-j>  step into                | \x  eXecute           ' +n+ \
+       r'  <C-h>  step over                | \b  toggle breakpoint ' +n+ \
+       r'  <C-k>  step out                 | \r  run               ' +n+ \
+       r'                                  | \dq quit debugging    ' +n+ \
+       r'                                  | [ Command Mode ]      ' +n+ \
        r'                                  | :Up stack up          ' +n+ \
        r'  <F11>  get all context          | :Dn stack down        ' +n+ \
        r'  <F12>  get property at cursor   |                       ' +n+ \
