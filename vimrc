@@ -383,6 +383,16 @@ map <leader>c :checktime <CR>
 " Not sure about this, although I pretty rarely type jj afaik
 inoremap jj <ESC>
 
+" {{{ Project finding kludges
+function! StartCoding()
+    let l:dir = expand("$HOME/code/ext")
+    exec "chdir" l:dir
+    NERDTree
+endfunction
+if isdirectory(expand("$HOME/code/ext"))
+    nmap <leader>s :call StartCoding()<CR>
+endif
+" }}}
 
 
 " TOhtml
