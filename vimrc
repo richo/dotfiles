@@ -383,7 +383,7 @@ map <leader>c :checktime <CR>
 " Not sure about this, although I pretty rarely type jj afaik
 inoremap jj <ESC>
 
-" imap <M-C-p> paste
+
 
 " TOhtml
 let html_use_css = 1
