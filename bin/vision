@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+    echo "vision <night|day>" >2
+    exit
+fi
+
+case $1 in
+    day)
+        xcalib -clear;;
+    night)
+        xcalib -green 1 0 1 -alter
+        xcalib -blue 1 0 1 -alter
+        ;;
+esac
