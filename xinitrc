@@ -1,5 +1,4 @@
 [ -e .xinitrc.local ] && ./.xinitrc.local
-[ -e .xinitrc.xrandr ] && ./.xinitrc.xrandr
 xset +fp $(echo $HOME/.fonts)
 
 if [ -e ~/.xcalib.$sHost ]; then
