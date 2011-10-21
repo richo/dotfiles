@@ -5,6 +5,8 @@
 # Document all of the *TITLE variables
 # Clean up that infrastructure (honestly, I think I either need to learn zsh
 # modules, or write a seperate program to do it
+# in a perfect world, the titles should dereference aliases to see what I would
+# have had to type
 # {{{ Colors
 autoload colors
 colors
@@ -130,8 +132,8 @@ function __richo_preexec() # {{{
                     ;;
             esac
             ;;
-        "bundle exec"*)
-            arg=`sed -e 's/bundle exec/BE:/' <<< $1`
+        "be"*|"bundle exec"*)
+            arg=`sed $sed_r -e 's/^(be|bundle exec)/BE:/' <<< $1`
             ;;
 
         "cd"*|"ls"*|"cp"*|"mv"*|"echo"*|"wiki"*|"screen"*|"dig"*|"rm"*|"mkdir"*|"tinfo"*)
