@@ -135,6 +135,8 @@ function __richo_preexec() # {{{
         "be"*|"bundle exec"*)
             arg=`sed $sed_r -e 's/^(be|bundle exec)/BE:/' <<< $1`
             ;;
+        "./serve"*) # Special case
+            arg="`basename $PWD`: serve";;
 
         "cd"*|"ls"*|"cp"*|"mv"*|"echo"*|"wiki"*|"screen"*|"dig"*|"rm"*|"mkdir"*|"tinfo"*)
             reTITLE=""
