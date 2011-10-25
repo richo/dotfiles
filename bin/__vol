@@ -19,8 +19,15 @@ case $sHost in
                 -l)
                     aumix -d /dev/mixer$dev -q | grep vol | cut -d" " -f2,3;;
                 mute)
-                    :;;
+                    if amixer -c1 sget PCM | grep "\[on\]" > /dev/null; then
+                        newstate=off
+                    else
+                        newstate=on
+                    fi
+                    amixer -c$dev sset PCM $newstate
+                    ;;
                 *)
+                    # FIXME probably port to amixer as well, if it's easy
                     if [ -e /dev/mixer$dev ]; then
                         aumix -d /dev/mixer$dev -w $1
                     else
