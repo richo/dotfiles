@@ -143,7 +143,7 @@ function __richo_preexec() # {{{
             return ;;
         "clear"*)
             arg="zsh";;
-        
+
         # If we're doing it to everything, the command is more interesting than
         # the target
         *"*")
@@ -178,7 +178,7 @@ function __richo_preexec() # {{{
             arg=$(awk '{print $2}' <<< $1);;
         "ncmpc"*|"vimpc"*)
             arg=$(sed $sed_r -e 's/ ?-h */:/' <<< $1);;
-        
+
         # Webby stuffs
         "lynx"*|"links"*)
             arg=$(sed $sed_r -e 's/^(lynx|links) (http[s]?:\/\/)?(www\.)?//' -e 's/\/.*$//' <<< $1);;
@@ -283,9 +283,9 @@ REPO_COLOR=${PR_CYAN}
 #                                               ^^ HAX?
 #                                               # e.g. master¹²
 FMT_ACTION="(${PR_CYAN}%a${PR_RESET}%)"   # e.g. (rebase-i)
- 
+
 # check-for-changes can be really slow.
-# you should disable it, if you work with large repositories   
+# you should disable it, if you work with large repositories
 zstyle ':vcs_info:*' enable hg bzr svn git
 zstyle ':vcs_info:*:prompt:*' check-for-changes true
 if [ -n "$BROKEN_MULTIBYTE" ]; then
@@ -301,7 +301,7 @@ function __richo_vcs_init(){
     FMT_BRANCH="${REPO_COLOR}%b${PR_BRIGHT_CYAN}%u%c${PR_RESET}${PR_RED}%m${PR_RESET}"
     zstyle ':vcs_info:*:prompt:*' actionformats "${FMT_BRANCH}${FMT_ACTION}"
     zstyle ':vcs_info:*:prompt:*' formats       "${FMT_BRANCH}"
-    zstyle ':vcs_info:*:prompt:*' nvcsformats   ""                             "%~"        
+    zstyle ':vcs_info:*:prompt:*' nvcsformats   ""                             "%~"
 }
 function __richo_svn_init(){
     SVN_BRANCH="${REPO_COLOR}%b${PR_BRIGHT_CYAN}%u%c${PR_RESET}${PR_RED}%m${PR_RESET}"
@@ -380,7 +380,7 @@ alias changes="zstyle ':vcs_info:svn*+set-message:*' hooks svn-untimeduncommitte
 # FIXME!!!
 # This is horrid, and I'm clearly knackered. There /is/ an easier way to
 # replace the newlines with pipe symbols. There is.
-[ -e ~/.gitignore ] && 
+[ -e ~/.gitignore ] &&
     zstyle ':completion:*:*:git-add:*' ignored-patterns `grep -v "^#" ~/.gitignore | xargs echo | sed -e 's/ /|/g'`
 [ -e ~/.subversion/config ] &&
     zstyle ':completion:*:*:svn-add:*' ignored-patterns `grep "^global-ignores" ~/.subversion/config | sed -e 's/^.*= //' -e 's/ /|/g'`
