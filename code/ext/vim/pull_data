@@ -13,4 +13,5 @@ data="fugitive  git://github.com/tpope/vim-fugitive.git             git\
     gist      git://github.com/mattn/gist-vim.git                   git\
     matchit   git://github.com/vim-scripts/matchit.zip.git          git\
     nerd-tree git://github.com/vim-scripts/The-NERD-tree.git        git\
+    commentary git://github.com/tpope/vim-commentary.git            git\
     unimpaired git://github.com/tpope/vim-unimpaired.git            git"
