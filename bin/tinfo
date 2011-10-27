@@ -1,4 +1,13 @@
 #!/usr/bin/env python
+# Rich Healey '11 all rights reserved
+# Released under GPLv2 or WTFPL at your option
+#
+# TODO
+# - Get yo feature bloat on, colors if we're attached to a TTY
+# - port to ruby
+# - More attractive visually
+# - More intuitive options
+
 
 import os
 import sys
@@ -62,14 +71,14 @@ class TMuxInfo(object):
             self.ph = Watcher(ph)
     def out(self, msg):
         print >>self.output, msg
-    
+
     def parse_client_ind1(self, line): # {{{
         dat = Data()
         for key, val in zip(self.client_ind1_keys, self.client_ind1_re.match(line).groups()):
             setattr(dat, key, val)
         return dat
     #}}}
-    
+
     def build(self):
         while self.ph:
             if self.ph.line == os.linesep:
@@ -95,7 +104,7 @@ class TMuxInfo(object):
                 self.sessions[i].detached = False
             except IndexError:
                 continue
-    
+
     def handle_clients(self, h):
         data = {}
         while h.next() != os.linesep:
@@ -107,7 +116,7 @@ class TMuxInfo(object):
                 except KeyError:
                     data[client.sessno] = [Client(client)]
         self.clients = data
-    
+
     def parse_session_header(self, line): # {{{
         dat = Data()
         for key, val in zip(self.sess_header_keys, self.sess_header_re.match(line).groups()):
@@ -126,7 +135,7 @@ class TMuxInfo(object):
             setattr(dat, key, val)
         return dat
     #}}}
-    
+
     def handle_sessions(self, h):
         data = {}
         while h.next() != os.linesep:
@@ -146,7 +155,7 @@ class TMuxInfo(object):
         self.sessions = data
     def count_sessions(self):
         return len(self.sessions)
-    
+
     def dump(self):
         s = self.sessions
         c = self.clients
@@ -342,7 +351,7 @@ def main():
         tinfo.dump_func = dump_verbose
     else:
         tinfo.dump_func = dump
-    
+
     tinfo.build()
     if args.search:
         tinfo.search(' '.join(args.search))
