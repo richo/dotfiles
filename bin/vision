@@ -4,8 +4,8 @@ case $1 in
     day)
         xcalib -clear;;
     night)
-        xcalib -green 1 0 1 -alter
-        xcalib -blue 1 0 1 -alter
+        xcalib -green 1 4 1 -alter
+        xcalib -blue 1 4 1 -alter
         ;;
     *)
     echo "vision <night|day>" >&2
