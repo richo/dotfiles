@@ -267,9 +267,8 @@ nmap        <C-n> :tabnext<cr>
 nmap        <C-p> :tabprevious<cr>
 nmap        ]t    :tabnext<cr>
 nmap        [t    :tabprevious<cr>
-" Meta or shift here? I can't decide.
-nmap        <leader>n :tabnext<cr>
-nmap        <leader>p :tabPrevious<cr>
+
+nmap        \n    :set number!<cr>
 
 " Fuzzy Finder {{{
 "make it look like command-t at first
