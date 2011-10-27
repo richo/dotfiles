@@ -315,7 +315,12 @@ function! AFTERLOAD()
 " }}}
 endfunction
 autocmd FileType * call AFTERLOAD()
-autocmd BufWritePre * :%s/\s\+$//e
+function! FixWhiteSpaceAndReturn()
+    normal mz
+    :%s/\s\+$//e
+    normal `z
+endfunction
+autocmd BufWritePre * call FixWhiteSpaceAndReturn()
 
 command StatusDebug set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 command StatusNormal call AFTERLOAD()
