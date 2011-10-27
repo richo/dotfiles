@@ -326,6 +326,10 @@ autocmd BufNewFile,BufReadPost * if match(expand("%:p:h"), "/opencog") >= 0 && &
 " NERDtree hax
 map <leader>e :NERDTreeToggle<CR>
 
+" Falling in love with <leader> mappings here..
+map <leader>gc :Gcommit<CR>
+map <leader>gs :Gstatus<CR>
+
 " vsplits 'n shit
 map <leader>vgf :vertical wincmd f<CR>
 map <leader>wgf :wincmd f<CR>
