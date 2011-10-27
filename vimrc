@@ -1,18 +1,12 @@
 " .vimrc
 " Rich Healey 10-11
-" This file depends upon a few other bits and pieces. If you're using it and
-" it's throwing errors, commend out the blocks that are chucken em.
-"
-" You will want the following:
-"  - python_fn.vim
-"  http://www.vim.org/scripts/script.php?script_id=30
-"
-"  - brainfuck.vim - If you're silly enough to use brainfuck :)
-"  http://www.vim.org/scripts/script.php?script_id=716
-"
-"  - FuzzyFinder
-"  http://www.vim.org/scripts/script.php?script_id=1984
-"
+" A few of these mappings make assumptions about other plugins being
+" installed. It is one of my todo's to wrap them all in checks for
+" installedness, but in the meantime you can retrieve the script I use to pull
+" them all from
+" http://github.com/richoH/dotfiles
+" The datfile is in code/ext/vim/pull_data
+" and the script to retrieve them is in bin/pull_ext
 set nocompatible
 
 " Strangely this doesn't work properly unless declared early
@@ -193,7 +187,7 @@ function! MapSpaceInMakefile()
   endif
   return ""
 endfunction
-" }}} 
+" }}}
 
 " XML Hax {{{
 " http://vim.wikia.com/wiki/Vim_as_XML_Editor
@@ -278,7 +272,7 @@ nmap        <leader>n :tabnext<cr>
 nmap        <leader>p :tabPrevious<cr>
 
 " Fuzzy Finder {{{
-"make it look like command-t at first 
+"make it look like command-t at first
 nmap        <leader>t :FufFile<cr>
 "function! FufStart()
 "    if expand("%:p:h") == $HOME
@@ -345,6 +339,7 @@ function! GetTemplate(file)
   " TODO - Check that we're in a directory ending in php
   " - Warn
   "   V2) locate anyway
+  " TODO - Make this configurable
   return "templates/" . substitute(a:file, 'php', 'tpl', '')
 endfunction
 function! GotoTemplateC(action)
