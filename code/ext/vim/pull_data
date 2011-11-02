@@ -7,8 +7,9 @@ data="fugitive  git://github.com/tpope/vim-fugitive.git             git\
     rails-vim   git://github.com/tpope/vim-rails.git                git\
     rvm-vim    git://github.com/tpope/vim-rvm.git                   git\
     jellybeans git@github.com:richoH/jellybeans.vim.git             git\
-    fuzzy-finder git://github.com/vim-scripts/FuzzyFinder.git       git\
+    fuzzy-finder git://github.com/richoH/FuzzyFinder.git            git\
     comment-object git@github.com:ConradIrwin/vim-comment-object.git git\
+    markdown git://github.com/plasticboy/vim-markdown.git           git\
     l9        git://github.com/vim-scripts/L9.git                   git\
     gist      git://github.com/mattn/gist-vim.git                   git\
     matchit   git://github.com/vim-scripts/matchit.zip.git          git\
