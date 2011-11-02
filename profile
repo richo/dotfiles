@@ -71,6 +71,7 @@ if [ "$SHLVL" -eq 1 ]; then
         "Darwin")
             export PLATFORM="DARWIN"
             export LSCOLORS=$bsd_dircolors
+            export WIN_E=yes
             sHost=`hostname -s`
             ;;
         "MINGW32_NT-6.1")
