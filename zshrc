@@ -66,6 +66,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt sharehistory
 setopt histignoredups
+setopt clobber
 bindkey '^R' history-incremental-search-backward
 bindkey -v
 [ -n "$TTY" ] &&
