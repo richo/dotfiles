@@ -210,12 +210,21 @@ command! SVNa !svn add %
 " Also, doesn't show hostname on remotes
 let g:win_title = $t_prefix
 let g:m_title = ''
+function! GetTitle()
+    if filereadable(".title")
+        let g:m_title=system("cat .title")
+        "let g:m_title += ": "
+    endif
+    call UpT()
+endfunction
+au BufNew * call GetTitle()
+
 function! UpT()
     " Set this up to ignore some dud expansions like NERD*
     let &titlestring = g:m_title . g:win_title . expand("%:t")
 endfunction
-
 au BufEnter * call UpT()
+
 if $INSCREEN != "" && $USER != "root"
     "This is profoundly broken if we're not in screen.
     set t_ts=k
