@@ -18,24 +18,40 @@ Rxvt*inheritPixmap: true
 URxvt*tintColor: white
 URxvt*shading: 20
 
-# COLORS HAX
+# black
 Rxvt*color0:    #222222
+# red
 Rxvt*color1:    #a80000
+# green
 Rxvt*color2:    #00a800
+# yellow
 Rxvt*color3:    #a8a800
+# blue
 Rxvt*color4:    #3333a8
+# magenta
 Rxvt*color5:    #a800a8
+# cyan
 Rxvt*color6:    #00a8a8
+# white
 Rxvt*color7:    #a8a8a8
 
+# bright black
 Rxvt*color8:    #545454
+# bright red
 Rxvt*color9:    #ff0054
+# bright green
 Rxvt*color10:   #00ff54
+# bright yellow
 Rxvt*color11:   #ffff54
+# bright blue
 Rxvt*color12:   #5555ff
+# bright magenta
 Rxvt*color13:   #ff00ff
+# bright cyan
 Rxvt*color14:   #00ffff
+# bright white
 Rxvt*color15:   #ffffff
+
 # Such an epic kludge.
 Rxvt*title:zsh
 
