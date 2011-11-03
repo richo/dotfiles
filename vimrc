@@ -336,6 +336,8 @@ map <leader>e :NERDTreeToggle<CR>
 map <leader>gc :Gcommit<CR>
 map <leader>gs :Gstatus<CR>
 
+map <leader>tt :!ctags -R .<CR>
+
 " vsplits 'n shit
 map <leader>vgf :vertical wincmd f<CR>
 map <leader>wgf :wincmd f<CR>
