@@ -99,13 +99,6 @@ function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort "{{{
   " of a highlighting group, which breaks the rule as per vanilla in the wiki.
 endfunction "}}}
 
-" This is probably ready to go now we've left CT
-"{{{ CT Stuffs
-" Hax for editing the vb formula files I used.
-autocmd BufRead *.form set ft=vb
-autocmd BufRead *.vb set ft=vb
-"}}}
-
 "Python Trickery {{{
 " This is a hack for sql files that define plpython functions
 " .plpy is probably a better extension now I think of it...
