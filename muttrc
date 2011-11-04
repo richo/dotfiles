@@ -39,7 +39,7 @@ unset fcc_attach
 unset reply_self
 # Include full headers in replies
 # set header
-#set hostname - if not machine name (uname -a) 
+#set hostname - if not machine name (uname -a)
 #will be used for - among other things - making
 #up message-ids
 #set hostname="hostname.example.com"
@@ -58,9 +58,9 @@ set mime_forward=ask-yes
 # set pager=mutt.view
 set edit_headers
 # Use vim as the editor - this line will wrap
-# Set wordwrap on in vim to automatically wrap lines - 
+# Set wordwrap on in vim to automatically wrap lines -
 # no :gq all the time
-set editor="vim +':set textwidth=77' +':set wrap' +\`awk '/^$/ {print i+2; exit} {i++}' %s\` %s" 
+set editor="vim +':set textwidth=77' +':set wrap' +\`awk '/^$/ {print i+2; exit} {i++}' %s\` %s"
 #set visual=vim                 # editor invoked by ~v in the builtin editor
 # set format=flowed
 set text_flowed
@@ -167,8 +167,8 @@ set pgp_encrypt_sign_command="/usr/lib/mutt/pgpewrap gpg --passphrase-fd 0 --bat
 set pgp_import_command="gpg --no-verbose --import -v %f"
 set pgp_export_command="gpg --no-verbose --export --armor %r"
 set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
-set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
-set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
+set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r"
+set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r"
 set pgp_autosign=yes
 set pgp_auto_decode=yes
 set pgp_sign_as=0x89E72415
