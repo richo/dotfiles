@@ -1,0 +1,21 @@
+#!/bin/sh
+MUTT=$(which -a mutt | grep -v $0 | head -n 1)
+if [ -z $MUTT ]; then
+    echo "Install Mutt!!!"
+    exit 1
+fi
+if [ -z "$1" ]; then
+    echo "usage: mutt ACCOUNT [mutt options]"
+    exit
+fi
+acct=$1
+shift
+
+if [ ! -e ~/.mutt/accounts/${acct}.conf ]; then
+    echo "No such account configured"
+    exit
+fi
+
+
+eval $(gpg -r $KEY --decrypt ~/.mutt/passwords.gpg)
+exec $MUTT -F ~/.mutt/accounts/${acct}.conf $@
