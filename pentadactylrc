@@ -5,8 +5,13 @@ set! extensions.checkCompatibility.nightly=false
 set guioptions=bCrs
 set popups=tab,resized
 
+set editor=gvim -f
+
 set! browser.tabs.closeWindowWithLastTab=false
 set autocomplete=
+
+" Similar to Vimium's option to disable for a given site
+"set passkeys+='https://mail\.google\.com':xsem!#rRaAvN[]{}z.IU=-gidac/?lujkonp
 
 map <C-q> <Nop>
 
