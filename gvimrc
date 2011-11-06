@@ -2,10 +2,6 @@ color jellybeans
 set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
 ":cANSI
 
-" If you :source config again, it resizes to small. Wrap it with include
-" protection
-set columns=120
-set lines=40
 
 set guioptions-=r
 set guioptions-=m
@@ -27,3 +23,13 @@ nmap        <C-S-Tab> :tabprev<cr>
 if has("gui_macvim")
     set transparency=5
 endif
+
+" XXX Important, code here and below will only be evaluated on first boot.
+" Don't make changes that should be loaded again here
+if exists('g:resized_terminal') || &cp
+    finish
+endif
+
+let g:resized_terminal = 1
+set columns=120
+set lines=40
