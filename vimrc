@@ -113,7 +113,7 @@ au BufRead,BufNewFile *.py{c,w,o,x} set ft=python
 
 " HAML hax {{{
 " Haml likes indents of 2 spaces, just like our ruby.
-au FileType haml call CONFIGRUBY()
+au FileType haml call CONFIGHAML()
 " }}}
 
 " Brainfuck hax {{{
@@ -142,6 +142,13 @@ function! CONFIGRUBY()
     set ts=2
     set sw=2
 endfunction
+function! CONFIGHAML()
+    inoremap { {}<Esc>i
+    inoremap ( ()<Esc>i
+    inoremap [ []<Esc>i
+    inoremap " ""<Esc>i
+    inoremap ' ''<Esc>i
+    call CONFIGRUBY()
 endfunction
 function! RESTARTRAILSAPP()
     if ExecutableOrWarn("restart_rails")
