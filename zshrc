@@ -137,8 +137,10 @@ function __richo_preexec() # {{{
             arg=`sed $sed_r -e 's/^(be|bundle exec)/BE:/' <<< $1`
             ;;
         "./serve"*) # Special case
-            arg="`basename $PWD`: serve";;
-
+            arg="serve"
+            if [ -z "$t_prefix" ] &&
+                arg="`basename $PWD`: $arg"
+            ;;
         "cd"*|"ls"*|"cp"*|"mv"*|"echo"*|"wiki"*|"screen"*|"dig"*|"rm"*|"mkdir"*|"tinfo"*)
             reTITLE=""
             return ;;
