@@ -25,6 +25,11 @@ which xflux > /dev/null && xflux -l 37 -g 150
 if [ `uname -s` != 'Darwin' ]; then
     which trayer > /dev/null && trayer --edge top --align right --alpha 255 --transparent true --widthtype request &
     urxvtd &
+    if [ -z "$RICHOWM" ]; then
+        echo "\$RICHOWM is unset, shit ain't gunna work"
+        exit
+    fi
+
     ssh-agent $RICHOWM
 fi
 # vim: ft=sh
