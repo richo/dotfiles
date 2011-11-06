@@ -164,9 +164,6 @@ function __richo_preexec() # {{{
             arg=$1;;
         "watchr"*)
             arg="WATCHR";;
-        "./deploy.sh"*)
-            arg=$(sed $sed_r -e 's/^\.\/deploy.sh/deploy:/' -e 's/114\.111\.139\.//' -e 's|/var/www/||g' <<< $1);;
-
         # For Source control I want the whole line, I think...
         "svn"*|"git"*|"hg"*|"cvs"*)
             arg=$1;;
