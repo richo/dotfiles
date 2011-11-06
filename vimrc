@@ -107,7 +107,6 @@ endfunction "}}}
 function! CONFIGPYSQL()
     set ft=sql
     call TextEnableCodeSnip('python', '#@<py', '#@</py', 'SpecialComment' )
-    command! Mtags call PYTHONTAGS()
 endfunction
 au BufRead,BufNewFile *.py{c,w,o,x} set ft=python
 "}}}
@@ -142,13 +141,7 @@ au BufNewFile,BufRead *.prawn set filetype=ruby
 function! CONFIGRUBY()
     set ts=2
     set sw=2
-    command! Mtags call RUBYTAGS()
 endfunction
-function! RUBYTAGS()
-    if call ExecutableOrWarn("rbtags")
-        silent !rbtags
-        redraw!
-    end
 endfunction
 function! RESTARTRAILSAPP()
     if ExecutableOrWarn("restart_rails")
