@@ -5,7 +5,7 @@ set! extensions.checkCompatibility.nightly=false
 set guioptions=bCrs
 set popups=tab,resized
 
-set editor=gvim -f
+set editor='gvim -f'
 
 set! browser.tabs.closeWindowWithLastTab=false
 set autocomplete=
