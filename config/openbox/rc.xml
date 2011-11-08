@@ -266,11 +266,6 @@
         <command>sudo s2disk-wrapper</command>
       </action>
     </keybind>
-    <keybind key="C-A-W-0xED">
-      <action name="Execute">
-        <command>sudo shutdown-wrapper</command>
-      </action>
-    </keybind>
     <!-- Lock screen -->
     <keybind key="W-0xD4">
       <action name="Execute">
