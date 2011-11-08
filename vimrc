@@ -379,6 +379,7 @@ map <leader>sgt :call GotoTemplateC("split")<cr>
 map <leader>c :checktime <CR>
 " Not sure about this, although I pretty rarely type jj afaik
 inoremap jj <ESC>
+inoremap JJ <Esc>A
 
 " {{{ Project finding kludges
 function! StartCoding()
