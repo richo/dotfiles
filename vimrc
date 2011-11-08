@@ -205,8 +205,7 @@ let g:win_title = $t_prefix
 let g:m_title = ''
 function! GetTitle()
     if filereadable(".title")
-        let g:m_title=system("cat .title")
-        "let g:m_title += ": "
+        let g:m_title=readfile('.title', '', 1)[0] . ": "
     endif
     call UpT()
 endfunction
