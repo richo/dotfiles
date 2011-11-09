@@ -213,7 +213,9 @@ au BufNew * call GetTitle()
 
 function! UpT()
     " Set this up to ignore some dud expansions like NERD*
-    let &titlestring = g:m_title . g:win_title . expand("%:t")
+    if expand("%:t") !~ 'NERD_tree'
+        let &titlestring = g:m_title . g:win_title . expand("%:t")
+    endif
 endfunction
 au BufEnter * call UpT()
 
