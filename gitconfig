@@ -66,3 +66,7 @@
     autosetupmerge = true
 [advice]
     statusHints = false
+[diff]
+	guitool = gvimdiff
+[difftool]
+	prompt = false
