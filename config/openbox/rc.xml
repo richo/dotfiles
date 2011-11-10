@@ -215,6 +215,36 @@
         <desktop>4</desktop>
       </action>
     </keybind>
+    <!-- Keybindings for resizing, ala divvy -->
+    <keybind key="W-h">
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <height>99%</height>
+        <width>50%</width>
+      </action>
+    </keybind>
+    <keybind key="W-j">
+      <action name="MoveResizeTo">
+        <y>-0</y>
+        <height>50%</height>
+        <width>100%</width>
+      </action>
+    </keybind>
+    <keybind key="W-k">
+      <action name="MoveResizeTo">
+        <y>0</y>
+        <height>50%</height>
+        <width>100%</width>
+      </action>
+    </keybind>
+    <keybind key="W-l">
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <height>99%</height>
+        <width>50%</width>
+      </action>
+    </keybind>
+
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
       <action name="Close"/>
