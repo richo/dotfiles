@@ -5,6 +5,7 @@ import sys
 import random
 
 DEFAULT_EMAIL="richo || Today's excuse: "
+DEFAULT_FOOTER="http://blog.psych0tik.net"
 def generate_excuse(filename=None):
     try:
         excuses_f = open(os.environ["EXCUSES_FILE"], 'r')
@@ -53,7 +54,7 @@ if sys.version_info < (2, 7):
             exit(0)
         # Even though I'm losing the exception trace I'm not too concerned,
         # pretty sure I know what's going on.
-    
+
 import textwrap
 import argparse
 
@@ -61,7 +62,7 @@ parser = argparse.ArgumentParser(description="Print a random entry from the excu
 parser.add_argument('-w', '--width', dest='width', action='store', type=int,
         default=False,
         help="Wrap formats to n characters")
-parser.add_argument('-e', '--email', dest='email', action='store_true', 
+parser.add_argument('-e', '--email', dest='email', action='store_true',
         default=False,
         help="Print a brief message suitable for an email signature above the fortune")
 parser.add_argument('-m', '--message', dest='message', action='store', type=str,
@@ -88,6 +89,8 @@ def main():
             print(i)
     else:
         print(excuse)
+    if args.email:
+        print(DEFAULT_FOOTER)
 
 
 if __name__ == "__main__":
