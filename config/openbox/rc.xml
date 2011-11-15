@@ -22,9 +22,6 @@
     <!-- when followMouse is enabled, and a window is given focus by moving the
        mouse into it, also raise the window -->
     <!-- __NOTE__ This depends upon you running my fork -->
-    <mouseToFocus>yes</mouseToFocus>
-    <!-- when focus is changed via alt-tab (or any change of focus event...)
-       move the mouse to the center of the new window -->
   </focus>
   <placement>
     <policy>Smart</policy>
@@ -222,6 +219,7 @@
         <height>99%</height>
         <width>50%</width>
       </action>
+      <action name="Warp"/>
     </keybind>
     <keybind key="W-j">
       <action name="MoveResizeTo">
@@ -229,6 +227,7 @@
         <height>50%</height>
         <width>100%</width>
       </action>
+      <action name="Warp"/>
     </keybind>
     <keybind key="W-k">
       <action name="MoveResizeTo">
@@ -236,6 +235,7 @@
         <height>50%</height>
         <width>100%</width>
       </action>
+      <action name="Warp"/>
     </keybind>
     <keybind key="W-l">
       <action name="MoveResizeTo">
@@ -243,6 +243,7 @@
         <height>99%</height>
         <width>50%</width>
       </action>
+      <action name="Warp"/>
     </keybind>
 
     <!-- Keybindings for windows -->
@@ -277,16 +278,15 @@
       </action>
     </keybind>
     <!-- Keybindings for window switching -->
-    <keybind key="A-Tab">
-      <action name="NextWindow"/>
-    </keybind>
     <keybind key="A-S-Tab">
       <action name="PreviousWindow"/>
     </keybind>
-    <keybind key="C-A-Tab">
+    <keybind key="A-Tab">
       <action name="NextWindow">
         <finalactions>
+          <action name="Warp"/>
           <action name="Focus"/>
+          <action name="Raise"/>
         </finalactions>
       </action>
     </keybind>
