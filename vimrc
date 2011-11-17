@@ -268,8 +268,6 @@ nnoremap    <C-a> <C-w>
 " Tab support?
 nmap        <C-n> :tabnext<cr>
 nmap        <C-p> :tabprevious<cr>
-nmap        ]t    :tabnext<cr>
-nmap        [t    :tabprevious<cr>
 
 nmap        \n    :set number!<cr>
 
