@@ -400,7 +400,11 @@ fi
 
 if [ -n "$WIN_E" ]; then
     unset WIN_E
+
+    tty | grep "/0$" > /dev/null &&
+        [ -n =music_watch ] &&
+            music_watch -t &!
+
     __richo_tmux_hook
-    tmux #&&
-         # exit # Should we bail when we finish up?
+    tmux
 fi
