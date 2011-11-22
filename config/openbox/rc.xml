@@ -344,6 +344,15 @@
         <command>env WIN_E=true urxvtc</command>
       </action>
     </keybind>
+    <keybind key="W-t">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>zsh</name>
+        </startupnotify>
+        <command>urxvtc</command>
+      </action>
+    </keybind>
     <keybind key="W-v">
       <action name="Execute">
         <startupnotify>
