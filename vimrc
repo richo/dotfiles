@@ -143,11 +143,11 @@ function! CONFIGRUBY()
     set sw=2
 endfunction
 function! CONFIGHAML()
-    inoremap { {}<Esc>i
-    inoremap ( ()<Esc>i
-    inoremap [ []<Esc>i
-    inoremap " ""<Esc>i
-    inoremap ' ''<Esc>i
+    " inoremap { {}<Esc>i
+    " inoremap ( ()<Esc>i
+    " inoremap [ []<Esc>i
+    " inoremap " ""<Esc>i
+    " inoremap ' ''<Esc>i
     call CONFIGRUBY()
 endfunction
 function! RESTARTRAILSAPP()
