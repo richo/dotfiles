@@ -333,6 +333,7 @@ autocmd BufNewFile,BufReadPost * if match(expand("%:p:h"), "/opencog") >= 0 && &
 
 " NERDtree hax
 map <leader>e :NERDTreeToggle<CR>
+map <leader>ge :NERDTreeFind<CR>
 
 " Falling in love with <leader> mappings here..
 map gc :Gcommit<CR>
