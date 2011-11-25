@@ -216,7 +216,7 @@
     <keybind key="W-h">
       <action name="MoveResizeTo">
         <x>0</x>
-        <height>99%</height>
+        <height>98%</height>
         <width>50%</width>
       </action>
       <action name="Warp"/>
@@ -240,7 +240,7 @@
     <keybind key="W-l">
       <action name="MoveResizeTo">
         <x>-0</x>
-        <height>99%</height>
+        <height>98%</height>
         <width>50%</width>
       </action>
       <action name="Warp"/>
