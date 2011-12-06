@@ -1,4 +1,9 @@
 [ -e .xinitrc.local ] && ./.xinitrc.local
+
+# Consider just whacking a massief case statement in here and then fixing up
+# the screen in here. Seems saner, in some ways
+[ -e .xinit.xrandr ] && ./.xinit.xrandr
+
 xset +fp $(echo $HOME/.fonts)
 
 if [ -e ~/.xcalib.$sHost ]; then
@@ -19,6 +24,10 @@ fi
 which xscreensaver > /dev/null && xscreensaver -no-splash &
 which xcompmgr > /dev/null && xcompmgr &
 which xflux > /dev/null && xflux -l 37 -g 150
+
+# if [ -f ~/.synergy.conf ] && which synergys >/dev/null; then
+#     synergys --daemon --restart
+# fi
 
 # This is a mad hideous Darwin kludge, because for some reason it doesn't hand
 # my environment in
