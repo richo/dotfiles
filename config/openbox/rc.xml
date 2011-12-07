@@ -212,39 +212,6 @@
         <desktop>4</desktop>
       </action>
     </keybind>
-    <!-- Keybindings for resizing, ala divvy -->
-    <keybind key="W-h">
-      <action name="MoveResizeTo">
-        <x>0</x>
-        <height>98%</height>
-        <width>50%</width>
-      </action>
-      <action name="Warp"/>
-    </keybind>
-    <keybind key="W-j">
-      <action name="MoveResizeTo">
-        <y>-0</y>
-        <height>50%</height>
-        <width>100%</width>
-      </action>
-      <action name="Warp"/>
-    </keybind>
-    <keybind key="W-k">
-      <action name="MoveResizeTo">
-        <y>0</y>
-        <height>50%</height>
-        <width>100%</width>
-      </action>
-      <action name="Warp"/>
-    </keybind>
-    <keybind key="W-l">
-      <action name="MoveResizeTo">
-        <x>-0</x>
-        <height>98%</height>
-        <width>50%</width>
-      </action>
-      <action name="Warp"/>
-    </keybind>
 
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
@@ -363,10 +330,81 @@
       </action>
     </keybind>
     <keybind key="W-Escape">
-      <action name="Close"/>
-    </keybind>
-    <keybind key="W-f">
-      <action name="ToggleMaximizeFull"/>
+      <keybind key="q">
+        <action name="Close"/>
+      </keybind>
+      <!-- Keybindings for resizing, ala divvy -->
+      <keybind key="h">
+        <action name="MoveResizeTo">
+          <x>0</x>
+          <height>98%</height>
+          <width>50%</width>
+        </action>
+        <action name="Warp"/>
+      </keybind>
+      <keybind key="S-h">
+        <action name="MoveResizeTo">
+          <x>0</x>
+          <height>98%</height>
+          <width>66%</width>
+        </action>
+        <action name="Warp"/>
+      </keybind>
+
+      <keybind key="j">
+        <action name="MoveResizeTo">
+          <y>-0</y>
+          <height>50%</height>
+          <width>100%</width>
+        </action>
+        <action name="Warp"/>
+      </keybind>
+      <keybind key="S-j">
+        <action name="MoveResizeTo">
+          <y>-0</y>
+          <height>66%</height>
+          <width>100%</width>
+        </action>
+        <action name="Warp"/>
+      </keybind>
+
+      <keybind key="k">
+        <action name="MoveResizeTo">
+          <y>0</y>
+          <height>50%</height>
+          <width>100%</width>
+        </action>
+        <action name="Warp"/>
+      </keybind>
+      <keybind key="S-k">
+        <action name="MoveResizeTo">
+          <y>0</y>
+          <height>66%</height>
+          <width>100%</width>
+        </action>
+        <action name="Warp"/>
+      </keybind>
+
+      <keybind key="l">
+        <action name="MoveResizeTo">
+          <x>-0</x>
+          <height>98%</height>
+          <width>50%</width>
+        </action>
+        <action name="Warp"/>
+      </keybind>
+      <keybind key="S-l">
+        <action name="MoveResizeTo">
+          <x>-0</x>
+          <height>98%</height>
+          <width>66%</width>
+        </action>
+        <action name="Warp"/>
+      </keybind>
+
+      <keybind key="f">
+        <action name="ToggleMaximizeFull"/>
+      </keybind>
     </keybind>
   </keyboard>
   <mouse>
