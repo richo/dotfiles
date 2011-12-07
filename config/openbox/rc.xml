@@ -166,6 +166,9 @@
     <!-- 'Left', 'Middle', 'Right' -->
   </dock>
   <keyboard>
+    <keybind key="W-z" chroot="true">
+      <keybind key="W-z"><action name="BreakChroot"/></keybind>
+    </keybind>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
     <keybind key="W-A-Left">
