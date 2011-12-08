@@ -260,6 +260,14 @@
         </finalactions>
       </action>
     </keybind>
+    <keybind key="W-A-Tab">
+      <action name="NextWindow">
+        <finalactions>
+          <action name="Warp"/>
+          <action name="Focus"/>
+        </finalactions>
+      </action>
+    </keybind>
     <!-- Suspend button -->
     <keybind key="C-A-W-0xEE">
       <action name="Execute">
