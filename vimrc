@@ -385,6 +385,9 @@ map <leader>c :checktime <CR>
 inoremap jj <ESC>
 inoremap JJ <Esc>A
 
+" I'm suggesting this is pretty safe
+inoremap <% <%  %><Esc>hhi
+
 " {{{ Project finding kludges
 function! StartCoding()
     let l:dir = expand("$HOME/code/ext")
