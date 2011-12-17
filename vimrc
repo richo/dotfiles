@@ -20,11 +20,9 @@ set ff=unix
 set wildmode=longest,list,full
 set wildmenu
 
-" Show what we've changed in this set of edits
-" I stole this from someone, I forget who. Probably freenode/#vim
-" If it's you let me know.
-command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-        \ | wincmd p | diffthis
+" From the sample vimrc, brought to my attention by Thilo Six
+command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+		  \ | wincmd p | diffthis
 
 " Highlight lines longer than 80 chars.
 " I just flick this on if I'm writing docs or emails, generally.
