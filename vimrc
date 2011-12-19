@@ -349,16 +349,24 @@ map <leader>vt :vsp<cr>
 
 " Goto template {{{
 function! GetTemplate(file)
-  " TODO - Check that we're in a directory ending in php
-  " - Warn
-  "   V2) locate anyway
   " TODO - Make this configurable
   return "templates/" . substitute(a:file, 'php', 'tpl', '')
 endfunction
+function! GetJavsacript(file)
+  " TODO - Make this configurable
+  return "Javascript/" . substitute(a:file, 'php', 'js', '')
+endfunction
+
 function! GotoTemplateC(action)
   let template = GetTemplate(expand("%"))
   execute a:action . " " . template
 endfunction
+
+function! GotoJavascriptC(action)
+  let template = GetJavsacript(expand("%"))
+  execute a:action . " " . template
+endfunction
+
 function! GotoTemplateF(action)
   normal "byiw
   let template = GetTemplate(@b)
@@ -369,6 +377,10 @@ map <leader>gt :call GotoTemplateC("edit")<cr>
 map <leader>vgt :call GotoTemplateC("vsplit")<cr>
 map <leader>tgt :call GotoTemplateC("tabedit")<cr>
 map <leader>sgt :call GotoTemplateC("split")<cr>
+map <leader>gj :call GotoJavascriptC("edit")<cr>
+map <leader>vgj :call GotoJavascriptC("vsplit")<cr>
+map <leader>tgj :call GotoJavascriptC("tabedit")<cr>
+map <leader>sgj :call GotoJavascriptC("split")<cr>
 " File under cursor
 " These do work.. kinda. Honestly I don't think it's ready.
 " map <leader>gft :call GotoTemplateF("edit")<cr>
