@@ -108,7 +108,6 @@ fi
 export rTITLE
 
 export sTITLE="$(basename $SHELL)"
-alias RR="restart_rails"
 alias WATCHR='ruby watchr.rb | grep -Ei "FAIL|ERROR" | grep -v "fail: 0,  error: 0"'
 alias be="bundle exec"
 alias brxvt='urxvt -name BigRxvt'
