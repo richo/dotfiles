@@ -13,8 +13,8 @@ set guioptions+=c
 set noballooneval
 
 " Make pretend like we're a urxvt
-imap <M-C-p> <esc>"*pa
-nmap <M-C-p> "*p
+imap <M-C-p> <C-r>*
+nmap <M-C-p> i<C-r>*<esc>
 cmap <M-C-p> <C-r>*
 " This doesn't work in a console, makes sense to only bind it in gvim
 nmap        <C-Tab> :tabnext<cr>
