@@ -316,6 +316,9 @@ function! AFTERLOAD()
 endfunction
 autocmd FileType * call AFTERLOAD()
 function! FixWhiteSpaceAndReturn()
+    if expand('%') == '.git/addp-hunk-edit.diff'
+        return
+    endif
     normal mz
     :%s/\s\+$//e
     normal `z
