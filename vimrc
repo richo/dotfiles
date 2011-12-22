@@ -66,6 +66,8 @@ set sw=4
 set backspace=indent
 set ffs=unix,dos
 
+let g:fugitive_abbreviate_branches = '2'
+
 " Hax to let us have multiple highlights within a single file
 " http://vim.wikia.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
 " This took me so long to find and get working properly.
@@ -296,6 +298,14 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 
+if exists('g:fugitive_abbreviate_branches')
+  if ! match(g:fugitive_abbreviate_branches, '^[0-9]+')
+    " Spit out a warning about invalid values?
+    let g:fugitive_abbreviate_branches = '1'
+  endif
+  let g:abbreviate_pattern = '\(Git(\)\?\([0-9A-Za-z_-]\{1,' . g:fugitive_abbreviate_branches . '}\)[^/]*/'
+endif
+
 " I believe this should effectively be a hook that runs after all loads
 function! AFTERLOAD()
 " {{{ Fugitive kludges
@@ -305,7 +315,12 @@ function! AFTERLOAD()
     set statusline=%f\ %h%m%r
     set laststatus=2
     if exists('g:loaded_fugitive')
-        set statusline+=%{fugitive#statusline()}
+        if exists('g:abbreviate_pattern')
+            " let status = substitute(status, g:abbreviate_pattern, '\1/', 'g')
+            set statusline+=%{substitute(fugitive#statusline(),g:abbreviate_pattern,'\\1\\2/','g')}
+        else
+            set statusline+=%{fugitive#statusline()}
+        endif
     endif
     if exists('g:loaded_rvm')
         set statusline+=%<%{rvm#statusline()}
