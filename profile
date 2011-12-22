@@ -54,7 +54,6 @@ if [ "$SHLVL" -eq 1 ]; then
         "FreeBSD")
             export PLATFORM="FREEBSD"
             export LSCOLORS=$bsd_dircolors
-            export BROKEN_MULTIBYTE="yes"
             sHost=`hostname -s`
             ;;
         "Linux")
@@ -64,7 +63,6 @@ if [ "$SHLVL" -eq 1 ]; then
         "OpenBSD")
             export PLATFORM="OPENBSD"
             export LSCOLORS=$bsd_dircolors
-            export BROKEN_MULTIBYTE="yes"
             sHost=`hostname -s`
             ;;
         "Darwin")

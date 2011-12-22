@@ -281,20 +281,15 @@ fi
 # %S - path in the repository
 REPO_COLOR=${PR_CYAN}
 #                                               ^^ HAX?
-#                                               # e.g. master¹²
+#                                               # e.g. masterÂ¹Â²
 FMT_ACTION="(${PR_CYAN}%a${PR_RESET}%)"   # e.g. (rebase-i)
 
 # check-for-changes can be really slow.
 # you should disable it, if you work with large repositories
 zstyle ':vcs_info:*' enable hg bzr svn git
 zstyle ':vcs_info:*:prompt:*' check-for-changes true
-if [ -n "$BROKEN_MULTIBYTE" ]; then
-    zstyle ':vcs_info:*:prompt:*' unstagedstr '�'  # display � if there are unstaged changes
-    zstyle ':vcs_info:*:prompt:*' stagedstr '�'    # display � if there are staged changes
-else
-    zstyle ':vcs_info:*:prompt:*' unstagedstr '¹'  # display � if there are unstaged changes
-    zstyle ':vcs_info:*:prompt:*' stagedstr '²'    # display � if there are staged changes
-fi
+zstyle ':vcs_info:*:prompt:*' unstagedstr '¹'  # display ¹ if there are unstaged changes
+zstyle ':vcs_info:*:prompt:*' stagedstr '²'    # display ² if there are staged changes
 # Save this for later ³
 # TODO - Show something if I have unpushed changes.
 function __richo_vcs_init(){
