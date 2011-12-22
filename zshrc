@@ -43,6 +43,19 @@ function __richo_host()
     echo "$sHost[0,-$n]"
 }
 
+function __richo_prompt()
+{
+    if hg root >/dev/null 2>&1; then
+        echo "☿"
+        return
+    fi
+    if git branch >/dev/null 2>&1; then
+        echo "±"
+        return
+    fi
+    echo "%#"
+}
+
 function __richo_rvm_version()
 {
     local v=$(rvm-prompt v g)
@@ -53,7 +66,7 @@ function __richo_rvm_version()
     fi
 }
 
-PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE%# $PR_RESET"
+PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE\$(__richo_prompt) $PR_RESET"
 RPS1="$PR_BRIGHT_BLUE%~ "
 which rvm-prompt > /dev/null &&
     RPS1+='$PR_BRIGHT_CYAN($(__richo_rvm_version)) '
