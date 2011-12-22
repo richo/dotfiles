@@ -308,7 +308,7 @@ function! AFTERLOAD()
         set statusline+=%{fugitive#statusline()}
     endif
     if exists('g:loaded_rvm')
-        set statusline+=%{rvm#statusline()}
+        set statusline+=%<%{rvm#statusline()}
     endif
     set statusline+=%=%-5.(%l,%c%V%)\ %P
 
