@@ -342,8 +342,8 @@ autocmd BufWritePre * call FixWhiteSpaceAndReturn()
 " Kludge to put titles back after using fugitive to commit
 autocmd BufWritePost COMMIT_EDITMSG set title
 
-command StatusDebug set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-command StatusNormal call AFTERLOAD()
+command! StatusDebug set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+command! StatusNormal call AFTERLOAD()
 
 autocmd BufNewFile,BufReadPost * if match(expand("%:p:h"), "/opencog") >= 0 && &filetype == "cpp" | set ts=4 sw=4 tw=80 ff=unix cindent expandtab | endif
 
