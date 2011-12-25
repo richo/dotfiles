@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# templated from https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+
+PR_BLACK='\e[0;30' # Black - Regular
+PR_RED='\e[0;31' # Red
+PR_GREEN='\e[0;32' # Green
+PR_YELLOW='\e[0;33' # Yellow
+PR_BLUE='\e[0;34m' # Blue
+PR_MAGENTA='\e[0;35' # Purple
+PR_CYAN='\e[0;36' # Cyan
+PR_WHITE='\e[0;37' # White
+PR_BRIGHT_BLACK='\e[1;30' # Black - Bold
+PR_BRIGHT_RED='\e[1;31' # Red
+PR_BRIGHT_GREEN='\e[1;32' # Green
+PR_BRIGHT_YELLOW='\e[1;33' # Yellow
+PR_BRIGHT_BLUE='\e[1;34' # Blue
+PR_BRIGHT_MAGENTA='\e[1;35' # Purple
+PR_BRIGHT_CYAN='\e[1;36' # Cyan
+PR_BRIGHT_WHITE='\e[1;37' # White
+PR_RESET='\e[0'    # Text Reset
