@@ -234,6 +234,8 @@ add-zsh-hook preexec __richo_preexec
 
 function __richo_chpwd() # {{{
 {
+    [ -f .gitignore ] &&
+        __git_ignore_hook
     # Clear title if we're going home
     if [ "$PWD" = "$HOME" ]; then
         export t_prefix=""
@@ -388,10 +390,20 @@ alias changes="zstyle ':vcs_info:svn*+set-message:*' hooks svn-untimeduncommitte
 # FIXME!!!
 # This is horrid, and I'm clearly knackered. There /is/ an easier way to
 # replace the newlines with pipe symbols. There is.
-[ -e ~/.gitignore ] &&
-    zstyle ':completion:*:*:git-add:*' ignored-patterns `grep -v "^#" ~/.gitignore | xargs echo | sed -e 's/ /|/g'`
-[ -e ~/.subversion/config ] &&
-    zstyle ':completion:*:*:svn-add:*' ignored-patterns `grep "^global-ignores" ~/.subversion/config | sed -e 's/^.*= //' -e 's/ /|/g'`
+function __git_ignore_hook() #{{{
+{
+    local global_ignore=`grep -v "^#" ~/.gitignore | xargs echo | sed -e 's/ /|/g'`
+    [ -f .gitignore ] &&
+        global_ignore+="|`grep -v "^#" .gitignore | xargs echo | sed -e 's/ /|/g'`"
+    zstyle ':completion:*:*:git-add:*' ignored-patterns $global_ignore
+}
+[ -f ~/.gitignore ] &&
+    __git_ignore_hook #}}}
+
+[ -f ~/.subversion/config ] &&
+    zstyle ':completion:*:*:svn-add:*' ignored-patterns \
+        `grep "^global-ignores" ~/.subversion/config | sed -e 's/^.*= //' -e 's/ /|/g'`
+
 zstyle ':completion:*:*:vim:*' ignored-patterns '*.o|*.pyc'
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:*:kill:*' menu yes select
