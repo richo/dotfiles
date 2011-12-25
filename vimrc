@@ -390,11 +390,18 @@ function! GotoTemplateF(action)
   let template = GetTemplate(@b)
   echo a:action . " " . template
 endfunction
+
+function! GotoJavascriptF(action)
+  normal "byiw
+  let template = GetTemplate(@b)
+  echo a:action . " " . template
+endfunction
 " Current file
 map <leader>gt :call GotoTemplateC("edit")<cr>
 map <leader>vgt :call GotoTemplateC("vsplit")<cr>
 map <leader>tgt :call GotoTemplateC("tabedit")<cr>
 map <leader>sgt :call GotoTemplateC("split")<cr>
+
 map <leader>gj :call GotoJavascriptC("edit")<cr>
 map <leader>vgj :call GotoJavascriptC("vsplit")<cr>
 map <leader>tgj :call GotoJavascriptC("tabedit")<cr>
