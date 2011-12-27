@@ -30,7 +30,6 @@ autoload -U compinit
 autoload -Uz vcs_info
 compinit
 # }}}
-
 # {{{ inbuilt prompt hax
 autoload -U promptinit
 promptinit
@@ -72,7 +71,6 @@ which rvm-prompt > /dev/null &&
     RPS1+='$PR_BRIGHT_CYAN($(__richo_rvm_version)) '
 RPS1+='%b$PR_CYAN$vcs_info_msg_0_$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET'
 # }}}
-
 # {{{ Misc shell settings
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -118,7 +116,6 @@ function __richo_tmux_hook()
     esac
 }
 # }}}
-
 function __richo_preexec() # {{{
 # DOCS
 # This function has a few variables that it throws around.
@@ -231,7 +228,6 @@ function __richo_preexec() # {{{
 }
 add-zsh-hook preexec __richo_preexec
 # }}}
-
 function __richo_chpwd() # {{{
 {
     [ -f .gitignore ] &&
@@ -264,7 +260,6 @@ function __richo_chpwd() # {{{
 }
 add-zsh-hook chpwd __richo_chpwd
 # }}}
-
 function __richo_precmd() # {{{
 {
     vcs_info 'prompt'
@@ -288,15 +283,10 @@ fi
 
 # TODO This is just someone's template, fix.
 # set formats
-# %b - branchname
-# %u - unstagedstr (see below)
-# %c - stangedstr (see below)
-# %a - action (e.g. rebase-i)
-# %R - repository path
-# %S - path in the repository
+# %b - branchname               | %u - unstagedstr (see below)
+# %c - stangedstr (see below)   | %a - action (e.g. rebase-i)
+# %R - repository path          | %S - path in the repository
 REPO_COLOR=${PR_CYAN}
-#                                               ^^ HAX?
-#                                               # e.g. masterÂ¹Â²
 FMT_ACTION="(${PR_CYAN}%a${PR_RESET}%)"   # e.g. (rebase-i)
 
 # check-for-changes can be really slow.
@@ -362,7 +352,6 @@ function +vi-svn-untimeduncommitted() { #{{{
         hook_com[misc]="**"
     fi
 } #}}}
-
 function +vi-svn-uncommitted() { #{{{
     local v=$(timeout $SVNVERSION_TIMEOUT svnversion)
     case $? in
