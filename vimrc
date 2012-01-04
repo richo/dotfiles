@@ -303,7 +303,7 @@ if exists('g:fugitive_abbreviate_branches')
     " Spit out a warning about invalid values?
     let g:fugitive_abbreviate_branches = '1'
   endif
-  let g:abbreviate_pattern = '\(Git(\)\?\([0-9A-Za-z_-]\{1,' . g:fugitive_abbreviate_branches . '}\)[^/]*/'
+  let g:abbreviate_pattern = '\([0-9A-Za-z_-]\{1,' . g:fugitive_abbreviate_branches . '}\)[^/]*/'
 endif
 
 " I believe this should effectively be a hook that runs after all loads
@@ -317,7 +317,7 @@ function! AFTERLOAD()
     if exists('g:loaded_fugitive')
         if exists('g:abbreviate_pattern')
             " let status = substitute(status, g:abbreviate_pattern, '\1/', 'g')
-            set statusline+=%{substitute(fugitive#statusline(),g:abbreviate_pattern,'\\1\\2/','g')}
+            set statusline+=[%{substitute(fugitive#branchname(),g:abbreviate_pattern,'\\1\\2/','g')}]
         else
             set statusline+=%{fugitive#statusline()}
         endif
