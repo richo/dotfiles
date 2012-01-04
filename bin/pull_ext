@@ -1,6 +1,6 @@
 #!/bin/sh
 CWD=`pwd`
-SCRPATH=`pwd`
+SRCPATH=`pwd`
 updates=""
 
 if [ -e .svn ]; then
@@ -14,11 +14,11 @@ fi
 pulled=0
 if [ -f $SRCPATH/.pull_data ]; then
     pulled=1
-    . $SCRPATH/.pull_data
+    . $SRCPATH/.pull_data
 fi
 if [ -f $SRCPATH/pull_data ]; then
     pulled=1
-    . $SCRPATH/pull_data
+    . $SRCPATH/pull_data
 fi
 
 if [ $pulled = "0" ]; then
