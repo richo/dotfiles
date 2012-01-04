@@ -4,6 +4,9 @@ for i in *; do
     if [ -d $i ]; then
         ln -s i ~/$i
     else
+        if [ -f ~/.$i ]; then
+            rm -i $i
+        fi
         ln -s i ~/.$i
     fi
 done
