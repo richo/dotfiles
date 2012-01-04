@@ -11,7 +11,20 @@ if [ -e .svn ]; then
     fi
 fi
 
-. $SCRPATH/.pull_data
+pulled=0
+if [ -f $SRCPATH/.pull_data ]; then
+    pulled=1
+    . $SCRPATH/.pull_data
+fi
+if [ -f $SRCPATH/pull_data ]; then
+    pulled=1
+    . $SCRPATH/pull_data
+fi
+
+if [ $pulled = "0" ]; then
+    echo "Couldn't find [.]pull_data, bailing"
+    exit
+fi
 if [ -z "$data" ]; then
     echo "Data file does not define \$data"
     exit
@@ -26,7 +39,7 @@ if [ -n "$RECURSIVE" -a -n "$NORECURSIVE" ];then
 fi
 
 
-pull_or_clone() 
+pull_or_clone()
     while [ $# -ge 2 ]; do
         cd "$CWD"
         IPATH="$1"; shift
