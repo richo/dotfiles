@@ -1,0 +1,10 @@
+#!/bin/sh
+
+for i in *; do
+    if [ -d $i ]; then
+        ln -s i ~/$i
+    else
+        ln -s i ~/.$i
+    fi
+done
+
