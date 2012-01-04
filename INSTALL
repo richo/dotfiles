@@ -1,13 +1,14 @@
 #!/bin/sh
 
+here=$(basename `pwd`)
 for i in *; do
     if [ "$i" = "bin" ] || [ "$i" = "code" ]; then
-        ln -s i ~/$i
+        ln -s $here/$i ~/$i
     else
         if [ -f ~/.$i ]; then
             rm -i $i
         fi
-        ln -s i ~/.$i
+        ln -s $here/$i ~/.$i
     fi
 done
 
