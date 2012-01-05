@@ -143,6 +143,23 @@ function wiki()
 }
 #</Stoled>
 
+gh()
+{
+    case $1 in
+    "-g")
+        shift
+        echo "git://github.com/${1}.git" ;;
+    "-s")
+        shift
+        echo "git@github.com:${1}.git" ;;
+    "-?"|"-h")
+        echo "gh [-s|-g] user/richo" ;;
+    *)
+        echo "https://github.com/${1}.git" ;;
+    esac
+}
+
+
 # Defaults
 export sed_r=-r
 # Platform specific hax
