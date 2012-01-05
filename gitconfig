@@ -43,6 +43,7 @@
     ci = commit
     co = checkout
     cp = cherry-pick
+    cs = commit -s
     dc = diff --cached
     detach = checkout HEAD^0
     df = diff
@@ -54,6 +55,7 @@
     g = grep
     lfo = log HEAD..FETCH_HEAD
     pall = pull --all
+    pushup = "!f() { git branch | sed -e 's/* //'; }; echo git push --set-upstream origin `f`"
     rb = rebase origin/@{u}
     ri = rebase --interactive
     rmc = rm --cached
