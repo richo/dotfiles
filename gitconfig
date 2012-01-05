@@ -55,7 +55,7 @@
     g = grep
     lfo = log HEAD..FETCH_HEAD
     pall = pull --all
-    pushup = "!f() { git branch | sed -e 's/* //'; }; echo git push --set-upstream origin `f`"
+    pushup = "!f() { git branch | sed -e 's/* //'; }; git push --set-upstream origin `f`"
     rb = rebase origin/@{u}
     ri = rebase --interactive
     rmc = rm --cached
