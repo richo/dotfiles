@@ -4,7 +4,6 @@
 export PATH=$HOME/bin:$PATH
 if [ "$SHLVL" -eq 1 ]; then
     # Hell, do this once per tty login
-    export TMUX_SHELL_COLOR=cyan
     export CVSROOT=:pserver:richo@domino.ctc:/richo
     ## XXX Should my path come first? In all likelyhood I want it to take precedence
     export MAIL=imaps://domino.psych0tik.net
@@ -21,7 +20,6 @@ if [ "$SHLVL" -eq 1 ]; then
     export TAGS_LIFETIME=$((60*60*24))
     export BOOM_SRC=/var/www/boom_src
     export bsd_dircolors="ExFxCxDxCxEgEdAbAgAcAd"
-    export SHELL_COLOR=39
     export SVNVERSION_TIMEOUT=5
     export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
     if [[ -n $SSH_CLIENT || -n $SSH_CONNECTION || -n $SSH_TTY ]]; then
