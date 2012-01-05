@@ -351,6 +351,11 @@ autocmd BufNewFile,BufReadPost * if match(expand("%:p:h"), "/opencog") >= 0 && &
 map <leader>e :NERDTreeToggle<CR>
 map <leader>ge :NERDTreeFind<CR>
 
+" Configure NERD
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+"^^  Not totally sold on this
+
 " Falling in love with <leader> mappings here..
 map gc :Gcommit<CR>
 map gs :Gstatus<CR>
