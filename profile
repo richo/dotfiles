@@ -13,7 +13,7 @@ if [ "$SHLVL" -eq 1 ]; then
     export EMAIL="richo@psych0tik.net"
     export KEY=89E72415
     export EXCUSES_FILE=$HOME/code/storage/excuses
-    export SLEEP_MUSIC="http://radio.psych0tik.net:8000/hax.ogg.m3u"
+    export SLEEP_MUSIC="http://kissy.psych0tik.net:8000/psych0tik.ogg"
     export SLEEP_TIMEOUT=3600
     export WAKEUP_PATH="dragonforce..."
     export PYTHONPATH=$HOME/code/python/lib
