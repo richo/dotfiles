@@ -91,7 +91,11 @@ pull_or_clone()
         fi
         if [ -e .pull_data ]; then
             echo "Pulling externals in: $(pwd)"
-            RECURSIVE=yes pull_ext
+            exec 3>&1 4>&2
+
+            updates="$( { RECURSIVE=yes pull_ext 2>&1 1>&3; } 2>&1 ) $updates"
+
+            exec 3>&- 4>&-
         fi
 
         cd "$CWD"
@@ -99,6 +103,10 @@ pull_or_clone()
 
 pull_or_clone $data
 
-for i in $updates; do
-    echo "Manual intervention required in $i"
-done
+if [ -z "$RECURSIVE" ]; then
+    echo $updates >&2
+else
+    for i in $updates; do
+        echo "Manual intervention required in $i"
+    done
+fi
