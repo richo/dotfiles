@@ -11,6 +11,7 @@ set guioptions-=e
 set guioptions+=c
 
 set noballooneval
+set nomousehide
 
 " Make pretend like we're a urxvt
 imap <M-C-p> <C-r>*
