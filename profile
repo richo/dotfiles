@@ -1,7 +1,12 @@
 [ $SHLVL -eq 1 -a -z "$TERM_PROGRAM" ] &&
     [ -e ~/.init_home ] && . ~/.init_home
 
-export PATH=$HOME/bin:$PATH
+PATH=$HOME/bin:$PATH
+if ls $HOME | grep "^android-sdk" > /dev/null; then
+    for i in $HOME/android-sdk*; do
+        PATH=$i/tools:$PATH
+    done
+fi
 if [ "$SHLVL" -eq 1 ]; then
     # Hell, do this once per tty login
     export CVSROOT=:pserver:richo@domino.ctc:/richo
