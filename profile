@@ -111,7 +111,6 @@ export rTITLE
 export sTITLE="$(basename $SHELL)"
 alias WATCHR='ruby watchr.rb | grep -Ei "FAIL|ERROR" | grep -v "fail: 0,  error: 0"'
 alias be="bundle exec"
-alias brxvt='urxvt -name BigRxvt'
 alias ducks='du -cks * | sort -rn | head -11'
 alias gg="git grep"
 alias ivlc="vlc -I ncurses"
