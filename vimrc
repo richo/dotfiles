@@ -204,8 +204,10 @@ command! SVNa !svn add %
 let g:win_title = $t_prefix
 let g:m_title = ''
 function! GetTitle()
-    if filereadable(".title")
-        let g:m_title=readfile('.title', '', 1)[0] . ": "
+    if $t_prefix == ''
+        if filereadable(".title")
+            let g:m_title=readfile('.title', '', 1)[0] . ": "
+        endif
     endif
     call UpT()
 endfunction
