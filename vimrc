@@ -20,6 +20,22 @@ set ff=unix
 set wildmode=longest,list,full
 set wildmenu
 
+set showcmd
+set nohlsearch
+set foldmethod=marker
+
+syntax on
+set ai
+"set nu
+set ts=4
+set et
+set sw=4
+
+set backspace=indent
+set ffs=unix,dos
+set pastetoggle=<C-\\>
+
+
 " From the sample vimrc, brought to my attention by Thilo Six
 command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
@@ -46,25 +62,9 @@ else
     " :W somefile -> :w   ???
     "command W w
 endif
-" A) Make this work on all boom servers. I'm sick of pulling it out of here.
-set nohlsearch
-" There is no feature in the world that I hate as much as hlsearch
-set foldmethod=marker
-syntax on
-set ai
 if isdirectory(expand("$HOME/.vim/swap"))
     set directory=~/.vim/swap
 endif
-"set nu
-" Python primarily
-set ts=4
-set et
-set sw=4
-" Autoindent is nice, but if it does something you don't expect, not being
-" able to backspace it back to sanity is frustrating, even if <ESC>I is
-" quicker.
-set backspace=indent
-set ffs=unix,dos
 
 let g:fugitive_abbreviate_branches = '2'
 
@@ -238,7 +238,6 @@ function! SETT(title)
     call UpT()
 endfunction
 command! -nargs=1 Tag call SETT(<f-args>)
-set pastetoggle=<C-\\>
 
 " This will almost certainly break shit..
 if $VIM256 != "" && $USER != "root"
@@ -290,8 +289,6 @@ nmap        <leader>t :FufFile<cr>
 " This can probably pull from that zsh hook I wrote
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.swo|\.class$|.svn|.git'
 " }}}
-
-set showcmd
 
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
