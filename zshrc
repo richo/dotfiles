@@ -118,8 +118,9 @@ function __richo_tmux_hook()
 # }}}
 function __richo_preexec() # {{{
 # DOCS
-# This function has a few variables that it throws around.
-# I'm thinking pretty seriously about building this show into it's own module and calling that, but load times could become an issue
+# This function has a few variables that it throws around.  I'm thinking pretty
+# seriously about building this show into it's own module and calling that, but
+# load times could become an issue
 #
 # reTITLE
 # -------
@@ -127,11 +128,14 @@ function __richo_preexec() # {{{
 #
 # sTITLE
 # ------
-# This is the current value of the title "at rest" (Including things like the prefix)
+# This is the current value of the title "at rest" (Including things like the
+# prefix)
+#
+# TODO I could potentially optimise this a little and make it more readable by
+# &&ing a ton of function calls together and then just returning false when one
+# of them succeeds. Then just benchmark which ones get called most often and
+# put them first
 {
-    # Potential TODO:
-    # Set a variable for commands where we care about return status
-    # if returnstatus and $! -> Add something to sTITLE
     reTITLE=$sTITLE
     case $1 in
         # Rails kludges
