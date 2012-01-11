@@ -212,7 +212,7 @@ function! GetTitle()
     call UpT()
 endfunction
 au BufNew * call GetTitle()
-au BufNew * Rvm
+" au BufNew * Rvm
 
 function! UpT()
     " Set this up to ignore some dud expansions like NERD*
