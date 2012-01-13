@@ -8,6 +8,7 @@
 [core]
     excludesfile = ~/.gitignore
     whitespace=fix,-indent-with-non-tab,trailing-space
+    autocrlf=false
 [color]
     branch = auto
     diff = auto
@@ -16,7 +17,7 @@
     grep = auto
 
 [color "branch"]
-    current = yellow reverse
+    current = cyan bold
     local = yellow
     remote = green
 
@@ -32,7 +33,8 @@
 [format]
     pretty = medium
 [log]
-    date = relative
+    date = default
+    decorate = short
 [push]
     default = tracking
 [rebase]
