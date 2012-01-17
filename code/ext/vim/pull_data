@@ -16,5 +16,6 @@ data="fugitive  git://github.com/tpope/vim-fugitive.git             git\
     nerd-tree git://github.com/vim-scripts/The-NERD-tree.git        git\
     commentary git://github.com/tpope/vim-commentary.git            git\
     unimpaired git://github.com/tpope/vim-unimpaired.git            git\
-    vim-todo    git@github.com:richoH/vim-todo.git                  git
+    vim-todo    git@github.com:richoH/vim-todo.git                  git\
+    indent-guides git://github.com/nathanaelkane/vim-indent-guides.git git
 "
