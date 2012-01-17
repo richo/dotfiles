@@ -53,9 +53,10 @@
     ffo = merge --ff-only @{u}
     ffr = rebase origin/@{u}
     fmerge = merge --no-ff
-    graph = log --pretty=format:\"%C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr\" --graph --date=short
     g = grep
-    lfo = log HEAD..FETCH_HEAD
+    gfo = log --pretty=format:\"%C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr\" --graph --date=short HEAD~..@{u}
+    graph = log --pretty=format:\"%C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr\" --graph --date=short
+    lfo = log HEAD~..@{u}
     pall = pull --all
     pushup = "!f() { git branch --contains HEAD | sed -e 's/* //'; }; git push --set-upstream origin `f`"
     rb = rebase origin/@{u}
