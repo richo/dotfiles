@@ -31,7 +31,7 @@ linux_get_bat ()
 
 freebsd_get_bat ()
 {
-    echo "$(sysctl -n hw.acpi.battery.life)%"
+    echo "$(sysctl -n hw.acpi.battery.life)"
 
 }
 
@@ -39,6 +39,8 @@ freebsd_get_bat ()
 
 # TODO Identify which machine we're on from teh script.
 
+battery_status()
+{
 case $(uname -s) in
     "Linux")
         BATPATH=/sys/class/power_supply/BAT0
@@ -46,7 +48,7 @@ case $(uname -s) in
         BAT_FULL=$BATPATH/energy_full
         BAT_NOW=$BATPATH/energy_now
         if [ "$1" = `cat $STATUS` -o "$1" = "" ]; then
-            echo $(linux_get_bat)%
+            linux_get_bat
         fi
         ;;
     "FreeBSD")
@@ -97,10 +99,19 @@ case $(uname -s) in
                 ;;
             esac
             if [[ -n "$maxcap" && -n $curcap ]]; then
-                BAT=`echo "100 * $curcap / $maxcap" | bc`
-                echo ${BAT}%
-                exit
+                echo "100 * $curcap / $maxcap" | bc
+                break
             fi
         done
 esac
+}
+
+BATTERY_STATUS=`battery_status $1`
+[ -z "$BATTERY_STATUS" ] && exit
+
+if [ -n "$CUTE_BATTERY_INDICATOR" ]; then
+    echo `cutinate $BATTERY_STATUS`
+else
+    echo ${BATTERY_STATUS}%
+fi
 
