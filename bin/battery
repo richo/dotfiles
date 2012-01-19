@@ -2,17 +2,22 @@
 
 HEART_FULL=♥
 HEART_EMPTY=♡
+[ -z "$NUM_HEARTS" ] &&
+    NUM_HEARTS=5
 
 cutinate()
 {
     perc=$1
-    for i in `seq 10`; do
+    inc=$(( 100 / $NUM_HEARTS))
+
+
+    for i in `seq $NUM_HEARTS`; do
         if [ $perc -lt 100 ]; then
-            echo -n $HEART_EMPTY
+            echo $HEART_EMPTY
         else
-            echo -n $HEART_FULL
+            echo $HEART_FULL
         fi
-        perc=$(( $perc + 10 ))
+        perc=$(( $perc + $inc ))
     done
 }
 
