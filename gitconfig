@@ -40,8 +40,8 @@
 [rebase]
     stat = true
 [alias]
-    br = branch
-    bra = branch -a
+    bsg = bisect good
+    bsb = bisect bad
     ci = commit
     co = checkout
     cp = cherry-pick
@@ -76,3 +76,8 @@
 	guitool = gvimdiff
 [difftool]
 	prompt = false
+[color "decorate"]
+	remoteBranch = red
+	branch = red bold
+	stash = yellow bold
+	tag = "white bold "
