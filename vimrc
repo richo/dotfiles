@@ -212,7 +212,6 @@ function! GetTitle()
     call UpT()
 endfunction
 au BufNew * call GetTitle()
-" au BufNew * Rvm
 
 function! UpT()
     " Set this up to ignore some dud expansions like NERD*
@@ -347,7 +346,15 @@ command! StatusNormal call AFTERLOAD()
 autocmd BufNewFile,BufReadPost * if match(expand("%:p:h"), "/opencog") >= 0 && &filetype == "cpp" | set ts=4 sw=4 tw=80 ff=unix cindent expandtab | endif
 
 " NERDtree hax
-map <leader>e :NERDTreeToggle<CR>
+"
+function! RvmAndNerd()
+    if filereadable(".rvmrc")
+        Rvm
+    endif
+    NERDTreeToggle
+endfunction
+
+map <leader>e :call RvmAndNerd()<CR>
 map <leader>ge :NERDTreeFind<CR>
 
 " Configure NERD
