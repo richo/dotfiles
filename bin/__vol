@@ -8,31 +8,44 @@ dereference () {
     fi
 }
 
-case $sHost in
-    richh-imac)
-        dev=`dereference /dev/snd/by-id/usb-Logitech_Logitech_USB_Headset-00 | sed -e 's/.*C//'`
-        [ $? = 0 ] &&
-            case $1 in
-                -v)
-                    echo $dev;;
-                # FIXME - -d doesn't do what you'd expect it to
-                -l)
-                    aumix -d /dev/mixer$dev -q | grep vol | cut -d" " -f2,3;;
-                mute)
-                    if amixer -c1 sget PCM | grep "\[on\]" > /dev/null; then
-                        newstate=off
-                    else
-                        newstate=on
-                    fi
-                    amixer -c$dev sset PCM $newstate
-                    ;;
-                *)
-                    # FIXME probably port to amixer as well, if it's easy
-                    if [ -e /dev/mixer$dev ]; then
-                        aumix -d /dev/mixer$dev -w $1
-                    else
-                        echo "/dev/mixer$dev does not exist, is snd-mixer-oss loaded?"
-                    fi;;
-            esac
+get_channel () {
+    case $sHost in
+        "richh-imac")
+            echo "-w";;
+        "vesper")
+            echo "-v";;
+    esac
+}
+
+get_dev () {
+    case $sHost in
+        "richh-imac")
+            dereference /dev/snd/by-id/usb-Logitech_Logitech_USB_Headset-00 | sed -e 's/.*C//';;
+        "vesper")
+            echo "";;
+    esac
+}
+
+case $1 in
+    -v)
+        get_dev;;
+        # FIXME - -d doesn't do what you'd expect it to
+    -l)
+        aumix -d /dev/mixer`get_dev` -q | grep vol | cut -d" " -f2,3;;
+    mute)
+        if amixer -c1 sget PCM | grep "\[on\]" > /dev/null; then
+            newstate=off
+        else
+            newstate=on
+        fi
+        amixer -c`get_dev` sset PCM $newstate
         ;;
+    *)
+        # FIXME probably port to amixer as well, if it's easy
+        if [ -e /dev/mixer`get_dev` ]; then
+            aumix -d /dev/mixer`get_dev` `get_channel` $1
+        else
+            echo "/dev/mixer`get_dev` does not exist, is snd-mixer-oss loaded?"
+        fi;;
 esac
+
