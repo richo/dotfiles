@@ -5,14 +5,10 @@ for i in *; do
     if [ "$i" = "bin" ] || [ "$i" = "code" ]; then
         ln -s $here/$i ~/$i
     else
-        echo $ARGV
-        if [ -f ~/.$i ]; then
-          rm -i $i
+        if [ -f ~/.$i -a ! -L ~/.$i ]; then
+            rm -i ~/.$i
+            ln -s $here/$i ~/.$i
         fi
-        if [ -L ~/.$i ]; then
-          rm -i $i
-        fi
-        ln -s $here/$i ~/.$i
     fi
 done
 
