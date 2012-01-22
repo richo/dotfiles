@@ -6,7 +6,7 @@
     user = richoH
     token = [TOKEN CENSORED]
 [core]
-    excludesfile = ~/.gitignore
+    excludesfile = ~/.cvsignore
     whitespace=fix,-indent-with-non-tab,trailing-space
     autocrlf=false
 [color]

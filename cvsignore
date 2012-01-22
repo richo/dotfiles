@@ -1,0 +1,12 @@
+.DS_Store
+.fseventsd
+.Trashes
+*.swp
+*.swo
+*.pyc
+*.o
+*.a
+# Commit these anyway to relevant projects
+.title
+tags
+.autotags

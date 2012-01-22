@@ -385,12 +385,12 @@ alias changes="zstyle ':vcs_info:svn*+set-message:*' hooks svn-untimeduncommitte
 # replace the newlines with pipe symbols. There is.
 function __git_ignore_hook() #{{{
 {
-    local global_ignore=`grep -v "^#" ~/.gitignore | xargs echo | sed -e 's/ /|/g'`
+    local global_ignore=`grep -v "^#" ~/.cvsignore | xargs echo | sed -e 's/ /|/g'`
     [ -f .gitignore ] &&
         global_ignore+="|`grep -v "^#" .gitignore | xargs echo | sed -e 's/ /|/g'`"
     zstyle ':completion:*:*:git-add:*' ignored-patterns $global_ignore
 }
-[ -f ~/.gitignore ] &&
+[ -f ~/.cvsignore ] &&
     __git_ignore_hook #}}}
 
 [ -f ~/.subversion/config ] &&
