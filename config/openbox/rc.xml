@@ -350,14 +350,14 @@
           <action name="MoveResizeTo">
             <x>0</x>
             <height>98%</height>
-            <width>33%</width>
+            <width>34%</width>
           </action>
           <action name="Warp"/>
         </keybind>
         <keybind key="C-j">
           <action name="MoveResizeTo">
             <y>-0</y>
-            <height>33%</height>
+            <height>34%</height>
             <width>100%</width>
           </action>
           <action name="Warp"/>
@@ -365,7 +365,7 @@
         <keybind key="C-k">
           <action name="MoveResizeTo">
             <y>0</y>
-            <height>33%</height>
+            <height>34%</height>
             <width>100%</width>
           </action>
           <action name="Warp"/>
@@ -374,7 +374,7 @@
           <action name="MoveResizeTo">
             <x>-0</x>
             <height>98%</height>
-            <width>33%</width>
+            <width>34%</width>
           </action>
           <action name="Warp"/>
         </keybind>
