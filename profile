@@ -121,6 +121,7 @@ alias mysql="noglob command mysql"
 alias ngrep="grep -n"
 alias sdig="dig +short"
 alias ssl="openssl s_client -connect"
+alias remusic="music_watch -t & tmux a"
 alias svn_add_empty="svn add --depth empty"
 alias twat="noglob command twat"
 alias wb=whichboom
