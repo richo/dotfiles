@@ -33,12 +33,13 @@ case $1 in
     -l)
         aumix -d /dev/mixer`get_dev` -q | grep vol | cut -d" " -f2,3;;
     mute)
-        if amixer -c1 sget PCM | grep "\[on\]" > /dev/null; then
+        dev=`get_dev`
+        if amixer -c${dev:-0} sget PCM | grep "\[on\]" > /dev/null; then
             newstate=off
         else
             newstate=on
         fi
-        amixer -c`get_dev` sset PCM $newstate
+        amixer -c${dev:-0} sset PCM $newstate
         ;;
     *)
         # FIXME probably port to amixer as well, if it's easy
