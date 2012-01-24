@@ -17,6 +17,16 @@ get_channel () {
     esac
 }
 
+get_long_channel () {
+    case $sHost in
+        "richh-imac")
+            echo "PCM";;
+        "vesper")
+            echo "Master";;
+    esac
+}
+
+
 get_dev () {
     case $sHost in
         "richh-imac")
@@ -34,12 +44,13 @@ case $1 in
         aumix -d /dev/mixer`get_dev` -q | grep vol | cut -d" " -f2,3;;
     mute)
         dev=`get_dev`
-        if amixer -c${dev:-0} sget PCM | grep "\[on\]" > /dev/null; then
+        channel=`get_long_channel`
+        if amixer -c${dev:-0} sget $channel | grep "\[on\]" > /dev/null; then
             newstate=off
         else
             newstate=on
         fi
-        amixer -c${dev:-0} sset PCM $newstate
+        amixer -c${dev:-0} sset $channel $newstate
         ;;
     *)
         # FIXME probably port to amixer as well, if it's easy
