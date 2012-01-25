@@ -60,7 +60,7 @@ set edit_headers
 # Use vim as the editor - this line will wrap
 # Set wordwrap on in vim to automatically wrap lines -
 # no :gq all the time
-set editor="vim +':set textwidth=77' +':set wrap' +\`awk '/^$/ {print i+2; exit} {i++}' %s\` %s"
+set editor="vim +':set textwidth=77' +':set wrap' +\`awk '/^-- $/ {print i; exit} {i++}' %s\` %s"
 #set visual=vim                 # editor invoked by ~v in the builtin editor
 # set format=flowed
 set text_flowed
@@ -109,6 +109,7 @@ bind pager up previous-page
 bind index [ previous-line
 bind index ] next-line
 bind index n next-unread
+bind index N previous-unread
 # imitate the old search-body function
 macro index \eb '/~b ' 'search in message bodies'
 # simluate the old url menu
