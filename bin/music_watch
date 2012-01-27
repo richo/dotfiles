@@ -11,8 +11,6 @@ trapINT()
 { trap_signal $@ }
 trapTERM()
 { trap_signal $@ }
-trapKILL()
-{ trap_signal $@ }
 
 function trap_signal() {
     urxvt_t "$rTITLE"
