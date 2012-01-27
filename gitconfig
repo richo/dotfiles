@@ -42,7 +42,7 @@
 [alias]
     bsg = bisect good
     bsb = bisect bad
-    ci = commit
+    ci = commit -v
     co = checkout
     cp = cherry-pick
     cs = commit -s
