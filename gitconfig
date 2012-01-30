@@ -80,4 +80,6 @@
 	remoteBranch = red
 	branch = red bold
 	stash = yellow bold
-	tag = "white bold "
+	tag = white bold
+[tig]
+    tab-size = 4
