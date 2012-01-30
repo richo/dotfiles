@@ -83,3 +83,22 @@
 	tag = white bold
 [tig]
     tab-size = 4
+    show-rev-graph = yes
+    show-refs = yes
+    commit-encoding = "UTF-8"
+    ; show-author = "abbreviated"
+    line-graphics = "ascii"
+[tig "color"]
+    date = black default bold
+    cursor = white black default
+
+    diff-add = green default bold
+    diff-del = red default bold
+    diff-header = yellow default bold
+    diff-chunk = magenta default bold
+
+    pp-author = cyan default default
+    pp-commit = cyan default default
+    pp-adate = cyan default default
+    pp-cdate = cyan default default
+
