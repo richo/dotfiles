@@ -5,6 +5,7 @@ mkdir -p $GITPATH
 
 data="fugitive  git://github.com/tpope/vim-fugitive.git             git\
     rails-vim   git://github.com/tpope/vim-rails.git                git\
+    git   git://github.com/tpope/vim-git.git                git\
     rvm-vim    git://github.com/tpope/vim-rvm.git                   git\
     jellybeans git@github.com:richoH/jellybeans.vim.git             git\
     fuzzy-finder git://github.com/richoH/FuzzyFinder.git            git\
