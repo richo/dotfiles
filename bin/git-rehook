@@ -1,9 +1,9 @@
 #!/bin/sh
 
 TEMPLATE=`git config --get init.templatedir | sed -e "s|~|$HOME|"`
-GIT_DIR=`git rev-parse --show-toplevel`
+GIT_DIR=`git rev-parse --git-dir`
 
-HOOK_DIR=$GIT_DIR/.git/hooks
+HOOK_DIR=$GIT_DIR/hooks
 
 mkdir -p "$HOOK_DIR"
 
