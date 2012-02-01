@@ -102,3 +102,5 @@
     pp-adate = cyan default default
     pp-cdate = cyan default default
 
+[init]
+	templatedir = ~/.git_template

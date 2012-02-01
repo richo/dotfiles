@@ -1,0 +1,12 @@
+#!/bin/sh
+
+TEMPLATE=`git config --get init.templatedir | sed -e "s|~|$HOME|"`
+GIT_DIR=`git rev-parse --show-toplevel`
+
+HOOK_DIR=$GIT_DIR/.git/hooks
+
+mkdir -p "$HOOK_DIR"
+
+for i in "${TEMPLATE}/hooks/"*; do
+    cp "$i" "$HOOK_DIR/"
+done

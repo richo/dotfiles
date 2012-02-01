@@ -91,9 +91,6 @@ function cdp
 function __richo_time()
 { date "+%s" }
 
-function __richo_bg_tags()
-{ (cd $1 && ctags -R -f .newtags . 2>/dev/null && mv .newtags tags) &| }
-
 function __set_title()
 {
     if [ ! -z $INSCREEN ] ; then
@@ -247,17 +244,6 @@ function __richo_chpwd() # {{{
             dTITLE=$(cat .title | sed $sed_r 's/[\r\n]//g')
             export t_prefix="$dTITLE: "
             arg=""
-        fi
-        if [ -n "$AUTOTAGS" -a -f .autotags ]; then
-            # TODO
-            # Store some more info about the tags, command to run and
-            # git branch, and use the stat time of the file, rather
-            # than the contents to work out timing
-            if [ $((`cat .autotags` + $TAGS_LIFETIME)) -lt `__richo_time` ]; then
-                __richo_time > .autotags
-                echo "Tags are mad old, regenerating."
-                __richo_bg_tags $PWD
-            fi
         fi
     fi
     __set_title $arg
