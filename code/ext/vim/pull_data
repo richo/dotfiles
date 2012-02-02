@@ -18,5 +18,7 @@ data="fugitive  git://github.com/tpope/vim-fugitive.git             git\
     commentary git://github.com/tpope/vim-commentary.git            git\
     unimpaired git://github.com/tpope/vim-unimpaired.git            git\
     vim-todo    git@github.com:richoH/vim-todo.git                  git\
-    indent-guides git://github.com/nathanaelkane/vim-indent-guides.git git
+    indent-guides git://github.com/nathanaelkane/vim-indent-guides.git git\
+    debugger    git@github.com:richoH/DBGp-client.git               git\
+    cd-hook     git@github.com:richoH/cd-hook.git                   git
 "
