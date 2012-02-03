@@ -238,11 +238,8 @@ function __richo_chpwd() # {{{
         export t_prefix=""
         arg=$sTITLE
     else
-        if [ -e .title ]; then
-            export pdir=$PWD
-            # XXX Should this happen for all titles?
-            dTITLE=$(cat .title | sed $sed_r 's/[\r\n]//g')
-            export t_prefix="$dTITLE: "
+        if [ -e .title -o -e .git/description ]; then
+            export t_prefix="`title`: "
             arg=""
         fi
     fi
