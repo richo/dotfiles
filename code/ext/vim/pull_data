@@ -14,7 +14,7 @@ data="fugitive  git://github.com/tpope/vim-fugitive.git             git\
     l9        git://github.com/vim-scripts/L9.git                   git\
     gist      git://github.com/mattn/gist-vim.git                   git\
     matchit   git://github.com/vim-scripts/matchit.zip.git          git\
-    nerd-tree git://github.com/vim-scripts/The-NERD-tree.git        git\
+    nerdtree git://github.com/scrooloose/nerdtree.git               git\
     commentary git://github.com/tpope/vim-commentary.git            git\
     unimpaired git://github.com/tpope/vim-unimpaired.git            git\
     vim-todo    git@github.com:richoH/vim-todo.git                  git\
