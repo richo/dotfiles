@@ -153,7 +153,7 @@ gh()
     case $1 in
     "-g")
         shift
-        echo "git://github.com/${1}.git" ;;
+        echo "git://github.com:${1}.git" ;;
     "-s")
         shift
         echo "git@github.com:${1}.git" ;;
