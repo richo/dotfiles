@@ -296,7 +296,8 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 
-if exists('g:fugitive_abbreviate_branches')
+if exists('g:fugitive_abbreviate_branches') && exists('*fugitive#statusline')
+
   if ! match(g:fugitive_abbreviate_branches, '^[0-9]+')
     " Spit out a warning about invalid values?
     let g:fugitive_abbreviate_branches = '1'
