@@ -86,8 +86,9 @@
     show-rev-graph = yes
     show-refs = yes
     commit-encoding = "UTF-8"
-    ; show-author = "abbreviated"
-    line-graphics = "ascii"
+    show-author = "abbreviated"
+    author-width = 10
+    ; line-graphics = "ascii"
 [tig "color"]
     date = black default bold
     cursor = white black default
