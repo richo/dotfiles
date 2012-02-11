@@ -448,6 +448,9 @@
       <keybind key="f">
         <action name="ToggleMaximizeFull"/>
       </keybind>
+      <keybind key="b">
+        <action name="ToggleFullscreen"/>
+      </keybind>
     </keybind>
   </keyboard>
   <mouse>
