@@ -177,10 +177,24 @@
         <wrap>no</wrap>
       </action>
     </keybind>
+    <keybind key="W-A-S-Left">
+      <action name="SendToDesktop">
+        <to>previous</to>
+        <wrap>yes</wrap>
+        <follow>yes</follow>
+      </action>
+    </keybind>
     <keybind key="W-A-Right">
       <action name="DesktopRight">
         <dialog>no</dialog>
         <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="W-A-S-Right">
+      <action name="SendToDesktop">
+        <to>next</to>
+        <wrap>yes</wrap>
+        <follow>yes</follow>
       </action>
     </keybind>
     <keybind key="S-A-Left">
