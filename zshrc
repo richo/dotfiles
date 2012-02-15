@@ -287,13 +287,13 @@ zstyle ':vcs_info:*:prompt:*' stagedstr '²'    # display ² if there are staged
 # Save this for later ³
 # TODO - Show something if I have unpushed changes.
 function __richo_vcs_init(){
-    FMT_BRANCH="${REPO_COLOR}%b${PR_BRIGHT_CYAN}%u%c${PR_RESET}${PR_RED}%m${PR_RESET}"
+    local FMT_BRANCH="${REPO_COLOR}%b${PR_BRIGHT_CYAN}%u%c${PR_RESET}${PR_RED}%m${PR_RESET}"
     zstyle ':vcs_info:*:prompt:*' actionformats "${FMT_BRANCH}${FMT_ACTION}"
     zstyle ':vcs_info:*:prompt:*' formats       "${FMT_BRANCH}"
     zstyle ':vcs_info:*:prompt:*' nvcsformats   ""                             "%~"
 }
 function __richo_svn_init(){
-    SVN_BRANCH="${REPO_COLOR}%b${PR_BRIGHT_CYAN}%u%c${PR_RESET}${PR_RED}%m${PR_RESET}"
+    local SVN_BRANCH="${REPO_COLOR}%b${PR_BRIGHT_CYAN}%u%c${PR_RESET}${PR_RED}%m${PR_RESET}"
     zstyle ':vcs_info:svn:prompt:*' actionformats "${SVN_BRANCH}${FMT_ACTION}"
     zstyle ':vcs_info:svn:prompt:*' formats       "${SVN_BRANCH}"
 }
