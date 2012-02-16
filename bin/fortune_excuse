@@ -52,8 +52,6 @@ if sys.version_info < (2, 7):
                 print ""
             print generate_excuse()
             exit(0)
-        # Even though I'm losing the exception trace I'm not too concerned,
-        # pretty sure I know what's going on.
 
 import textwrap
 import argparse
