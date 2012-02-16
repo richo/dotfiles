@@ -459,6 +459,82 @@
           <action name="Warp"/>
         </keybind>
 
+        <!-- Corners -->
+        <keybind key="b">
+          <action name="MoveResizeTo">
+            <x>0</x>
+            <y>-0</y>
+            <height>50%</height>
+            <width>50%</width>
+          </action>
+          <action name="Warp"/>
+        </keybind>
+        <keybind key="n">
+          <action name="MoveResizeTo">
+            <x>-0</x>
+            <y>-0</y>
+            <height>50%</height>
+            <width>50%</width>
+          </action>
+          <action name="Warp"/>
+        </keybind>
+        <keybind key="y">
+          <action name="MoveResizeTo">
+            <x>0</x>
+            <y>0</y>
+            <height>50%</height>
+            <width>50%</width>
+          </action>
+          <action name="Warp"/>
+        </keybind>
+        <keybind key="u">
+          <action name="MoveResizeTo">
+            <x>-0</x>
+            <y>0</y>
+            <height>50%</height>
+            <width>50%</width>
+          </action>
+          <action name="Warp"/>
+        </keybind>
+
+        <!-- TinyCorners -->
+        <keybind key="C-b">
+          <action name="MoveResizeTo">
+            <x>0</x>
+            <y>-0</y>
+            <height>34%</height>
+            <width>34%</width>
+          </action>
+          <action name="Warp"/>
+        </keybind>
+        <keybind key="C-n">
+          <action name="MoveResizeTo">
+            <x>-0</x>
+            <y>-0</y>
+            <height>34%</height>
+            <width>34%</width>
+          </action>
+          <action name="Warp"/>
+        </keybind>
+        <keybind key="C-y">
+          <action name="MoveResizeTo">
+            <x>0</x>
+            <y>0</y>
+            <height>34%</height>
+            <width>34%</width>
+          </action>
+          <action name="Warp"/>
+        </keybind>
+        <keybind key="C-u">
+          <action name="MoveResizeTo">
+            <x>-0</x>
+            <y>0</y>
+            <height>34%</height>
+            <width>34%</width>
+          </action>
+          <action name="Warp"/>
+        </keybind>
+
       <keybind key="f">
         <action name="ToggleMaximizeFull"/>
       </keybind>
