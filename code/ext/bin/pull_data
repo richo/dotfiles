@@ -1,0 +1,9 @@
+#!/bin/sh
+GITPATH=./
+
+mkdir -p $GITPATH
+
+data="\
+tinfo        git@github.com:richoH/tinfo.git        git\
+todo-cli     git@github.com:richoH/todo-cli.git     git\
+"

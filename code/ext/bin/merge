@@ -1,0 +1,16 @@
+#!/bin/sh
+pwd=`pwd`
+# TODO Use the right variable for this
+binpath=$HOME/
+merge_pattern="^\./(bin)/"
+
+for i in `ls -d */`; do
+    cd $i
+    for file in $(find ./ | grep -E $merge_pattern); do
+        mkdir -p $binpath/`dirname $file`
+        cp $file $binpath/$file
+    done
+    cd $pwd
+done
+
+
