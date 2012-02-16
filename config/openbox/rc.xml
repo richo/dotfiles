@@ -462,11 +462,8 @@
       <keybind key="f">
         <action name="ToggleMaximizeFull"/>
       </keybind>
-      <keybind key="b">
+      <keybind key="S-f">
         <action name="ToggleFullscreen"/>
-      </keybind>
-      <keybind key="C-b">
-        <action name="ToggleDecorations"/>
       </keybind>
     </keybind>
   </keyboard>
