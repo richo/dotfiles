@@ -6,4 +6,5 @@ mkdir -p $GITPATH
 data="\
 tinfo        git@github.com:richoH/tinfo.git        git\
 todo-cli     git@github.com:richoH/todo-cli.git     git\
+battery      git@github.com:richoH/battery.git      git\
 "
