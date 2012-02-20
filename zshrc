@@ -324,7 +324,7 @@ function +vi-git-st() { #{{{
 
     stashes=$(git stash list 2>/dev/null | countl)
     if [ "$stashes" -gt 0 ]; then
-        msg+="?${stashes}s"
+        msg+="$PR_BRIGHT_RED?${stashes}s$PR_RESET$PR_RED"
     fi
 
     #(( $ahead )) && hook_com[misc]+=" (+$ahead)"
