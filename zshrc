@@ -314,21 +314,21 @@ function +vi-git-st() { #{{{
     # for git prior to 1.7
     # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
     origin=$(git rev-list origin/${hook_com[branch]}..HEAD 2>/dev/null | countl)
-    (( $origin )) && msg+="+$origin"
+    (( $origin )) && msg+="${PR_GREEN}+$origin"
 
     ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | countl)
-    (( $ahead )) && msg+="|$ahead|"
+    (( $ahead )) && msg+="${PR_YELLOW}|$ahead|"
 
     behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | countl)
-    (( $behind )) && msg+="-$behind"
+    (( $behind )) && msg+="${PR_RED}-$behind"
 
     stashes=$(git stash list 2>/dev/null | countl)
     if [ "$stashes" -gt 0 ]; then
-        msg+="$PR_BRIGHT_RED?${stashes}s$PR_RESET$PR_RED"
+        msg+="$PR_BRIGHT_RED?${stashes}s"
     fi
 
     #(( $ahead )) && hook_com[misc]+=" (+$ahead)"
-    [ -n "$msg" ] && hook_com[misc]=" ($msg)"
+    [ -n "$msg" ] && hook_com[misc]=" ($msg$PR_RESET$PR_RED)"
 } #}}}
 function +vi-svn-nochanges() { #{{{
     REPO_COLOR="${PR_YELLOW}"
