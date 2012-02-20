@@ -40,6 +40,7 @@
 [rebase]
     stat = true
 [alias]
+    addw = !sh -c 'git diff -w --no-color "$@" | git apply --cached' -
     bsg = bisect good
     bsb = bisect bad
     ci = commit -v
