@@ -336,12 +336,14 @@ function +vi-svn-nochanges() { #{{{
     zstyle ':vcs_info:svn*+set-message:*' hooks ""
 } #}}}
 function +vi-svn-untimeduncommitted() { #{{{
+    [ -d .svn ] || return
     v=$(svnversion)
     if grep "M$" > /dev/null 2>&1 <<< $v; then
         hook_com[misc]="**"
     fi
 } #}}}
 function +vi-svn-uncommitted() { #{{{
+    [ -d .svn ] || return
     local v=$(timeout $SVNVERSION_TIMEOUT svnversion)
     case $? in
         124)
