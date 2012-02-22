@@ -328,7 +328,7 @@ function +vi-git-st() { #{{{
     fi
 
     #(( $ahead )) && hook_com[misc]+=" (+$ahead)"
-    [ -n "$msg" ] && hook_com[misc]=" $PR_BRIGHT_BLACK($PR_RESET$msg$PR_BRIGHT_BLACK)"
+    [ -n "$msg" ] && hook_com[misc]=" $PR_BLACK%B(%b$msg$PR_BLACK%B)"
 } #}}}
 function +vi-svn-nochanges() { #{{{
     REPO_COLOR="${PR_YELLOW}"
