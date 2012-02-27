@@ -1,0 +1,5 @@
+bind main ^J next
+bind main ^K previous
+
+bind diff ^J next
+bind diff ^K previous
