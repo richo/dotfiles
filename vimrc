@@ -62,9 +62,9 @@ else
     " :W somefile -> :w   ???
     "command W w
 endif
-if isdirectory(expand("$HOME/.vim/swap"))
-    set directory=~/.vim/swap
-endif
+
+set directory=./.swap,~/.vim/swap,.,/tmp
+set backupdir=./.swap,~/.vim/swap,.,/tmp
 
 let g:fugitive_abbreviate_branches = '2'
 
