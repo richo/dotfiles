@@ -270,7 +270,7 @@ nnoremap    <C-a> <C-w>
 nmap        <C-n> :tabnext<cr>
 nmap        <C-p> :tabprevious<cr>
 
-nmap        \n    :set number!<cr>
+nmap        <leader>n    :set number!<cr>
 
 " Fuzzy Finder {{{
 "make it look like command-t at first
