@@ -271,6 +271,7 @@ nmap        <C-n> :tabnext<cr>
 nmap        <C-p> :tabprevious<cr>
 
 nmap        <leader>n    :set number!<cr>
+nmap        cv    :Gcommit -v<cr>
 
 " Fuzzy Finder {{{
 "make it look like command-t at first
