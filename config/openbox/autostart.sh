@@ -1,4 +1,4 @@
 #!/bin/sh
 
-[ -e ~/.background ] && feh --bg-fill .background
 [ -e ~/.xinitrc.xrandr ] && ~/.xinitrc.xrandr
+which switchbg > /dev/null && switchbg
