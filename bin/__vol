@@ -1,13 +1,5 @@
 #!/bin/sh
 
-dereference () {
-    if [ -e $1 ]; then
-        ls -l "$1" | awk '{print $NF}'
-    else
-        return 1
-    fi
-}
-
 get_channel () {
     case $sHost in
         "richh-imac")
@@ -30,7 +22,7 @@ get_long_channel () {
 get_dev () {
     case $sHost in
         "richh-imac")
-            dereference /dev/snd/by-id/usb-Logitech_Logitech_USB_Headset-00 | sed -e 's/.*C//';;
+            readlink -f /dev/snd/by-id/usb-Logitech_Logitech_USB_Headset-00 | sed -e 's/.*C//';;
         "vesper")
             echo "";;
     esac
