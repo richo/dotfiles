@@ -44,16 +44,30 @@ function __richo_host()
 
 function __richo_prompt()
 {
-    if hg root >/dev/null 2>&1; then
-        echo "☿"
-        return
-    fi
-    if git branch >/dev/null 2>&1; then
-        echo "±"
-        return
-    fi
-    echo "%#"
+    current=$PWD
+    while [ `readlink -f $current` != '/' ]; do
+    # for n in n; do
+        if [ -e "$current/.svn" ]; then
+            echo -n "⚡"
+            return
+        fi
+        if [ -e "$current/.git" ]; then
+            echo -n "±"
+            return
+        fi
+        if [ -e "$current/.hg" ]; then
+            echo -n "☿"
+            return
+        fi
+        if [ -e "$current/.bzr" ]; then
+            echo -n "♆"
+            return
+        fi
+        current="$current/.."
+    done
+    [ `readlink -f $current` = '/' ] && echo -n '%#'
 }
+
 
 function __richo_rvm_version()
 {
