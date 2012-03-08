@@ -45,12 +45,12 @@ function __richo_host()
 function __richo_prompt()
 {
     current=$PWD
-    while [ `readlink -f $current` != '/' ]; do
+    if [ -e ".svn" ]; then
+        echo -n "⚡"
+        return
+    fi
+    while [ "`readlink -f $current`" != '/' ]; do
     # for n in n; do
-        if [ -e "$current/.svn" ]; then
-            echo -n "⚡"
-            return
-        fi
         if [ -e "$current/.git" ]; then
             echo -n "±"
             return
