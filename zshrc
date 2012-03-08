@@ -65,7 +65,7 @@ function __richo_prompt()
         fi
         current="$current/.."
     done
-    [ `readlink -f $current` = '/' ] && echo -n '%#'
+    [ "`readlink -f $current`" = '/' ] && echo -n '%#'
 }
 
 
