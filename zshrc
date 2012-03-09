@@ -269,8 +269,6 @@ add-zsh-hook preexec __richo_preexec
 # }}}
 function __richo_chpwd() # {{{
 {
-    [ -d .git ] &&
-        __git_ignore_hook
     # Clear title if we're going home
     if [ "$PWD" = "$HOME" ]; then
         export t_prefix=""
@@ -285,6 +283,7 @@ function __richo_chpwd() # {{{
 }
 add-zsh-hook chpwd __richo_chpwd
 add-zsh-hook chpwd __richo_pwd
+add-zsh-hook chpwd __git_ignore_hook
 # }}}
 function __richo_precmd() # {{{
 {
@@ -411,6 +410,8 @@ alias changes="zstyle ':vcs_info:svn*+set-message:*' hooks svn-untimeduncommitte
 # replace the newlines with pipe symbols. There is.
 function __git_ignore_hook() #{{{
 {
+    [ -d .git ] || return
+
     local global_ignore=""
     [ -f ~/.cvsignore ] &&
         global_ignore+=`grep -v "^#" ~/.cvsignore | xargs echo | sed -e 's/ /|/g'`"|"
