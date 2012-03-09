@@ -75,14 +75,20 @@ function __richo_pwd()
         current=$current:h
     done
     if [ $richo_prompt != "no" ]; then
-        pref=$current:h
-        suff=${PWD##$current}
-        repo=$current:t
-        richo_pwd="$pref/$PR_DULL_WHITE${repo}$PR_BRIGHT_BLUE$suff"
-        export richo_pwd=${richo_pwd/$HOME/\~}
+        if [ "$current" = "$HOME" ]; then
+            repo="~"
+            suff=${PWD##$current}
+            export richo_pwd="$PR_BRIGHT_WHITE${repo}$PR_BRIGHT_BLUE$suff"
+        else
+            pref=$current:h
+            suff=${PWD##$current}
+            repo=$current:t
+            richo_pwd="$pref/$PR_DULL_WHITE${repo}$PR_BRIGHT_BLUE$suff"
+            export richo_pwd=${richo_pwd/$HOME/\~}
+        fi
     else
         export richo_prompt='%#'
-        export richo_pwd="$PWD"
+        export richo_pwd="${PWD/$HOME/~}"
     fi
 }
 __richo_pwd
