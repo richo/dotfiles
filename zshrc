@@ -67,9 +67,9 @@ function __richo_pwd()
     done
     if [ $richo_prompt != "no" ]; then
         repo=`readlink -f ${current}/`
-        pref=`readlink -f ${repo}/..`
+        pref=$repo:h
         suff=${PWD##$repo}
-        repo=`basename $repo`
+        repo=$repo:t
         richo_pwd="$pref/$PR_RESET$PR_CYAN${repo}$PR_BRIGHT_BLUE$suff"
         export richo_pwd=${richo_pwd/$HOME/\~}
     else
