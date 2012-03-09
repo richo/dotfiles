@@ -50,7 +50,7 @@ function __richo_pwd()
     if [ -e ".svn" ]; then
         export richo_prompt="⚡"
     fi
-    while [ "`readlink -f $current`" != '/' -a $richo_prompt = "no" ]; do
+    while [ "$current" != '/' -a $richo_prompt = "no" ]; do
     # for n in n; do
         if [ -e "$current/.git" ]; then
             export richo_prompt="±"
@@ -64,13 +64,12 @@ function __richo_pwd()
             export richo_prompt="♆"
             break
         fi
-        current="$current/.."
+        current=$current:h
     done
     if [ $richo_prompt != "no" ]; then
-        repo=`readlink -f ${current}/`
-        pref=$repo:h
-        suff=${PWD##$repo}
-        repo=$repo:t
+        pref=$current:h
+        suff=${PWD##$current}
+        repo=$current:t
         richo_pwd="$pref/$PR_DULL_WHITE${repo}$PR_BRIGHT_BLUE$suff"
         export richo_pwd=${richo_pwd/$HOME/\~}
     else
