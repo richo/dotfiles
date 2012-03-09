@@ -42,32 +42,42 @@ function __richo_host()
     echo "$sHost[0,-$n]"
 }
 
-function __richo_prompt()
+function __richo_pwd()
 {
-    current=$PWD
+    local current=$PWD
+    richo_prompt=no
     if [ -e ".svn" ]; then
-        echo -n "⚡"
-        return
+        export richo_prompt="⚡"
     fi
-    while [ "`readlink -f $current`" != '/' ]; do
+    while [ "`readlink -f $current`" != '/' -a $richo_prompt = "no" ]; do
     # for n in n; do
         if [ -e "$current/.git" ]; then
-            echo -n "±"
-            return
+            export richo_prompt="±"
+            break
         fi
         if [ -e "$current/.hg" ]; then
-            echo -n "☿"
-            return
+            export richo_prompt="☿"
+            break
         fi
         if [ -e "$current/.bzr" ]; then
-            echo -n "♆"
-            return
+            export richo_prompt="♆"
+            break
         fi
         current="$current/.."
     done
-    [ "`readlink -f $current`" = '/' ] && echo -n '%#'
+    if [ $richo_prompt != "no" ]; then
+        repo=`readlink -f ${current}/`
+        pref=`readlink -f ${repo}/..`
+        suff=${PWD##$repo}
+        repo=`basename $repo`
+        richo_pwd="$pref/$PR_RESET$PR_CYAN${repo}$PR_BRIGHT_BLUE$suff"
+        export richo_pwd=${richo_pwd/$HOME/\~}
+    else
+        export richo_prompt='%#'
+        export richo_pwd="$PWD"
+    fi
 }
-
+__richo_pwd
 
 function __richo_rvm_version()
 {
@@ -79,8 +89,8 @@ function __richo_rvm_version()
     fi
 }
 
-PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE\$(__richo_prompt) $PR_RESET"
-RPS1="$PR_BRIGHT_BLUE%~ "
+PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE\$richo_prompt $PR_RESET"
+RPS1="$PR_BRIGHT_BLUE\$richo_pwd "
 which rvm-prompt > /dev/null &&
     RPS1+='$PR_BRIGHT_CYAN($(__richo_rvm_version)) '
 RPS1+='%b$PR_CYAN$vcs_info_msg_0_$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET'
@@ -260,6 +270,7 @@ function __richo_chpwd() # {{{
     __set_title $arg
 }
 add-zsh-hook chpwd __richo_chpwd
+add-zsh-hook chpwd __richo_pwd
 # }}}
 function __richo_precmd() # {{{
 {
