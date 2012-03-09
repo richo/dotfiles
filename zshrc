@@ -1,12 +1,20 @@
 #!/usr/bin/env zsh
 # richo '11
 #
+# MAIN TODO - As in do soon
+#
+# Take all of the subhooks that get called on events and create individual hooks
+#
+# Work out what can be delegated to be event driven instead of every call
+#
 # TODO
 # Document all of the *TITLE variables
 # Clean up that infrastructure (honestly, I think I either need to learn zsh
 # modules, or write a seperate program to do it
 # in a perfect world, the titles should dereference aliases to see what I would
 # have had to type
+# unify all of the colors (ie, define given colors in rgh_[color] variables
+# near the top and use them throughout
 # {{{ Colors
 autoload colors
 colors
