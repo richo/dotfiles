@@ -201,7 +201,7 @@ function __richo_preexec() # {{{
         "watchr"*)
             arg="WATCHR";;
         # For Source control I want the whole line, I think...
-        "svn"*|"git"*|"hg"*|"cvs"*)
+        "svn"*|"git"*|"hg"*|"cvs"*|"bzr"*)
             arg=$1;;
 
         "make"*)
