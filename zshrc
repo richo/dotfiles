@@ -13,6 +13,7 @@ colors
 for COLOR in RED BLUE GREEN MAGENTA YELLOW WHITE BLACK CYAN; do
     eval PR_$COLOR='%{$fg[${(L)COLOR}]%}'
     eval PR_BRIGHT_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
+    eval PR_DULL_$COLOR='%{$fg_no_bold[${(L)COLOR}]%}'
 done
 PR_RESET="%{${reset_color}%}";
 # }}}
@@ -70,7 +71,7 @@ function __richo_pwd()
         pref=$repo:h
         suff=${PWD##$repo}
         repo=$repo:t
-        richo_pwd="$pref/$PR_RESET$PR_CYAN${repo}$PR_BRIGHT_BLUE$suff"
+        richo_pwd="$pref/$PR_DULL_WHITE${repo}$PR_BRIGHT_BLUE$suff"
         export richo_pwd=${richo_pwd/$HOME/\~}
     else
         export richo_prompt='%#'
@@ -312,13 +313,13 @@ zstyle ':vcs_info:*:prompt:*' stagedstr '²'    # display ² if there are staged
 # Save this for later ³
 # TODO - Show something if I have unpushed changes.
 function __richo_vcs_init(){
-    local FMT_BRANCH="${REPO_COLOR}%b${PR_BRIGHT_CYAN}%u%c${PR_RESET}${PR_RED}%m${PR_RESET}"
+    local FMT_BRANCH="${REPO_COLOR}%b${PR_BRIGHT_CYAN}%u%c${PR_DULL_RED}%m${PR_RESET}"
     zstyle ':vcs_info:*:prompt:*' actionformats "${FMT_BRANCH}${FMT_ACTION}"
     zstyle ':vcs_info:*:prompt:*' formats       "${FMT_BRANCH}"
     zstyle ':vcs_info:*:prompt:*' nvcsformats   ""                             "%~"
 }
 function __richo_svn_init(){
-    local SVN_BRANCH="${REPO_COLOR}%b${PR_BRIGHT_CYAN}%u%c${PR_RESET}${PR_RED}%m${PR_RESET}"
+    local SVN_BRANCH="${REPO_COLOR}%b${PR_BRIGHT_CYAN}%u%c${PR_DULL_RED}%m${PR_RESET}"
     zstyle ':vcs_info:svn:prompt:*' actionformats "${SVN_BRANCH}${FMT_ACTION}"
     zstyle ':vcs_info:svn:prompt:*' formats       "${SVN_BRANCH}"
 }
