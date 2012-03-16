@@ -104,6 +104,7 @@ function __richo_rvm_version()
 }
 
 PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE\$richo_prompt $PR_RESET"
+PS2="${SHELL_COLOR}%_ $PR_BRIGHT_BLUE> $PR_RESET"
 RPS1="$PR_BRIGHT_BLUE\$richo_pwd "
 which rvm-prompt > /dev/null &&
     RPS1+='$PR_BRIGHT_CYAN($(__richo_rvm_version)) '
