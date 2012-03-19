@@ -1,7 +1,6 @@
 [ $SHLVL -eq 1 -a -z "$TERM_PROGRAM" ] &&
     [ -e ~/.init_home ] && . ~/.init_home
 
-PATH=$HOME/bin:$PATH
 if ls $HOME | grep "^android-sdk" > /dev/null; then
     for i in $HOME/android-sdk*; do
         PATH=$i/tools:$PATH
@@ -240,3 +239,4 @@ done
     source ~/.profile.local
 [ -e ~/.profile.$sHost ] &&
     source ~/.profile.$sHost
+PATH=$HOME/bin:$PATH
