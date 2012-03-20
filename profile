@@ -236,7 +236,7 @@ for _rvm in "$HOME/.rvm/scripts/rvm" "/usr/local/rvm/scripts/rvm"; do
     fi
 done
 
-if [ -f "$HOME/.work" ]; then
+if [ -f "/tmp/$USER-work" ]; then
     export GIT_COMMITTER_NAME="Rich Healey"
     export GIT_COMMITTER_EMAIL="richard.healey@99designs.com"
     export GIT_AUTHOR_NAME="Rich Healey"

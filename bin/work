@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+    echo "usage: $0 no[work]"
+    exit 1
+fi
+
+rm -f "/tmp/$USER-nowork"
+rm -f "/tmp/$USER-work"
+touch "/tmp/$USER-$1"
