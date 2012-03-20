@@ -1,10 +1,12 @@
 [ -e .xinitrc.local ] && ./.xinitrc.local
+xset +fp $(echo $HOME/.fonts)
+if [ `uname -s` = 'Darwin' ]; then
+    exit
+fi
 
 # Consider just whacking a massief case statement in here and then fixing up
 # the screen in here. Seems saner, in some ways
 [ -e .xinit.xrandr ] && ./.xinit.xrandr
-
-xset +fp $(echo $HOME/.fonts)
 
 if [ -e ~/.xcalib.$sHost ]; then
     if which xcalib > /dev/null; then
@@ -31,14 +33,12 @@ which xflux > /dev/null && xflux -l 37 -g 150
 
 # This is a mad hideous Darwin kludge, because for some reason it doesn't hand
 # my environment in
-if [ `uname -s` != 'Darwin' ]; then
-    which trayer > /dev/null && trayer --edge top --align right --alpha 255 --transparent true --widthtype request &
-    urxvtd &
-    if [ -z "$RICHOWM" ]; then
-        echo "\$RICHOWM is unset, shit ain't gunna work"
-        exit
-    fi
-
-    ssh-agent $RICHOWM
+which trayer > /dev/null && trayer --edge top --align right --alpha 255 --transparent true --widthtype request &
+urxvtd &
+if [ -z "$RICHOWM" ]; then
+    echo "\$RICHOWM is unset, shit ain't gunna work"
+    exit
 fi
+
+ssh-agent $RICHOWM
 # vim: ft=sh
