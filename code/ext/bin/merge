@@ -2,7 +2,7 @@
 pwd=`pwd`
 # TODO Use the right variable for this
 binpath=$HOME/
-merge_pattern="^\./(bin)/"
+merge_pattern="^\.//?(bin)/"
 
 for i in `ls -d */`; do
     cd $i
