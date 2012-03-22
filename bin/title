@@ -6,6 +6,3 @@
 [ -f .title ] &&
     head -n 1 .title
     exit
-
-
-
