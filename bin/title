@@ -1,8 +1,15 @@
 #!/bin/sh
 
-[ -f .git/description ] &&
-    head -n 1 .git/description | grep -v "Unnamed repository; edit this file 'description' to name the repository." &&
+if [ -f .git/description ]; then
+    gitpath=".git"
+elif [ -f .git ]; then
+    gitpath=`cat .git | grep "gitdir" | sed -e "s/^gitdir: //"`
+fi
+
+[ -n "$gitpath" ] &&
+    head -n 1 $gitpath/description | grep -v "Unnamed repository; edit this file 'description' to name the repository." &&
         exit
+
 [ -f .title ] &&
     head -n 1 .title
     exit

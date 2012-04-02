@@ -205,7 +205,7 @@ let g:win_title = $t_prefix
 let g:m_title = ''
 function! GetTitle()
     if $t_prefix == ''
-        if filereadable(".title") || filereadable(".git/description")
+        if filereadable(".title") || filereadable(".git/description") || filereadable(".git")
             let g:m_title=system("title") . ": "
         endif
     endif
