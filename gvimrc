@@ -22,7 +22,7 @@ nmap        <C-Tab> :tabnext<cr>
 nmap        <C-S-Tab> :tabprev<cr>
 
 if has("gui_macvim")
-    set transparency=5
+    set transparency=2
 endif
 
 " XXX Important, code here and below will only be evaluated on first boot.
