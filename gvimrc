@@ -31,6 +31,11 @@ if exists('g:resized_terminal') || &cp
     finish
 endif
 
+if has("gui_macvim")
+    " Epic kludge for titling hax etc..
+    let $PATH=$HOME . "/bin:" . $PATH
+endif
+
 let g:resized_terminal = 1
 set columns=120
 set lines=40
