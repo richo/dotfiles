@@ -142,7 +142,7 @@ au BufNewFile,BufRead *.prawn set filetype=ruby
 
 " This is specific to rails apps, but I will not bind it to a particular
 " filetype
-function! CONFIGRUBY()
+function! TwoSpace()
     set ts=2
     set sw=2
 endfunction
@@ -154,17 +154,9 @@ function! CONFIGHAML()
     " inoremap ' ''<Esc>i
     call CONFIGRUBY()
 endfunction
-function! RESTARTRAILSAPP()
-    if ExecutableOrWarn("restart_rails")
-        w
-        silent !restart_rails
-        redraw!
-    end
-endfunction
-au FileType ruby call CONFIGRUBY()
+au FileType ruby call TwoSpace()
+au FileType coffeescript call TwoSpace()
 au BufNewFile,BufRead *.erb call CONFIGRUBY()
-command! Rrails call RESTARTRAILSAPP()
-nmap        <leader>rr :call RESTARTRAILSAPP()<cr>
 
 " }}}
 
