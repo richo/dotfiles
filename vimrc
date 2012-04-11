@@ -70,6 +70,8 @@ set backupdir=./.swap,~/.vim/swap,.,/tmp
 
 let g:fugitive_abbreviate_branches = '2'
 
+let g:gist_detect_filetype = 1
+
 " Hax to let us have multiple highlights within a single file
 " http://vim.wikia.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
 " This took me so long to find and get working properly.
