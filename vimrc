@@ -35,6 +35,8 @@ set backspace=indent
 set ffs=unix,dos
 set pastetoggle=<C-\\>
 
+set tabpagemax=256
+
 
 " From the sample vimrc, brought to my attention by Thilo Six
 command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
@@ -357,6 +359,8 @@ map <leader>ge :NERDTreeFind<CR>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 "^^  Not totally sold on this
+
+cmap qt tabclose
 
 " Falling in love with <leader> mappings here..
 map gc :Gcommit<CR>
