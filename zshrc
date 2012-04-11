@@ -397,7 +397,7 @@ function +vi-svn-uncommitted() { #{{{
 } #}}}
 
 zstyle ':vcs_info:git*+set-message:*' hooks git-st
-if which timeout >/dev/null; then
+if [ -n "$SVNVERSION_TIMEOUT" ] && which timeout >/dev/null; then
     zstyle ':vcs_info:svn*+set-message:*' hooks svn-uncommitted
 else
     zstyle ':vcs_info:svn*+set-message:*' hooks svn-untimeduncommitted
