@@ -426,7 +426,7 @@ inoremap jj <ESC>
 inoremap JJ <Esc>A
 
 " I'm suggesting this is pretty safe
-inoremap <% <%  %><Esc>hhi
+inoremap <% <% %><Esc>hhi
 
 " {{{ Project finding kludges
 function! StartCoding()
