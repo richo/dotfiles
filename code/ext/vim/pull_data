@@ -21,5 +21,7 @@ data="fugitive  git://github.com/tpope/vim-fugitive.git             git\
     indent-guides git://github.com/nathanaelkane/vim-indent-guides.git git\
     debugger    git@github.com:richoH/DBGp-client.git               git\
     cd-hook     git@github.com:richoH/cd-hook.git                   git\
+    webapi      git://github.com/mattn/webapi-vim.git               git\
+    coffeescript git://github.com/kchmck/vim-coffee-script.git      git\
     richo-vim     git@github.com:richoH/richo-vim.git               git
 "
