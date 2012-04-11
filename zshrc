@@ -37,7 +37,7 @@ source ~/.profile
 zstyle :compinstall filename '/home/richo/.zshrc'
 autoload -U compinit
 autoload -Uz vcs_info
-compinit
+compinit -u
 # }}}
 # {{{ inbuilt prompt hax
 autoload -U promptinit
