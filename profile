@@ -187,6 +187,8 @@ case $PLATFORM in
     "DARWIN")
         alias ls='ls -G'
         export sed_r=-E
+        [ -f "$HOME/.profile_darwin" ] &&
+            source $HOME/.profile_darwin
         ;;
 esac
 
