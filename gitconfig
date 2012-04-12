@@ -58,8 +58,8 @@
     ffr = rebase origin/@{u}
     fmerge = merge --no-ff
     g = grep
-    gfo = log --pretty=format:\"%C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr\" --graph --date=short HEAD~..@{u}
-    graph = log --pretty=format:\"%C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr\" --graph --date=short
+    gfo = log --pretty=graphable --graph --date=short HEAD~..@{u}
+    graph = log --pretty=graphable --graph --date=short
     lfo = log HEAD~..@{u}
     pall = pull --all
     pushup = "!f() { n=`git symbolic-ref HEAD`; echo ${n##refs/heads/}; }; git push --set-upstream origin `f`"
@@ -112,3 +112,5 @@
 
 [init]
 	templatedir = ~/.git_template
+[pretty]
+	graphable = %C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr
