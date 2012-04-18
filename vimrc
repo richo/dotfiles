@@ -155,7 +155,7 @@ function! CONFIGHAML()
     call CONFIGRUBY()
 endfunction
 au FileType ruby call TwoSpace()
-au FileType coffeescript call TwoSpace()
+au FileType coffee call TwoSpace()
 au BufNewFile,BufRead *.erb call CONFIGRUBY()
 
 " }}}
@@ -268,6 +268,8 @@ nmap        <C-p> :tabprevious<cr>
 
 nmap        <leader>n    :set number!<cr>
 nmap        cv    :Gcommit -v<cr>
+
+vmap        <BS><BS>  <Bslash><Bslash>
 
 " Fuzzy Finder {{{
 "make it look like command-t at first
