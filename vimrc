@@ -357,7 +357,7 @@ let NERDTreeDirArrows=1
 let NERDTreeIgnore=['\.pyc$']
 "^^  Not totally sold on this
 
-cmap qt tabclose
+map <leader>q :tabclose<CR>
 
 " Falling in love with <leader> mappings here..
 map gc :Gcommit<CR>
