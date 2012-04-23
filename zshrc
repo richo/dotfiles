@@ -176,15 +176,14 @@ function __richo_preexec() # {{{
     case $1 in
         # Rails kludges
         "rails "*)
-            work=`sed -e 's/^rails //' <<< $1`
-            case $work in
+            case ${1/rails /} in
                 "s"|"server")
                     arg="WEBRICK"
                     ;;
             esac
             ;;
         "be"*|"bundle exec"*)
-            arg=`sed $sed_r -e 's/^(be|bundle exec)/BE:/' <<< $1`
+            arg=${1/(be|bundle exec)/BE:}
             ;;
         "./serve"*) # Special case
             arg="serve"
