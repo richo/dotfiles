@@ -354,6 +354,7 @@ map <leader>ge :NERDTreeFind<CR>
 " Configure NERD
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
+let NERDTreeIgnore=['\.pyc$']
 "^^  Not totally sold on this
 
 cmap qt tabclose
