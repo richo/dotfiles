@@ -33,7 +33,7 @@ endif
 
 if has("gui_macvim")
     " Epic kludge for titling hax etc..
-    let $PATH=$HOME . "/bin:" . $PATH
+    let $PATH=$HOME . "/bin:" . "/usr/local/bin/:" . $PATH
 endif
 
 let g:resized_terminal = 1
