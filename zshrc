@@ -103,7 +103,7 @@ function __richo_rvm_version()
     fi
 }
 
-PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE\$richo_prompt $PR_RESET"
+PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b \$richo_prompt_color\$richo_prompt $PR_RESET"
 PS2="${SHELL_COLOR}%_ $PR_BRIGHT_BLUE> $PR_RESET"
 RPS1="$PR_BRIGHT_BLUE\$richo_pwd "
 which rvm-prompt > /dev/null &&
@@ -287,6 +287,11 @@ add-zsh-hook chpwd __git_ignore_hook
 # }}}
 function __richo_precmd() # {{{
 {
+    if [ -f /tmp/richo-work ]; then
+        richo_prompt_color=$PR_BRIGHT_MAGENTA
+    else
+        richo_prompt_color=$PR_BRIGHT_BLUE
+    fi
     vcs_info 'prompt'
     if [ -n "$reTITLE" -a -n "$INSCREEN" ]; then
         __set_title $reTITLE

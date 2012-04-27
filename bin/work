@@ -1,10 +1,19 @@
 #!/bin/sh
 
-if [ -z "$1" ]; then
-    echo "usage: $0 no[work]"
-    exit 1
-fi
-
-rm -f "/tmp/$USER-nowork"
-rm -f "/tmp/$USER-work"
-touch "/tmp/$USER-$1"
+case $1 in
+    "work")
+        rm -f "/tmp/$USER-nowork"
+        cat > "/tmp/$USER-work" <<-EOF
+[user]
+    name = Rich Healey
+    email = richard.healey@99designs.com
+EOF
+        ;;
+    "nowork")
+        rm -f "/tmp/$USER-work"
+        touch "/tmp/$USER-nowork"
+        ;;
+    *)
+        echo "usage: $0 no[work]"
+        exit 1;;
+esac
