@@ -8,7 +8,6 @@ if ls $HOME | grep "^android-sdk" > /dev/null; then
 fi
 if [ "$SHLVL" -eq 1 ]; then
     # Hell, do this once per tty login
-    export CVSROOT=:pserver:richo@domino.ctc:/richo
     ## XXX Should my path come first? In all likelyhood I want it to take precedence
     export MAIL=imaps://domino.psych0tik.net
     export UPSTREAMMAIL=imaps://richo+psych0tik.net@mail.psych0tik.net
@@ -22,7 +21,6 @@ if [ "$SHLVL" -eq 1 ]; then
     export PYTHONPATH=$HOME/code/python/lib
     export PGUSER=$USER
     export TAGS_LIFETIME=$((60*60*24))
-    export BOOM_SRC=/var/www/boom_src
     export bsd_dircolors="ExFxCxDxCxEgEdAbAgAcAd"
     export SVNVERSION_TIMEOUT=5
     export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
@@ -123,7 +121,6 @@ alias ssl="openssl s_client -connect"
 alias remusic="music_watch -t & tmux a"
 alias svn_add_empty="svn add --depth empty"
 alias twat="noglob command twat"
-alias wb=whichboom
 alias xcl='xclip'
 alias xcp='xclip -selection clipboard'
 if which colorsvn > /dev/null 2>&1; then
@@ -131,9 +128,6 @@ if which colorsvn > /dev/null 2>&1; then
 fi
 # This should really be in some work specific include?
 # Debating the worthiness of a ` include .profile.$(hostname)`
-function cdboom() {
-    cd $BOOM_SRC/iteration$1/php
-}
 function svnrecommit() {
     svn commit -F $1 && rm $1
 }
