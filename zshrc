@@ -95,7 +95,7 @@ __richo_pwd
 
 function __richo_rvm_version()
 {
-    local v=$(rvm-prompt v g)
+    local v=$(rvm-prompt v p g)
     if [ -z "$v" ]; then
         echo 'system'
     else
