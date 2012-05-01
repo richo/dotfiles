@@ -1,8 +1,9 @@
+if [ `uname -s` = 'Darwin' ]; then
+    exec /usr/bin/quartz-wm
+fi
+
 [ -e .xinitrc.local ] && ./.xinitrc.local
 xset +fp $(echo $HOME/.fonts)
-if [ `uname -s` = 'Darwin' ]; then
-    exit
-fi
 
 # Consider just whacking a massief case statement in here and then fixing up
 # the screen in here. Seems saner, in some ways
