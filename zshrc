@@ -105,11 +105,15 @@ function __richo_rvm_version()
 function __richo_work()
 {
     prehax=$?
-    [ -f /tmp/richo-work ] && echo "%S"
+    if [ -f /tmp/richo-work ]; then
+        echo "%{$bg[blue]$PR_BRIGHT_WHITE%}"
+    else
+        echo $PR_BRIGHT_BLUE
+    fi
     return $prehax
 }
 
-PS1="\$(__richo_work)${SHELL_COLOR}%(?.%m%s.\$(__richo_host)%s $PR_BRIGHT_RED%?)%b $PR_BRIGHT_BLUE\$richo_prompt $PR_RESET"
+PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b \$(__richo_work)\$richo_prompt$PR_RESET "
 PS2="${SHELL_COLOR}%_ $PR_BRIGHT_BLUE> $PR_RESET"
 RPS1="$PR_BRIGHT_BLUE\$richo_pwd "
 which rvm-prompt > /dev/null &&
