@@ -306,9 +306,9 @@ function! AFTERLOAD()
     set statusline=%f\ %h%m%r
     set laststatus=2
     if exists('g:loaded_fugitive')
-        if exists('g:abbreviate_pattern') && exists('*fugitive#statusline')
+        if exists('g:abbreviate_pattern')
             " let status = substitute(status, g:abbreviate_pattern, '\1/', 'g')
-            set statusline+=[%{substitute(fugitive#branchname(),g:abbreviate_pattern,'\\1\\2/','g')}]
+            set statusline+=[%{substitute(fugitive#head(7),g:abbreviate_pattern,'\\1\\2/','g')}]
         else
             set statusline+=%{fugitive#statusline()}
         endif
