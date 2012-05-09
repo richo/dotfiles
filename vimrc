@@ -148,6 +148,7 @@ function! TwoSpace()
 endfunction
 au FileType ruby call TwoSpace()
 au FileType coffee call TwoSpace()
+au FileType vim call TwoSpace()
 au BufNewFile,BufRead *.erb call TwoSpace()
 
 " }}}
