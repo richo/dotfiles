@@ -51,6 +51,7 @@
     ci = commit -v
     co = checkout
     cp = cherry-pick
+    ctags = !.git/hooks/ctags
     cs = commit -s
     dc = diff --cached
     detach = checkout HEAD^0
