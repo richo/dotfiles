@@ -55,9 +55,6 @@ function __richo_pwd()
 {
     local current=$PWD
     richo_prompt=no
-    if [ -e ".svn" ]; then
-        export richo_prompt="⚡"
-    fi
     while [ "$current" != '/' -a $richo_prompt = "no" ]; do
     # for n in n; do
         if [ -e "$current/.git" ]; then
@@ -70,6 +67,10 @@ function __richo_pwd()
         fi
         if [ -e "$current/.bzr" ]; then
             export richo_prompt="♆"
+            break
+        fi
+        if [ -e "$current/.svn" ]; then
+            export richo_prompt="⚡"
             break
         fi
         current=$current:h
