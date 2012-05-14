@@ -8,7 +8,7 @@
     name = Richard Healey
     email = richard.healey@99designs.com
 [github]
-    user = richoH
+    user = richo
     token = [TOKEN CENSORED]
 [core]
     excludesfile = ~/.cvsignore
