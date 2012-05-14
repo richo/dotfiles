@@ -49,20 +49,20 @@ pull_or_clone()
         # Define RCS Data:
         case $RCS in
         "svn")
-            CHECKOUT=checkout
-            PULL=update
+            CHECKOUT="checkout $SVN_CLONE_OPTS"
+            PULL="update $SVN_PULL_OPTS"
             ;;
         "git")
-            CHECKOUT=clone
-            PULL=pull\ --ff-only\ --all
+            CHECKOUT="clone $GIT_CLONE_OPTS"
+            PULL="pull --ff-only --all $GIT_PULL_OPTS"
             ;;
         "hg")
-            CHECKOUT=clone
-            PULL=pull
+            CHECKOUT="clone $HG_CLONE_OPTS"
+            PULL="pull $HG_PULL_OPTS"
             ;;
         "bzr")
-            CHECKOUT=branch
-            PULL=pull
+            CHECKOUT="branch $BZR_CLONE_OPTS"
+            PULL="pull $BZR_PULL_OPTS"
             ;;
         *)
             echo "Broken RCS @ $IPATH"
