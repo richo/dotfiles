@@ -103,6 +103,12 @@ function __richo_rvm_version()
         echo $v
     fi
 }
+function __richo_rbenv_version()
+{
+    local v
+    v=`rbenv version`
+    echo "$v" | sed 's/[ \t].*$//'
+}
 function __richo_work()
 {
     prehax=$?
@@ -117,8 +123,11 @@ function __richo_work()
 PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b \$(__richo_work)\$richo_prompt$PR_RESET "
 PS2="${SHELL_COLOR}%_ $PR_BRIGHT_BLUE> $PR_RESET"
 RPS1="$PR_BRIGHT_BLUE\$richo_pwd "
-which rvm-prompt > /dev/null &&
+if which rvm-prompt > /dev/null; then
     RPS1+='$PR_BRIGHT_CYAN($(__richo_rvm_version)) '
+elif which rbenv > /dev/null; then
+    RPS1+='$PR_BRIGHT_CYAN<$(__richo_rbenv_version)> '
+fi
 RPS1+='%b$PR_CYAN$vcs_info_msg_0_$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET'
 # }}}
 # {{{ Misc shell settings
