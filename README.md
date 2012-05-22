@@ -10,8 +10,12 @@ You'll still want my vimrc though.
 
 I've added notes to a few of these files (Xdefaults and Openbox rc.xml so far) with __NOTES__ showing the config elements that don't work unless you're running my fork.
 
-In both cases there are debian packages available at packages.psych0tik.net using 
+In both cases there are debian packages available at packages.psych0tik.net using
 
     deb http://packages.psych0tik.net/apt/ sid main contrib non-free
 
 (Only for sid)
+
+## Wiki
+
+I've created a wiki as a place to store things like config/cheatsheets that I couldn't think of a better place for. I've added it as a submodule to this repo so that they're fairly intrinsically linked.
