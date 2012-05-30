@@ -7,8 +7,8 @@ data="fugitive  git://github.com/tpope/vim-fugitive.git             git\
     rails-vim   git://github.com/tpope/vim-rails.git                git\
     git   git://github.com/tpope/vim-git.git                git\
     rvm-vim    git://github.com/tpope/vim-rvm.git                   git\
-    jellybeans git@github.com:richoH/jellybeans.vim.git             git\
-    fuzzy-finder git://github.com/richoH/FuzzyFinder.git            git\
+    jellybeans git@github.com:richo/jellybeans.vim.git             git\
+    fuzzy-finder git://github.com/richo/FuzzyFinder.git            git\
     comment-object git@github.com:ConradIrwin/vim-comment-object.git git\
     markdown git://github.com/plasticboy/vim-markdown.git           git\
     l9        git://github.com/vim-scripts/L9.git                   git\
@@ -17,11 +17,12 @@ data="fugitive  git://github.com/tpope/vim-fugitive.git             git\
     nerdtree git://github.com/scrooloose/nerdtree.git               git\
     commentary git://github.com/tpope/vim-commentary.git            git\
     unimpaired git://github.com/tpope/vim-unimpaired.git            git\
-    vim-todo    git@github.com:richoH/vim-todo.git                  git\
+    vim-todo    git@github.com:richo/vim-todo.git                  git\
     indent-guides git://github.com/nathanaelkane/vim-indent-guides.git git\
-    debugger    git@github.com:richoH/DBGp-client.git               git\
-    cd-hook     git@github.com:richoH/cd-hook.git                   git\
+    debugger    git@github.com:richo/DBGp-client.git               git\
+    cd-hook     git@github.com:richo/cd-hook.git                   git\
     webapi      git://github.com/mattn/webapi-vim.git               git\
     coffeescript git://github.com/kchmck/vim-coffee-script.git      git\
-    richo-vim     git@github.com:richoH/richo-vim.git               git
+    richo-vim     git@github.com:richo/richo-vim.git               git
 "
+    # rubycomplete git://github.com/vim-scripts/rubycomplete.vim.git  git\
