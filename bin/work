@@ -13,7 +13,17 @@ EOF
         rm -f "/tmp/$USER-work"
         touch "/tmp/$USER-nowork"
         ;;
+    "vmup")
+        VBoxManage list vms | while read name id; do
+            VBoxManage startvm ${id} --type headless
+        done
+        ;;
+    "vmdown")
+        VBoxManage list vms | while read name id; do
+            VBoxManage controlvm ${id} poweroff
+        done
+        ;;
     *)
-        echo "usage: $0 no[work]"
+        echo "usage: $0 (no[work]|vmup)"
         exit 1;;
 esac
