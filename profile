@@ -181,10 +181,11 @@ case $PLATFORM in
     "DARWIN")
         alias ls='ls -G'
         export sed_r=-E
-        [ -f "$HOME/.profile_darwin" ] &&
-            source $HOME/.profile_darwin
         ;;
 esac
+
+[ -f "$HOME/.profile_$PLATFORM" ] &&
+    source $HOME/.profile_$PLATFORM
 
 # Hack for screen     -a << ??
 if [ -z "$INSCREEN" -a -z "$IN_SSH" ]; then
