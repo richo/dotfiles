@@ -37,6 +37,9 @@ set pastetoggle=<C-\\>
 
 set tabpagemax=256
 
+let g:jellybeans_background_color = "000000"
+let g:jellybeans_loud_todo="yes"
+
 
 " From the sample vimrc, brought to my attention by Thilo Six
 command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
