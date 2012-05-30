@@ -4,9 +4,9 @@ GITPATH=./
 mkdir -p $GITPATH
 
 data="\
-tinfo        git@github.com:richoH/tinfo.git        git \
-todo-cli     git@github.com:richoH/todo-cli.git     git \
-battery      git@github.com:richoH/battery.git      git \
-gh_pr        git@github.com:richoH/gh_pr.git        git \
-switchbg     git@github.com:richoH/switchbg.git     git \
+tinfo        git@github.com:richo/tinfo.git        git \
+todo-cli     git@github.com:richo/todo-cli.git     git \
+battery      git@github.com:richo/battery.git      git \
+gh_pr        git@github.com:richo/gh_pr.git        git \
+switchbg     git@github.com:richo/switchbg.git     git \
 "
