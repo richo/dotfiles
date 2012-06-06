@@ -72,7 +72,7 @@
     rpull = pull --rebase
     sfo = show HEAD..FETCH_HEAD
     st = status
-    stashed = "!f() { git stash; git $@; git stash pop; }; f"
+    stashed = "!f() { git stash; git $@ && git stash pop; }; f"
     wbranch = branch --contains
     wtag = name-rev --name-only
     edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim -p `f`"
