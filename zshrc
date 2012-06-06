@@ -474,3 +474,5 @@ else
         echo "Sort out whether or not you're working, fool">&2
     fi
 fi
+
+# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
