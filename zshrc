@@ -137,6 +137,13 @@ SAVEHIST=1000
 setopt sharehistory
 setopt histignoredups
 setopt clobber
+expand-or-complete-with-dots() {
+    echo -n "\e[31m...\e[0m"
+    zle expand-or-complete
+    zle redisplay
+}
+zle -N expand-or-complete-with-dots
+bindkey "^I" expand-or-complete-with-dots
 bindkey '^R' history-incremental-search-backward
 bindkey -v
 [ -n "$TTY" ] &&
