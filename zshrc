@@ -365,7 +365,7 @@ function __richo_svn_init(){
 __richo_vcs_init
 
 # Show remote ref name and number of commits ahead-of or behind
-countl () { wc -l | sed $sed_r -e "s/^ +//" }
+countl () { echo $(( `wc -l` )) }
 function +vi-git-st() { #{{{
     local ahead remote msg origin
     local -a gitstatus
