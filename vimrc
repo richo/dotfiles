@@ -38,7 +38,19 @@ set pastetoggle=<C-\\>
 set tabpagemax=256
 
 let g:jellybeans_background_color = "000000"
-let g:jellybeans_loud_todo="yes"
+let g:jellybeans_overrides = {
+\    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
+\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
+\              'attr': 'bold' },
+\    'Tabline': { 'guifg': 'c0c0c0', 'guibg': '505050',
+\              'ctermfg': 'Black', 'ctermbg': 'Yellow', },
+\    'TabLineFill': { 'guifg': '0000000', 'guibg': '505050',
+\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
+\              'attr': 'bold' },
+\    'TabLineSel': { 'guifg': '404040', 'guibg': '00ccccc',
+\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
+\              'attr': 'bold' },
+\}
 
 
 " From the sample vimrc, brought to my attention by Thilo Six
