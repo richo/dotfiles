@@ -194,6 +194,8 @@ else
     ZSH_TIME=""
 fi
 
+export VIRTUAL_ENV_DISABLE_PROMPT=yes
+
 case $TERM in
     rxvt-unicode-256color)
         export TERM="rxvt-256color";;

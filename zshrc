@@ -109,6 +109,20 @@ function __richo_rbenv_version()
     v=`rbenv version`
     echo "$v" | sed 's/[ \t].*$//'
 }
+function __richo_virtualenv_version()
+{
+    echo "${VIRTUAL_ENV##*/}"
+}
+function __richo_activate_virtualenv() { __richo_venv_hook=yes }
+function __richo_activate_virtualenv_action()
+{
+    unset __richo_venv_hook
+    if [ -n "$VIRTUAL_ENV" ]; then
+        RPS1="$PR_BRIGHT_BLUE\$richo_pwd "
+        RPS1+='${PR_BRIGHT_CYAN}[$(__richo_virtualenv_version)] '
+        RPS1+='%b$PR_CYAN$vcs_info_msg_0_$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET'
+    fi
+}
 function __richo_work()
 {
     prehax=$?
@@ -275,6 +289,8 @@ function __richo_preexec() # {{{
             export reTITLE=$sTITLE
             # Don't bother setting a title- handles it.
             ;;
+        *"activate")
+            __richo_activate_virtualenv;;
         "twat"*)
             arg='twat';;
         "mutt"*)
@@ -311,6 +327,7 @@ function __richo_chpwd() # {{{
 add-zsh-hook chpwd __richo_chpwd
 add-zsh-hook chpwd __richo_pwd
 add-zsh-hook chpwd __git_ignore_hook
+# TODO virtualenv hax
 # }}}
 function __richo_precmd() # {{{
 {
@@ -319,6 +336,7 @@ function __richo_precmd() # {{{
         __set_title $reTITLE
         export reTITLE=""
     fi
+    [ -n "$__richo_venv_hook" ] && __richo_activate_virtualenv_action
 }
 add-zsh-hook precmd __richo_precmd
 # }}}
