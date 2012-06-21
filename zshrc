@@ -117,11 +117,7 @@ function __richo_activate_virtualenv() { __richo_venv_hook=yes }
 function __richo_activate_virtualenv_action()
 {
     unset __richo_venv_hook
-    if [ -n "$VIRTUAL_ENV" ]; then
-        RPS1="$PR_BRIGHT_BLUE\$richo_pwd "
-        RPS1+='${PR_BRIGHT_CYAN}[$(__richo_virtualenv_version)] '
-        RPS1+='%b$PR_CYAN$vcs_info_msg_0_$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET'
-    fi
+    __richo_rps1 python
 }
 function __richo_work()
 {
@@ -133,16 +129,24 @@ function __richo_work()
     fi
     return $prehax
 }
+function __richo_rps1() {
+    RPS1="$PR_BRIGHT_BLUE\$richo_pwd "
+    case $1 in
+    "ruby")
+        if which rvm-prompt > /dev/null; then
+            RPS1+='$PR_BRIGHT_CYAN($(__richo_rvm_version)) '
+        elif which rbenv > /dev/null; then
+            RPS1+='$PR_BRIGHT_CYAN<$(__richo_rbenv_version)> '
+        fi;;
+    "python")
+        RPS1+='${PR_BRIGHT_CYAN}[$(__richo_virtualenv_version)] ';;
+    esac
+    RPS1+='%b$PR_CYAN$vcs_info_msg_0_$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET'
+}
 
 PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b \$(__richo_work)\$richo_prompt$PR_RESET "
 PS2="${SHELL_COLOR}%_ $PR_BRIGHT_BLUE> $PR_RESET"
-RPS1="$PR_BRIGHT_BLUE\$richo_pwd "
-if which rvm-prompt > /dev/null; then
-    RPS1+='$PR_BRIGHT_CYAN($(__richo_rvm_version)) '
-elif which rbenv > /dev/null; then
-    RPS1+='$PR_BRIGHT_CYAN<$(__richo_rbenv_version)> '
-fi
-RPS1+='%b$PR_CYAN$vcs_info_msg_0_$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET'
+__richo_rps1 ruby
 # }}}
 # {{{ Misc shell settings
 HISTFILE=~/.histfile
