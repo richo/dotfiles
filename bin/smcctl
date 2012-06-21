@@ -5,14 +5,14 @@ smc=`readlink -f /dev/input/by-path/platform-applesmc.768-event | sed -e 's/\.\.
 
 case $1 in
     up)
-        mv /dev/input/smc /dev/input/$smc
+        mv /dev/input/smc $smc
         ;;
     down)
-        mv /dev/input/$smc /dev/input/smc
+        mv $smc /dev/input/smc
         ;;
     timer)
-        mv /dev/input/$smc /dev/input/smc
-        (sleep 30 && mv /dev/input/smc /dev/input/$smc) &
+        mv $smc /dev/input/smc
+        (sleep 30 && mv /dev/input/smc $smc) &
         disown
         ;;
     *)
