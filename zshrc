@@ -328,8 +328,17 @@ function __richo_chpwd() # {{{
     fi
     __set_title $arg
 }
+function __richo_env () {
+    [ -z "$VIRTUAL_ENV" ] && return 0
+    venv_root=$VIRTUAL_ENV:h
+    if [ ${#PWD} > ${#venv_root} ]; then
+        deactivate
+        __richo_rps1 ruby
+    fi
+}
 add-zsh-hook chpwd __richo_chpwd
 add-zsh-hook chpwd __richo_pwd
+add-zsh-hook chpwd __richo_env
 add-zsh-hook chpwd __git_ignore_hook
 # TODO virtualenv hax
 # }}}
