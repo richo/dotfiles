@@ -65,7 +65,7 @@
     graph = log --pretty=graphable --graph --date=short
     lfo = log HEAD~..@{u}
     pall = pull --all
-    pushup = "!f() { n=`git symbolic-ref HEAD`; echo ${n##refs/heads/}; }; git push --set-upstream ${1:-origin} `f`"
+    pushup = "!f() { n=`git symbolic-ref HEAD`; git push --set-upstream ${1:-origin} ${n##refs/heads/}; }; f"
     pushnotes = "!f() { git push ${1:-origin} refs/notes/*; }; f"
     rb = rebase origin/@{u}
     ri = rebase --interactive
