@@ -1,5 +1,4 @@
 color jellybeans
-set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
 ":cANSI
 
 
@@ -32,8 +31,9 @@ if exists('g:resized_terminal') || &cp
 endif
 
 if has("gui_macvim")
-    " Epic kludge for titling hax etc..
-    let $PATH=$HOME . "/bin:" . "/usr/local/bin/:" . $PATH
+    set guifont=Bitstream\ Vera\ Sans\ Mono:h10
+else
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
 endif
 
 let g:resized_terminal = 1
