@@ -34,6 +34,7 @@ set sw=4
 set backspace=indent
 set ffs=unix,dos
 set pastetoggle=<C-\\>
+set cpoptions+=$
 
 set tabpagemax=256
 
