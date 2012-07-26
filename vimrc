@@ -45,10 +45,10 @@ let g:jellybeans_overrides = {
 \              'attr': 'bold' },
 \    'Tabline': { 'guifg': 'c0c0c0', 'guibg': '505050',
 \              'ctermfg': 'Black', 'ctermbg': 'Yellow', },
-\    'TabLineFill': { 'guifg': '0000000', 'guibg': '505050',
+\    'TabLineFill': { 'guifg': '000000', 'guibg': '505050',
 \              'ctermfg': 'Black', 'ctermbg': 'Yellow',
 \              'attr': 'bold' },
-\    'TabLineSel': { 'guifg': '404040', 'guibg': '00ccccc',
+\    'TabLineSel': { 'guifg': '404040', 'guibg': '00cccc',
 \              'ctermfg': 'Black', 'ctermbg': 'Yellow',
 \              'attr': 'bold' },
 \}
