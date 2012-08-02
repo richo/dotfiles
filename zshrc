@@ -133,9 +133,9 @@ function __richo_rps1() {
     RPS1="$PR_BRIGHT_BLUE\$richo_pwd "
     case $1 in
     "ruby")
-        if which rvm-prompt > /dev/null; then
+        if command -v rvm-prompt > /dev/null; then
             RPS1+='$PR_BRIGHT_CYAN($(__richo_rvm_version)) '
-        elif which rbenv > /dev/null; then
+        elif command -v rbenv > /dev/null; then
             RPS1+='$PR_BRIGHT_CYAN<$(__richo_rbenv_version)> '
         fi;;
     "python")
@@ -454,7 +454,7 @@ function +vi-svn-uncommitted() { #{{{
 } #}}}
 
 zstyle ':vcs_info:git*+set-message:*' hooks git-st
-if [ -n "$SVNVERSION_TIMEOUT" ] && which timeout >/dev/null; then
+if [ -n "$SVNVERSION_TIMEOUT" ] && command -v timeout >/dev/null; then
     zstyle ':vcs_info:svn*+set-message:*' hooks svn-uncommitted
 else
     zstyle ':vcs_info:svn*+set-message:*' hooks svn-untimeduncommitted
