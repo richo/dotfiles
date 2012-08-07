@@ -45,8 +45,8 @@ if [ "$SHLVL" -eq 1 ]; then
     for i in vim vi nano ed; do
         #    ^ unlike the above decs, stop when we succeed
         if which $i > /dev/null; then
-            export EDITOR=$(which $i)
-            export VISUAL=$(which $i)
+            export EDITOR="$(which $i)"
+            export VISUAL="$(which $i)"
             break
         fi
     done
