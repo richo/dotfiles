@@ -171,6 +171,14 @@ bindkey -v
 function cdp
 { cd $pdir }
 
+function optimise_home
+{(
+    cd $HOME
+    for i in .zshrc .profile; do
+        zcompile $i
+    done
+)}
+
 # {{{ Helper functions
 function __richo_time()
 { date "+%s" }
