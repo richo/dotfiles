@@ -31,7 +31,7 @@ if exists('g:resized_terminal') || &cp
 endif
 
 if has("gui_macvim")
-    set guifont=Bitstream\ Vera\ Sans\ Mono:h10
+    set guifont=Bitstream\ Vera\ Sans\ Mono:h9.5
 else
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
 endif
