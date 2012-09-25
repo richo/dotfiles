@@ -2,4 +2,5 @@
 
 dir=`git rev-parse --git-dir`
 curl "https://raw.github.com/richo/git_template/master/hooks/post-receive" > "$dir/hooks/post-receive"
+chmod +x "$dir/hooks/post-receive"
 touch "$dir/auto_checkout"
