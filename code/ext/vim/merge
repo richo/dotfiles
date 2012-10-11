@@ -2,7 +2,7 @@
 pwd=`pwd`
 # TODO Use the right variable for this
 vimpath=$HOME/.vim
-merge_pattern="^\.//?(plugin|autoload|colors|doc|ftplugin|ftdetect|syntax|after|compiler|indent)/"
+merge_pattern="^\.//?(plugin|autoload|colors|doc|ftplugin|ftdetect|syntax|after|compiler|indent|_assets|syntax_checkers)/"
 
 for i in `ls -d */`; do
     cd $i
