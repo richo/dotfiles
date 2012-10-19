@@ -235,6 +235,10 @@ for _rvm in "$HOME/.rvm/scripts/rvm" "/usr/local/rvm/scripts/rvm"; do
     fi
 done
 
+# Google Go
+goroot=`go env GOROOT 2>/dev/null` &&
+    export PATH="$goroot/bin:$PATH"
+
 [ -e ~/.profile.local ] &&
     source ~/.profile.local
 [ -e ~/.profile.$sHost ] &&
