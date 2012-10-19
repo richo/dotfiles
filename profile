@@ -243,4 +243,4 @@ goroot=`go env GOROOT 2>/dev/null` &&
     source ~/.profile.local
 [ -e ~/.profile.$sHost ] &&
     source ~/.profile.$sHost
-PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$PATH
