@@ -8,6 +8,7 @@ set popups=tab,resized
 set editor='gvim -f'
 
 set! browser.tabs.closeWindowWithLastTab=false
+set showtabline=multitab
 set autocomplete=
 
 " Similar to Vimium's option to disable for a given site
