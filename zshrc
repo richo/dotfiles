@@ -521,8 +521,4 @@ if [ -n "$WIN_E" ]; then
 
     __richo_tmux_hook
     tmux
-else
-    if ! [ -f "/tmp/$USER-work" -o -f "/tmp/$USER-nowork" ]; then
-        echo "Sort out whether or not you're working, fool">&2
-    fi
 fi
