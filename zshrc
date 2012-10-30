@@ -295,6 +295,12 @@ function __richo_preexec() # {{{
             export t_prefix=""
             export reTITLE=$sTITLE
             ;;
+        "vagrant "*)
+            export t_prefix="vagrant: "
+            ;&
+        "vagrant ssh")
+            arg="ssh"
+            ;;
         "vim"*)
             # Vim likes to play funny buggers with my terminal. Show that
             # bastage who's in charge.
