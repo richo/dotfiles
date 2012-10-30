@@ -311,7 +311,7 @@ function __richo_preexec() # {{{
             __richo_activate_virtualenv;;
         "twat"*)
             arg='twat';;
-        "mutt"*)
+        "rmutt"*)
             arg=`awk '{ print $1 ":" $2 }' <<< $1`;;
         "_thor"*|"thor"*)
             export reTITLE=$sTITLE
