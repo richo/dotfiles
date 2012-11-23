@@ -32,8 +32,8 @@
 #bind 2:ctrl;alt         throw 1 resize
 #bind 3:ctrl;alt         throw 2 resize
 #
-bind right:shift;ctrl throw right
-bind left:shift;ctrl  throw left
+bind ]:shift;ctrl throw right
+bind [:shift;ctrl  throw left
 bind up:shift;ctrl    throw up
 bind down:shift;ctrl  throw down
 #
