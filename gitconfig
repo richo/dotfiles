@@ -111,7 +111,8 @@
     pp-commit = cyan default default
     pp-adate = cyan default default
     pp-cdate = cyan default default
-
+[rebase]
+    autosquash = true
 [init]
     templatedir = ~/.git_template
 [pretty]
