@@ -25,6 +25,7 @@ data="fugitive  git://github.com/tpope/vim-fugitive.git             git\
     coffeescript git://github.com/kchmck/vim-coffee-script.git      git\
     syntastic   git://github.com/scrooloose/syntastic.git          git\
     go-vim     git://github.com/uggedal/go-vim.git                 git\
+    vimclojure git://github.com/vim-scripts/VimClojure.git         git\
     richo-vim     git@github.com:richo/richo-vim.git               git
 "
     # rubycomplete git://github.com/vim-scripts/rubycomplete.vim.git  git\
