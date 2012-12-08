@@ -357,7 +357,8 @@ autocmd BufNewFile,BufReadPost * if match(expand("%:p:h"), "/opencog") >= 0 && &
 autocmd User chdir Rvm
 autocmd User chdir call GetTitle()
 
-autocmd! BufNewFile * silent! 0r ~/.templates/%:e
+autocmd BufNewFile * silent! 0r ~/.templates/%:t
+autocmd BufNewFile * silent! 0r ~/.templates/%:e
 
 map <leader>e :NERDTreeToggle<CR>
 map <leader>ge :NERDTreeFind<CR>
