@@ -34,7 +34,7 @@ source ~/.profile
 # rvm completion
 [[ -r $rvm_path/scripts/zsh/Completion ]] &&
     fpath=($rvm_path/scripts/zsh/Completion $fpath)
-zstyle :compinstall filename '/home/richo/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 autoload -U compinit
 autoload -Uz vcs_info
 compinit -u
