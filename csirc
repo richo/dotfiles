@@ -1,0 +1,3 @@
+(use parley)
+(let ((old (current-input-port)))
+     (current-input-port (make-parley-port old)))
