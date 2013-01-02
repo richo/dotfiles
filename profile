@@ -33,6 +33,8 @@ if [ "$SHLVL" -eq 1 ]; then
     export LESS_TERMCAP_ue=$'\E[0m'
     export LESS_TERMCAP_us=$'\E[04;38;5;146m'
 
+    export DOKO_CACHE=yes
+
     if [[ -n $SSH_CLIENT || -n $SSH_CONNECTION || -n $SSH_TTY ]]; then
         export IN_SSH=yes
     fi
