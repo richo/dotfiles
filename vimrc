@@ -463,6 +463,8 @@ let g:indent_guides_guide_size = 1
 " let g:indent_guides_enable_on_vim_startup = 1
 map <leader>m :IndentGuidesToggle<cr>
 
+" Syntastic
+let g:syntastic_python_checker_args="--max-complexity=12 --ignore=E126,E123,E128"
 
 if filereadable(expand("$HOME/.vimrc.local"))
     source ~/.vimrc.local
