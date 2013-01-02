@@ -1,7 +1,7 @@
 " .vimrc
 " Rich Healey 10-11
 " A few of these mappings make assumptions about other plugins being
-" installed. It is one of my todo's to wrap them all in checks for
+"
 " installedness, but in the meantime you can retrieve the script I use to pull
 " them all from
 " http://github.com/richoH/dotfiles
