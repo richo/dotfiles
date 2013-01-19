@@ -1,3 +1,4 @@
+#!/bin/cat
 # This is the default .slate file.
 # If no ~/.slate file exists this is the file that will be used.
 
@@ -57,3 +58,17 @@ bind n:shift;ctrl  corner bottom-right resize:screenSizeX/2;screenSizeY/2
 bind b:shift;ctrl  corner bottom-left resize:screenSizeX/2;screenSizeY/2
 bind u:shift;ctrl  corner top-right resize:screenSizeX/2;screenSizeY/2
 bind y:shift;ctrl  corner top-left resize:screenSizeX/2;screenSizeY/2
+
+bind pad3:shift;ctrl  corner bottom-right resize:screenSizeX/3;screenSizeY/3
+bind oad1:shift;ctrl  corner bottom-left resize:screenSizeX/3;screenSizeY/3
+bind pad9:shift;ctrl  corner top-right resize:screenSizeX/3;screenSizeY/3
+bind pad7:shift;ctrl  corner top-left resize:screenSizeX/3;screenSizeY/3
+
+# bind pad8:shift;ctrl  push up bar-resize:screenSizeX/3;screenSizeY/3
+# bind oad4:shift;ctrl  push left bar-resize:screenSizeX/3;screenSizeY/3
+# bind pad6:shift;ctrl  push right bar-resize:screenSizeX/3;screenSizeY/3
+# bind pad2:shift;ctrl  push down bar-resize:screenSizeX/3;screenSizeY/3
+
+# bind tab:cmd switch
+
+# bind pad5:shift;ctrl  push center resize:screenSizeX/3;screenSizeY/3
