@@ -233,6 +233,20 @@ if [ "$sHost" = "solitaire" ]; then
     esac
 fi
 
+# Google Go
+goroot=`go env GOROOT 2>/dev/null` &&
+    export PATH="$goroot/bin:$PATH"
+
+[ -e ~/.profile.local ] &&
+    source ~/.profile.local
+[ -e ~/.profile.$sHost ] &&
+    source ~/.profile.$sHost
+export PATH=$HOME/bin:$PATH
+
+# Export environment to OSX last thing before RVM:
+[ "$PLATFORM" = "DARWIN" ] && [ "$SHLVL" -eq 1 ] &&
+    launchctl setenv PATH "$PATH"
+
 # RVM Hax.
 for _rvm in "$HOME/.rvm/scripts/rvm" "/usr/local/rvm/scripts/rvm"; do
     if [[ -s "$_rvm" ]]; then
@@ -246,12 +260,3 @@ for _rvm in "$HOME/.rvm/scripts/rvm" "/usr/local/rvm/scripts/rvm"; do
     fi
 done
 
-# Google Go
-goroot=`go env GOROOT 2>/dev/null` &&
-    export PATH="$goroot/bin:$PATH"
-
-[ -e ~/.profile.local ] &&
-    source ~/.profile.local
-[ -e ~/.profile.$sHost ] &&
-    source ~/.profile.$sHost
-export PATH=$HOME/bin:$PATH
