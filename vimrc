@@ -282,23 +282,6 @@ nmap        cv    :Gcommit -v<cr>
 
 vmap        <BS><BS>  <Bslash><Bslash>
 
-" Fuzzy Finder {{{
-"make it look like command-t at first
-nmap        <leader>t :FufFile<cr>
-"function! FufStart()
-"    if expand("%:p:h") == $HOME
-"        echo "No fuzzyfinder in home"
-"    else
-"        :FufFile
-"    endif
-"endfunction
-"let         g:fuf_keyOpenVsplit='<C-v>'
-"let         g:fuf_keyOpenSplit='<C-b>'
-
-" This can probably pull from that zsh hook I wrote
-let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.swo|\.class$|.svn|.git'
-" }}}
-
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
