@@ -8,6 +8,8 @@
 " The datfile is in code/ext/vim/pull_data
 " and the script to retrieve them is in bin/pull_ext
 set nocompatible
+runtime bundle/pathogen/autoload/pathogen.vim
+execute pathogen#infect()
 
 " Strangely this doesn't work properly unless declared early
 filetype on
