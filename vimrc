@@ -4,7 +4,7 @@
 "
 " installedness, but in the meantime you can retrieve the script I use to pull
 " them all from
-" http://github.com/richoH/dotfiles
+" http://github.com/richo/dotfiles
 " The datfile is in code/ext/vim/pull_data
 " and the script to retrieve them is in bin/pull_ext
 set nocompatible
