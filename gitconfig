@@ -1,10 +1,7 @@
 [user]
-    name = richo
+    name = Richo Healey
     email = richo@psych0tik.net
     signingkey = 89E72415
-[user "work"]
-    name = Richard Healey
-    email = richard.healey@99designs.com
 [github]
     user = richo
     token = [TOKEN CENSORED]
