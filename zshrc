@@ -522,3 +522,12 @@ if [ -n "$WIN_E" ]; then
     __richo_tmux_hook
     tmux
 fi
+
+__ruby_LIST=~/.rvm/rubies/*
+emulate sh -c "$(ruby ~/code/ext/_vm/_ruby)"
+_ruby ruby-1.9.3-p327
+
+__php_LIST=~/.php/versions/*
+emulate sh -c "$(ruby ~/code/ext/_vm/_php)"
+
+emulate sh -c "$(ruby ~/code/ext/_vm/_python)"
