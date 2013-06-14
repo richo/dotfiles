@@ -73,7 +73,7 @@ function __richo_pwd()
             export richo_prompt="⚡"
             break
         fi
-        current=$current:h
+        current=$(dirname ${current})
     done
     if [ $richo_prompt != "no" ]; then
         if [ "$current" = "$HOME" ]; then
