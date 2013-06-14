@@ -55,7 +55,7 @@ function __richo_pwd()
 {
     local current=$PWD
     richo_prompt=no
-    while [ "$current" != '/' -a $richo_prompt = "no" ]; do
+    while [ "$current" != '/' ] && [ $richo_prompt = "no" ]; do
     # for n in n; do
         if [ -e "$current/.git" ]; then
             export richo_prompt="±"
