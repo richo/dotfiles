@@ -508,16 +508,10 @@ if [[ "$TERM" =~ "-256color" && -z "$INSCREEN" ]]; then
     __set_urxvt_title $rTITLE
 fi
 
-
 [ -e $HOME/.zshrc.$sHost ] && source $HOME/.zshrc.$sHost
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 if [ -n "$WIN_E" ]; then
     unset WIN_E
-
-    tty | grep "/0$" > /dev/null &&
-        [ -n =music_watch ] &&
-            music_watch -t &!
 
     __richo_tmux_hook
     tmux
