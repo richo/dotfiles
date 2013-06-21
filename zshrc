@@ -53,7 +53,7 @@ function __richo_host()
 
 function __richo_pwd()
 {
-    local current=$PWD
+    local current="`pwd`"
     richo_prompt=no
     while [ "$current" != '/' ] && [ $richo_prompt = "no" ]; do
     # for n in n; do
