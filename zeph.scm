@@ -1,5 +1,7 @@
 (require "code/ext/zephyros/libs/zephyros")
 
+(define movers (make-hash-table))
+
 (define unpack-coords
   (lambda (frame thunk)
     (let ((x (cdr (assoc 'x frame)))
@@ -24,12 +26,13 @@
 (map (lambda (d)
   (let ((name (car d))
         (ds   (cdr d)))
-    (bind name *modifier* (lambda ()
+    (hash-table-set! movers name (lambda ()
       (push-current-to (lambda (x y w h)
         (list (+ x (* w (cdr (assoc 'x ds))))
               (+ y (* h (cdr (assoc 'y ds))))
               (* w (cdr (assoc 'w ds)))
-              (* h (cdr (assoc 'h ds))))))))))
+              (* h (cdr (assoc 'h ds))))))))
+    (bind name *modifier* (hash-table-ref movers name))))
 '(
 ;; Bind up hjkl
   ("H" . ((x . 0) (y . 0) (w . 0.5) (h . 1)))
@@ -56,3 +59,17 @@
   `(("]" . ,call/next-screen)
     ("[" . ,call/previous-screen)
     ))
+
+(define (bind-super-keys!)
+  (map (lambda (k)
+    (bind k '() (lambda ()
+                  ((hash-table-ref movers k))
+                  (unbind-super-keys!))))
+       (hash-table-keys movers)))
+
+(define (unbind-super-keys!)
+  (map (lambda (k) (unbind k '()))
+       (hash-table-keys movers)))
+
+;; Bind up my godkey
+(bind "ESCAPE" '(cmd) bind-super-keys!)
