@@ -1,6 +1,13 @@
 (require "code/ext/zephyros/libs/zephyros")
 
+(define *modifier* '(shift ctrl))
+
 (define movers (make-hash-table))
+(define bind-and-register
+  (lambda (name thunk)
+    (hash-table-set! movers name thunk)
+    (bind name *modifier* thunk)))
+
 
 (define unpack-coords
   (lambda (frame thunk)
@@ -21,18 +28,15 @@
   (call/frame-including-dock-and-menu screen (lambda (frame)
     (set-frame win (apply pack-coords (unpack-coords frame transformer)))))))))))
 
-(define *modifier*
-  '(shift ctrl))
 (map (lambda (d)
   (let ((name (car d))
         (ds   (cdr d)))
-    (hash-table-set! movers name (lambda ()
+    (bind-and-register name (lambda ()
       (push-current-to (lambda (x y w h)
         (list (+ x (* w (cdr (assoc 'x ds))))
               (+ y (* h (cdr (assoc 'y ds))))
               (* w (cdr (assoc 'w ds)))
-              (* h (cdr (assoc 'h ds))))))))
-    (bind name *modifier* (hash-table-ref movers name))))
+              (* h (cdr (assoc 'h ds))))))))))
 '(
 ;; Bind up hjkl
   ("H" . ((x . 0) (y . 0) (w . 0.5) (h . 1)))
@@ -47,7 +51,7 @@
 ))
 
 (map (lambda (d)
-  (bind (car d) *modifier* (lambda ()
+  (bind-and-register (car d) (lambda ()
     (call/focused-window (lambda (win)
     (call/screen win (lambda (screen)
     ((cdr d) screen (lambda (target)
