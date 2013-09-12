@@ -233,6 +233,11 @@ if [ "$sHost" = "solitaire" ]; then
     esac
 fi
 
+function _voltron() {
+    tmux source ~/.voltron.tmux
+    lldb "$@"
+}
+
 # Google Go
 goroot=`go env GOROOT 2>/dev/null` &&
     export PATH="$goroot/bin:$PATH"
