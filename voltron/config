@@ -11,6 +11,7 @@
     "view": {
         "curses": false,
         "all_views": {
+            "quit_on_disconnect": true,
             "clear": true,
             "header": {
                 "show":         true,
@@ -52,6 +53,7 @@
             }
         },
         "register_view": {
+            "quit_on_disconnect": true,
             "format_defaults": {
                 "label_colour":     "green",
                 "value_colour":     "grey",
