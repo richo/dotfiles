@@ -1,0 +1,4 @@
+export rvm_pretty_print_flag=1
+export rvm_project_rvmrc=1
+rvm_without_gems="rvm rubygems-bundler"
+rvm_ignore_dotfiles=yes
