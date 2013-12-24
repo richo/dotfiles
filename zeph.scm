@@ -25,7 +25,7 @@
   (lambda (transformer)
   (call/focused-window (lambda (win)
   (call/screen win (lambda (screen)
-  (call/frame-including-dock-and-menu screen (lambda (frame)
+  (call/frame-without-dock-or-menu screen (lambda (frame)
     (set-frame win (apply pack-coords (unpack-coords frame transformer)))))))))))
 
 (map (lambda (d)
