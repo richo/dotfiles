@@ -133,6 +133,11 @@ endfunction
 au BufRead,BufNewFile *.py{c,w,o,x} set ft=python
 "}}}
 
+" Varnish hax {{{
+au BufRead,BufNewFile *.vcl set ft=vcl
+" }}}
+
+
 " HAML hax {{{
 " Haml likes indents of 2 spaces, just like our ruby.
 au FileType haml call TwoSpace()
