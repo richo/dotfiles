@@ -333,7 +333,10 @@ function! FixWhiteSpaceAndReturn()
         return
     endif
     normal mz
+    " Hack for my mail :/
+    :%s/^-- $/-- BUTTS/e
     :%s/\s\+$//e
+    :%s/^-- BUTTS$/-- /e
     normal `z
 endfunction
 autocmd BufWritePre * call FixWhiteSpaceAndReturn()
