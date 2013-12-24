@@ -8,8 +8,12 @@
 #
 
 {
+    "main": {
+        "basename_variable": "TMUX"
+    },
     "view": {
         "curses": false,
+        "restart_on_error": false,
         "all_views": {
             "quit_on_disconnect": true,
             "clear": true,
