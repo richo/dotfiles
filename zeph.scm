@@ -66,16 +66,31 @@
     ("[" . ,call/previous-screen)
     ))
 
+(define *supers*
+  `(("K" . ((shift) ,(lambda () (call/focused-window kill9)))))
+  )
+
 (define (bind-super-keys!)
   (map (lambda (k)
     (bind k '() (lambda ()
                   ((hash-table-ref movers k))
                   (unbind-super-keys!))))
-       (hash-table-keys movers)))
+       (hash-table-keys movers))
+  (map (lambda (k)
+         (let ((key (car k))
+               (mod (cadr k))
+               (thunk (caddr k)))
+           (bind key mod thunk)))
+       *supers*))
 
 (define (unbind-super-keys!)
   (map (lambda (k) (unbind k '()))
-       (hash-table-keys movers)))
+       (hash-table-keys movers))
+  (map (lambda (k)
+         (let ((key (car k))
+               (mod (cadr k)))
+           (unbind key mod)))
+       *supers*))
 
 ;; Bind up my godkey
 (bind "ESCAPE" '(cmd) bind-super-keys!)
