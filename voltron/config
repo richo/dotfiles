@@ -60,7 +60,7 @@
             "quit_on_disconnect": true,
             "format_defaults": {
                 "label_colour":     "green",
-                "value_colour":     "grey",
+                "value_colour":     "cyan",
                 "value_colour_mod": "red"
             },
             "footer": {
