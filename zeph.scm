@@ -2,6 +2,9 @@
 
 (define *modifier* '(shift ctrl))
 
+(define *radiant-cli* "/usr/local/bin/radiant")
+(define *audio* #t)
+
 (define movers (make-hash-table))
 (define bind-and-register
   (lambda (name thunk)
@@ -94,3 +97,11 @@
 
 ;; Bind up my godkey
 (bind "ESCAPE" '(cmd) bind-super-keys!)
+
+(if (file-exists? *radiant-cli*)
+  (begin
+    (use shell)
+    (bind "f7" '() (lambda () (run "radiant next")))
+    (bind "f6" '() (lambda () (run "radiant playpause")))
+    (bind "f5" '() (lambda () (run "radiant prev")))
+    ))
