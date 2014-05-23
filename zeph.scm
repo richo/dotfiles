@@ -105,3 +105,10 @@
     (bind "f7" '() (lambda () (run "radiant playpause")))
     (bind "f6" '() (lambda () (run "radiant prev")))
     ))
+
+(if *audio*
+  (begin
+    (use shell)
+    (bind "f10" '() (lambda () (run "osascript -e 'set volume output volume (output volume of (get volume settings) - 10) --100%'")))
+    (bind "f12" '() (lambda () (run "osascript -e 'set volume output volume (output volume of (get volume settings) + 10) --100%'")))
+    ))
