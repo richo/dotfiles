@@ -1,4 +1,4 @@
-(require "code/ext/zephyros/libs/zephyros")
+(load "/Applications/Zephyros.app/Contents/Resources/libs/zephyros")
 
 (define *modifier* '(shift ctrl))
 
