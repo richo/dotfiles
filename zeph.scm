@@ -101,7 +101,7 @@
 (if (file-exists? *radiant-cli*)
   (begin
     (use shell)
-    (bind "f7" '() (lambda () (run "radiant next")))
-    (bind "f6" '() (lambda () (run "radiant playpause")))
-    (bind "f5" '() (lambda () (run "radiant prev")))
+    (bind "f8" '() (lambda () (run "radiant next")))
+    (bind "f7" '() (lambda () (run "radiant playpause")))
+    (bind "f6" '() (lambda () (run "radiant prev")))
     ))
