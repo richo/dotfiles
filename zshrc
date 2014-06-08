@@ -335,7 +335,7 @@ function __richo_chpwd() # {{{
         export t_prefix=""
         arg=$sTITLE
     else
-        if [ -e .title -o -e .git/description ] && which title>/dev/null; then
+        if [ -e .title -o -e .git/description ]; then
             export t_prefix="`title`: "
             arg=""
         fi
