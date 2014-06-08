@@ -527,3 +527,18 @@ if which ruby >/dev/null && [ -f ~/code/ext/_rvm ]; then
 
     emulate sh -c "$(ruby ~/code/ext/_vm/_python)"
 fi
+
+function ,hopper() {
+    local path
+    case "$1" in
+        /*)
+            path="$1" ;;
+        *)
+            path="$(pwd)/$1" ;;
+    esac
+    /usr/bin/osascript <<EOM
+tell application "Hopper Disassembler v3"
+    open POSIX file "$path"
+end tell
+EOM
+}
