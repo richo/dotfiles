@@ -528,25 +528,11 @@ if which ruby >/dev/null && [ -f ~/code/ext/_rvm ]; then
     emulate sh -c "$(ruby ~/code/ext/_vm/_python)"
 fi
 
-function open_in_debugger() {
-    local path
-    case "$1" in
-        /*)
-            path="$1" ;;
-        *)
-            path="$(pwd)/$1" ;;
-    esac
-    /usr/bin/osascript <<EOM
-tell application "$2"
-    open POSIX file "$path"
-end tell
-EOM
-}
 
 function ,hopper() {
-    open_in_debugger "$1" "Hopper Disassembler v3"
+    open -a "Hopper Disassembler v3" "$1"
 }
 
 function ,ida() {
-    open_in_debugger "$1" "idaq"
+    open -a "idaq" "$1"
 }
