@@ -319,13 +319,8 @@ function __richo_chpwd() # {{{
     if [ "$PWD" = "$HOME" ]; then
         export t_prefix=""
         arg=$sTITLE
-    else
-        if [ -e .title -o -e .git/description ]; then
-            export t_prefix="`title`: "
-            arg=""
-        fi
     fi
-    __set_title $arg
+    # __set_title $arg
 }
 function __richo_env () {
     [ -z "$VIRTUAL_ENV" ] && return 0
@@ -406,6 +401,11 @@ function +vi-git-st() { #{{{
 
     msg=""
 
+    # remote=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} | sed -e "s|/.*||")
+    # if [ "$remote" != "origin" ]; then
+    #     msg+="$PR_CYAN${remote}|"
+    # fi
+
     # for git prior to 1.7
     # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
     origin=$(git rev-list origin/${hook_com[branch]}..HEAD 2>/dev/null | countl)
@@ -418,7 +418,7 @@ function +vi-git-st() { #{{{
     (( $behind )) && msg+="${PR_RED}-$behind"
 
     stashes=$(git stash list 2>/dev/null | countl)
-    if [ "$stashes" -gt 0 ]; then
+    if [ $? -eq 0 ] && [ "$stashes" -gt 0 ]; then
         msg+="$PR_BRIGHT_RED?${stashes}"
     fi
 
