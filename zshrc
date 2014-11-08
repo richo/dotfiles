@@ -135,8 +135,8 @@ __richo_rps1 ruby
 # }}}
 # {{{ Misc shell settings
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=32000
+SAVEHIST=32000
 setopt sharehistory
 setopt histignoredups
 setopt clobber
