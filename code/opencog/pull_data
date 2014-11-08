@@ -1,8 +1,0 @@
-#!/bin/sh
-GITPATH=.
-NORECURSIVE=yes
-
-data="link-grammar      http://svn.abisource.com/link-grammar/trunk                 svn\
-      jwordnet          https://jwordnet.svn.sourceforge.net/svnroot/jwordnet/trunk svn\
-      relex             lp:relex                                                    bzr\
-      opencog           https://code.launchpad.net/~opencog-dev/opencog/trunk       bzr"

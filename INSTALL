@@ -2,17 +2,12 @@
 
 here=$(basename `pwd`)
 for i in *; do
-    if [ "$i" = "bin" ] || [ "$i" = "code" ]; then
-        ln -s $here/$i ~/$i
-    else
-        if [ -f ~/.$i ]; then
-            if [ ! -L ~/.$i ]; then
-                rm -i ~/.$i
-                ln -s $here/$i ~/.$i
-            fi
-        else
+    if [ -f ~/.$i ]; then
+        if [ ! -L ~/.$i ]; then
+            rm -i ~/.$i
             ln -s $here/$i ~/.$i
         fi
+    else
+        ln -s $here/$i ~/.$i
     fi
 done
-
