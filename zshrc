@@ -94,15 +94,6 @@ function __richo_pwd()
 }
 __richo_pwd
 
-function __richo_rvm_version()
-{
-    local v=$(rvm-prompt v p g)
-    if [ -z "$v" ]; then
-        echo 'system'
-    else
-        echo $v
-    fi
-}
 function __richo_rbenv_version()
 {
     local v
@@ -132,12 +123,6 @@ function __richo_work()
 function __richo_rps1() {
     RPS1="$PR_BRIGHT_BLUE\$richo_pwd "
     case $1 in
-    "ruby")
-        if command -v rvm-prompt > /dev/null; then
-            RPS1+='$PR_BRIGHT_CYAN($(__richo_rvm_version)) '
-        elif command -v rbenv > /dev/null; then
-            RPS1+='$PR_BRIGHT_CYAN<$(__richo_rbenv_version)> '
-        fi;;
     "python")
         RPS1+='${PR_BRIGHT_CYAN}[$(__richo_virtualenv_version)] ';;
     esac
