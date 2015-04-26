@@ -85,11 +85,11 @@ function __richo_pwd()
             suff=${PWD##$current}
             repo=$current:t
             richo_pwd="$pref/$PR_DULL_WHITE${repo}$PR_BRIGHT_BLUE$suff"
-            export richo_pwd=${richo_pwd/$HOME/\~}
+            export richo_pwd=${richo_pwd:/$HOME/\~}
         fi
     else
         export richo_prompt='%#'
-        export richo_pwd="${PWD/$HOME/~}"
+        export richo_pwd="${PWD:/$HOME/~}"
     fi
 }
 __richo_pwd
