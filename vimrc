@@ -365,10 +365,6 @@ let NERDTreeIgnore=['\.pyc$']
 
 map <leader>q :tabclose<CR>
 
-" Falling in love with <leader> mappings here..
-map gc :Gcommit<CR>
-map gs :Gstatus<CR>
-
 map <leader>tt :!ctags -R .<CR>
 
 " vsplits 'n shit

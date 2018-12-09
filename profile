@@ -265,3 +265,5 @@ for _rvm in "$HOME/.rvm/scripts/rvm" "/usr/local/rvm/scripts/rvm"; do
     fi
 done
 
+
+export PATH="$HOME/.cargo/bin:$PATH"

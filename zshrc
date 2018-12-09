@@ -296,6 +296,8 @@ function __richo_preexec() # {{{
             __richo_activate_virtualenv;;
         "twat"*)
             arg='twat';;
+        "tinfo"*)
+            arg='tinfo';;
         "rmutt"*)
             arg=`awk '{ print $1 ":" $2 }' <<< $1`;;
         "_thor"*|"thor"*)
@@ -521,3 +523,10 @@ function ,hopper() {
 function ,ida() {
     open -a "idaq" "$1"
 }
+
+function big() {
+  python ~/embiggen.py "$@" | pbcopy
+}
+
+
+alias irc="ssh -t richo-bnc.psych0tik.net tmux a"
