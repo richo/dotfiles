@@ -1,5 +1,6 @@
 # .muttrc file - Suresh Ramasubramanian
 # Don't display certain headers
+source ~/.mutt/accounts/psych0tik.conf
 ignore *
 #unignore From To Cc Subject Date Reply-To Organization X-Mailer User-Agent
 unignore From To Cc Subject Date
@@ -8,7 +9,7 @@ hdr_order From: Date: To: Cc: Subject:
 # Default From: line for when mailing in batch mode
 #set certificate_file=mutt.crt
 # XXX Add this header
-my_hdr X-PGP-Key: http://natalya.psych0tik.net/~richo/pubkey.asc
+# my_hdr X-PGP-Key: http://natalya.psych0tik.net/~richo/pubkey.asc
 set use_envelope_from=yes
 #
 set timeout=15
@@ -75,7 +76,7 @@ set nomark_old
 set reply_to=yes
 # Delete empty mailboxes
 unset save_empty
-set signature = "fortune_excuse -e -w72|"
+set signature = "richo\nhttp://blog.psych0tik.net"
 # Use as from the address mail was sent to
 # You'd have to define $alternates for this
 # set reverse_name
@@ -110,6 +111,10 @@ bind index [ previous-line
 bind index ] next-line
 bind index n next-unread
 bind index N previous-unread
+
+bind  generic,index G last-entry
+bind  generic,index 0 first-entry
+
 # imitate the old search-body function
 macro index \eb '/~b ' 'search in message bodies'
 # simluate the old url menu
@@ -172,7 +177,7 @@ set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys
 set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r"
 set pgp_autosign=yes
 set pgp_auto_decode=yes
-set pgp_sign_as=0x89E72415
+set pgp_sign_as=0xBA4DACAA
 set pgp_replyencrypt=yes
 set pgp_timeout=1800
 set pgp_good_sign="^gpg: Good signature from"
@@ -182,5 +187,3 @@ set sort_aux=last-date-received
 
 
 source ~/.mutt/colors.conf
-source ~/.muttrc.local
-
