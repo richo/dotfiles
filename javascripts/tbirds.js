@@ -6,10 +6,25 @@ function choice(ary) {
 }
 
 window.onload = function() {
+  // Wire up the rando-episode buttan
   let button = document.getElementById("rando-episode");
   button.addEventListener("click", function() {
     let obj = choice(db);
     console.log(`playing ${obj.name}`);
     window.location = url_base + obj.link;
   });
+
+  // Populate the episode list
+  for (let { name, link} of db) {
+    let li = document.createElement("li");
+    let a = document.createElement("a");
+    let content = document.createTextNode(name);
+
+    a.href = link;
+    a.appendChild(content);
+
+    li.appendChild(a);
+
+    document.getElementById("episode-list").appendChild(li);
+  }
 }
