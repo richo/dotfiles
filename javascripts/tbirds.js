@@ -20,7 +20,7 @@ window.onload = function() {
     let a = document.createElement("a");
     let content = document.createTextNode(name);
 
-    a.href = link;
+    a.href = url_base + link;
     a.appendChild(content);
 
     li.appendChild(a);
