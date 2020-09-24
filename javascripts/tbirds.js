@@ -5,11 +5,44 @@ function choice(ary) {
     return ary[Math.floor(ary.length * Math.random())];
 }
 
+function weightedChoice(state, ary) {
+  // Mutates state in place so you need to save it yourself when you're done
+  let max = Math.max.apply(undefined, db.map(({name, link}) => state[link] || 1));
+  var weightedAry = [];
+  for (let i of db) {
+    let weight = state[i.link] || 0;
+    for (let j = 0; j < max - weight; j++) {
+      weightedAry.push(i);
+    }
+  }
+  let ret = choice(weightedAry);
+  if (state[ret.link] === undefined) {
+    state[ret.link] = 1;
+  }
+  state[ret.link] += 1;
+  save(state);
+  return ret;
+}
+
+function load() {
+  let state = window.localStorage.getItem('state');
+  if (state !== null) {
+    return JSON.parse(state);
+  }
+  return {};
+}
+
+function save(state) {
+  window.localStorage.setItem('state', JSON.stringify(state));
+}
+
 window.onload = function() {
+  // See if we already have some counts
+  let state = load();
   // Wire up the rando-episode buttan
   let button = document.getElementById("rando-episode");
   button.addEventListener("click", function() {
-    let obj = choice(db);
+    let obj = weightedChoice(db, state);
     console.log(`playing ${obj.name}`);
     window.location = url_base + obj.link;
   });
