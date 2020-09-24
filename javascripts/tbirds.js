@@ -42,7 +42,7 @@ window.onload = function() {
   // Wire up the rando-episode buttan
   let button = document.getElementById("rando-episode");
   button.addEventListener("click", function() {
-    let obj = weightedChoice(db, state);
+    let obj = weightedChoice(state, db);
     console.log(`playing ${obj.name}`);
     window.location = url_base + obj.link;
   });
