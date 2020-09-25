@@ -1,4 +1,4 @@
-import * as wasm from "./logic";
+import * as wasm from "./logic/pkg/logic.js";
 
 window.onload = function() {
   // Wire up the rando-episode buttan
