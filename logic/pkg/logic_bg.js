@@ -161,11 +161,6 @@ export const __wbindgen_object_drop_ref = function(arg0) {
     takeObject(arg0);
 };
 
-export const __wbindgen_string_new = function(arg0, arg1) {
-    var ret = getStringFromWasm0(arg0, arg1);
-    return addHeapObject(ret);
-};
-
 export const __wbg_instanceof_Window_adf3196bdc02b386 = function(arg0) {
     var ret = getObject(arg0) instanceof Window;
     return ret;
@@ -181,9 +176,9 @@ export const __wbg_localStorage_47e8ad68b9e5dcb9 = handleError(function(arg0) {
     return isLikeNone(ret) ? 0 : addHeapObject(ret);
 });
 
-export const __wbg_log_3bafd82835c6de6d = function(arg0) {
-    console.log(getObject(arg0));
-};
+export const __wbg_assign_f7a8a84d2e1827d2 = handleError(function(arg0, arg1, arg2) {
+    getObject(arg0).assign(getStringFromWasm0(arg1, arg2));
+});
 
 export const __wbg_getItem_cb17cd47353971da = handleError(function(arg0, arg1, arg2, arg3) {
     var ret = getObject(arg1).getItem(getStringFromWasm0(arg2, arg3));
@@ -237,6 +232,14 @@ export const __wbindgen_is_undefined = function(arg0) {
     return ret;
 };
 
+export const __wbg_getRandomValues_3ac1b33c90b52596 = function(arg0, arg1, arg2) {
+    getObject(arg0).getRandomValues(getArrayU8FromWasm0(arg1, arg2));
+};
+
+export const __wbg_randomFillSync_6f956029658662ec = function(arg0, arg1, arg2) {
+    getObject(arg0).randomFillSync(getArrayU8FromWasm0(arg1, arg2));
+};
+
 export const __wbg_self_1c83eb4471d9eb9b = handleError(function() {
     var ret = self.self;
     return addHeapObject(ret);
@@ -265,14 +268,6 @@ export const __wbg_msCrypto_679be765111ba775 = function(arg0) {
 export const __wbg_getRandomValues_05a60bf171bfc2be = function(arg0) {
     var ret = getObject(arg0).getRandomValues;
     return addHeapObject(ret);
-};
-
-export const __wbg_getRandomValues_3ac1b33c90b52596 = function(arg0, arg1, arg2) {
-    getObject(arg0).getRandomValues(getArrayU8FromWasm0(arg1, arg2));
-};
-
-export const __wbg_randomFillSync_6f956029658662ec = function(arg0, arg1, arg2) {
-    getObject(arg0).randomFillSync(getArrayU8FromWasm0(arg1, arg2));
 };
 
 export const __wbindgen_throw = function(arg0, arg1) {
