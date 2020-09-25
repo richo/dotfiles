@@ -1,0 +1,15 @@
+{
+  "name": "logic",
+  "collaborators": [
+    "Richo Healey <richo@psych0tik.net>"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "logic_bg.wasm",
+    "logic.js",
+    "logic.d.ts"
+  ],
+  "module": "logic.js",
+  "types": "logic.d.ts",
+  "sideEffects": false
+}
