@@ -1,0 +1,19 @@
+[package]
+name = "logic"
+version = "0.1.0"
+authors = ["Richo Healey <richo@psych0tik.net>"]
+edition = "2018"
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = ["wee_alloc"]
+
+[dependencies]
+wasm-bindgen = { version = "0.2", features = ["serde-serialize"] }
+web-sys = { version = "0.3.45", features = ["Storage", "Window", "Location", "console"] }
+serde = { version = "1.0", features = ["derive"] }
+wee_alloc = { version = "0.4.5", optional = true }
+serde_json = { version = "1.0", default-features = false, features = ["alloc"] }
+rand = { version = "0.7", features = ["wasm-bindgen"] }
+
