@@ -23,3 +23,10 @@ window.onload = function() {
     document.getElementById("episode-list").appendChild(li);
   }
 }
+
+function playVideo(url) {
+  let video = document.getElementById("video");
+  video.volume = 0.2;
+  video.src = url;
+  video.play();
+}

@@ -23,6 +23,11 @@ impl Episode {
     }
 }
 
+enum Player {
+    Redirect,
+    Embedded,
+}
+
 static DB: &[Episode] = &[
     Episode {name: "1. 01 Thunderbirds - Trapped in the sky", link: "/download/GerryAnderson2/01Thunderbirds-TrappedInTheSky.mp4"},
     Episode {name: "2. 02 Thunderbirds - Pit Of Peril", link: "/download/GerryAnderson2/02Thunderbirds-PitOfPeril.mp4"},
@@ -66,6 +71,7 @@ static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
 extern {
+    fn playVideo(url: &str);
 }
 
 pub fn get_storage() -> Option<web_sys::Storage> {
@@ -107,6 +113,7 @@ fn save(state: HashMap<String, usize>) {
 
 #[wasm_bindgen]
 pub fn play_weighted_random_episode() {
+    let player_type = Player::Embedded;
     let mut state = load();
     let max = DB.iter()
         .map(|ep| state.get(ep.name).unwrap_or(&0))
@@ -123,10 +130,20 @@ pub fn play_weighted_random_episode() {
     *counter += 1;
 
     save(state);
+    match player_type {
+        Player::Embedded => play_embedded(&url),
+        Player::Redirect => play_redirect(&url),
+    }
+}
 
+fn play_redirect(url: &str) {
     let window = web_sys::window().unwrap();
     let location = window.location();
-    let _ = location.assign(&url);
+    let _ = location.assign(url);
+}
+
+fn play_embedded(url: &str) {
+    playVideo(url);
 }
 
 #[wasm_bindgen]
