@@ -10,7 +10,7 @@ fi
 
 for hook in post-receive; do
     echo "Installing hook: $hook"
-    curl -s -S "https://raw.github.com/richo/git_template/master/hooks/$hook" > "$dir/hooks/$hook"
+    curl -L -s -S "https://raw.github.com/richo/git_template/master/hooks/$hook" > "$dir/hooks/$hook"
     chmod +x "$dir/hooks/$hook"
 done
 
