@@ -3,8 +3,7 @@
     email = richo@psych0tik.net
     signingkey = 89E72415
 [github]
-    user = richo
-    token = [TOKEN CENSORED]
+	user = richo
 [core]
     excludesfile = ~/.cvsignore
     whitespace=fix,-indent-with-non-tab,trailing-space

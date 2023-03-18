@@ -447,6 +447,10 @@ endif
 
 " TOhtml
 let html_use_css = 1
+augroup hbs
+    au!
+    autocmd BufNewFile,BufRead *.html.hbs   set syntax=html
+augroup END
 
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
@@ -455,6 +459,9 @@ map <leader>m :IndentGuidesToggle<cr>
 
 " Syntastic
 let g:syntastic_python_checker_args="--max-complexity=12 --ignore=E126,E123,E128"
+
+" Turns on checking of rust tests
+let g:rust_cargo_check_tests = 1
 
 if filereadable(expand("$HOME/.vimrc.local"))
     source ~/.vimrc.local

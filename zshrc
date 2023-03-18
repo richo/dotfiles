@@ -53,7 +53,7 @@ function __richo_host()
 
 function __richo_pwd()
 {
-    local current="`pwd`"
+    local current="$PWD"
     richo_prompt=no
     while [ "$current" != '/' ] && [ $richo_prompt = "no" ]; do
     # for n in n; do
@@ -126,7 +126,7 @@ function __richo_rps1() {
     "python")
         RPS1+='${PR_BRIGHT_CYAN}[$(__richo_virtualenv_version)] ';;
     esac
-    RPS1+='%b$PR_CYAN$vcs_info_msg_0_$PR_BRIGHT_BLUE${ZSH_TIME}$PR_RESET'
+    RPS1+='%b$PR_CYAN$vcs_info_msg_0_$PR_BRIGHT_BLUE$PR_RESET'
 }
 
 PS1="${SHELL_COLOR}%(?.%m.\$(__richo_host) $PR_BRIGHT_RED%?)%b \$(__richo_work)\$richo_prompt$PR_RESET "
@@ -146,9 +146,9 @@ expand-or-complete-with-dots() {
     zle redisplay
 }
 zle -N expand-or-complete-with-dots
+bindkey -v
 bindkey "^I" expand-or-complete-with-dots
 bindkey '^R' history-incremental-search-backward
-bindkey -v
 [ -n "$TTY" ] &&
     REPORTTIME=5
 # }}}
@@ -497,13 +497,6 @@ fi
 
 [ -e $HOME/.zshrc.$sHost ] && source $HOME/.zshrc.$sHost
 
-if [ -n "$WIN_E" ]; then
-    unset WIN_E
-
-    __richo_tmux_hook
-    tmux
-fi
-
 if which ruby >/dev/null && [ -f ~/code/ext/_rvm ]; then
     __ruby_LIST=~/.rvm/rubies/*
     emulate sh -c "$(ruby ~/code/ext/_vm/_ruby)"
@@ -530,3 +523,11 @@ function big() {
 
 
 alias irc="ssh -t richo-bnc.psych0tik.net tmux a"
+
+export HOMEBREW_PREFIX="/opt/homebrew";
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+export HOMEBREW_REPOSITORY="/opt/homebrew";
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+

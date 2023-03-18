@@ -1,6 +1,6 @@
 #!/bin/sh
 
-here=$(basename `pwd`)
+here=`pwd`
 for i in *; do
     if [ -f ~/.$i ]; then
         if [ ! -L ~/.$i ]; then
@@ -8,6 +8,6 @@ for i in *; do
             ln -s $here/$i ~/.$i
         fi
     else
-        ln -s $here/$i ~/.$i
+        ln -fs $here/$i ~/.$i
     fi
 done
