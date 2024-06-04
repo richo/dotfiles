@@ -11,7 +11,7 @@ if [ "$SHLVL" -eq 1 ]; then
     ## XXX Should my path come first? In all likelyhood I want it to take precedence
     export MAIL=imaps://domino.psych0tik.net
     export UPSTREAMMAIL=imaps://richo+psych0tik.net@mail.psych0tik.net
-    export DEBFULLNAME="Rich Healey"
+    export DEBFULLNAME="Richo Healey"
     export EMAIL="richo@psych0tik.net"
     export KEY=89E72415
     export EXCUSES_FILE=$HOME/code/storage/excuses
