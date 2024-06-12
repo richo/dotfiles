@@ -252,4 +252,4 @@ export PATH=$HOME/bin:$PATH
 [ "$PLATFORM" = "DARWIN" ] && [ "$SHLVL" -eq 1 ] &&
     launchctl setenv PATH "$PATH"
 
-export PATH="$HOME/.cargo/bin:$PATH"
+. "$HOME/.cargo/env"
