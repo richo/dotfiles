@@ -31,9 +31,6 @@ PR_RESET="%{${reset_color}%}";
 source ~/.profile
 
 # {{{ completion
-# rvm completion
-[[ -r $rvm_path/scripts/zsh/Completion ]] &&
-    fpath=($rvm_path/scripts/zsh/Completion $fpath)
 zstyle :compinstall filename '~/.zshrc'
 autoload -U compinit
 autoload -Uz vcs_info
