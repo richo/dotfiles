@@ -1,2 +1,2 @@
-command script import /usr/local/lib/python2.7/site-packages/voltron-0.1-py2.7.egg/voltron/lldbcmd.py
-voltron start
+#command script import /usr/local/lib/python2.7/site-packages/voltron-0.1-py2.7.egg/voltron/lldbcmd.py
+#voltron start

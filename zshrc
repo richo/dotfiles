@@ -521,8 +521,11 @@ function big() {
   python ~/embiggen.py "$@" | pbcopy
 }
 
+. /Users/richo/export-esp.sh
 
-alias irc="ssh -t richo-bnc.psych0tik.net tmux a"
+# TODO(richo) make this DTRT on tailscale
+alias irc="ssh -t ircbnc.butts.haus tmux a"
+alias tsirc="ssh -t ircbnc.ts.butts.haus tmux a"
 
 export HOMEBREW_PREFIX="/opt/homebrew";
 export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
