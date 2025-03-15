@@ -109,6 +109,7 @@
     autosquash = true
 [init]
     templatedir = ~/.git_template
+	defaultBranch = main
 [pretty]
     graphable = %C(yellow)%h%C(red)%d %C(reset)%s %C(green)%an %C(bold black)%cr
 [geotag]
