@@ -252,18 +252,4 @@ export PATH=$HOME/bin:$PATH
 [ "$PLATFORM" = "DARWIN" ] && [ "$SHLVL" -eq 1 ] &&
     launchctl setenv PATH "$PATH"
 
-# RVM Hax.
-for _rvm in "$HOME/.rvm/scripts/rvm" "/usr/local/rvm/scripts/rvm"; do
-    if [[ -s "$_rvm" ]]; then
-        # Do rvm initialisy stuff
-        export have_rvm=true
-        source "$_rvm"
-        function cdgems() {
-            cd "$GEM_HOME"
-        }
-        break
-    fi
-done
-
-
-export PATH="$HOME/.cargo/bin:$PATH"
+. "$HOME/.cargo/env"

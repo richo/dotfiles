@@ -463,6 +463,7 @@ let g:syntastic_python_checker_args="--max-complexity=12 --ignore=E126,E123,E128
 
 " Turns on checking of rust tests
 let g:rust_cargo_check_tests = 1
+let g:ale_linters = {'rust': ['analyzer']}
 
 if filereadable(expand("$HOME/.vimrc.local"))
     source ~/.vimrc.local
