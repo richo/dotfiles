@@ -324,7 +324,7 @@ function __richo_chpwd() # {{{
 function __richo_env () {
     [ -z "$VIRTUAL_ENV" ] && return 0
     venv_root=$VIRTUAL_ENV:h
-    if [ ${#PWD} > ${#venv_root} ]; then
+    if [ ${#PWD} -gt ${#venv_root} ]; then
         deactivate
         __richo_rps1 ruby
     fi
